@@ -1,6 +1,10 @@
 import { Person } from "./index"
 
 export type DutyGroupType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17
+
+export const duties = {
+  ['Harby bölümiň gün tertibine gözegçiler']: 0,
+}
 export const enum Duties {
   'Harby bölümiň gün tertibine gözegçiler' = 0,
   'Harby bölümiň nobatçysy' = 1,
