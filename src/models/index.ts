@@ -1,3 +1,4 @@
+import { AvilableDuty } from "./duty_models"
 // TYPES & INTERFACES=========================
 
 
@@ -94,8 +95,10 @@ export type Person<T = {}> = WithID<T & {
   
   history: PersonHistory 
 }>
+
 export type PersonCB = Person<{
   globalStartDate?: Date // harby gulluga bashlan wagty  
+  avilableDutyList?: AvilableDuty[]
 }>
 export type PersonBB = Person<{
   /**
