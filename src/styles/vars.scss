@@ -1,0 +1,49 @@
+:root {
+  --primary: '';
+  --secondary: '';
+
+  --black: #1a1a1a;
+  --white: #fafafa;
+
+  --dark_1: #213555;
+  --dark_2: #3E5879;
+  --dark_3: #9AA6B2;
+
+  --light_1: #F8FAFC;
+  --light_2: #D9EAFD;
+  --light_3: #BCCCDC;
+
+  --brown_1: #D8C4B6;
+  --brown_2: #F5EFE7;
+
+  //status
+  --danger: #F93827;
+  --success: #16C47F;
+  --info: #0D92F4;
+  --warning: #FAB12F;
+
+
+  --standard_shadow: 0 2px 6px #0000001f, inset 0 -1px #dadce0;
+
+
+  //RGB VARIANT
+  --black_rgb: 26,26,26;
+  --white_rgb: 250, 250, 250;
+
+  --dark_1_rgb: 33, 53, 85;
+  --dark_2_rgb: 62, 88, 121;
+  --dark_3_rgb: 154, 166, 178;
+
+  --light_1_rgb: 248, 250, 252;
+  --light_2_rgb: 217, 234, 253;
+  --light_3_rgb: 188, 204, 220;
+
+  --brown_1_rgb: 216, 196, 182;
+  --brown_2_rgb: 245, 239, 231;
+
+  //status
+  --danger_rgb: 249, 56, 39;
+  --success_rgb: 22, 196, 127;
+  --info_rgb: 13, 146, 244;
+  --warning_rgb: 250, 177, 47;
+}
