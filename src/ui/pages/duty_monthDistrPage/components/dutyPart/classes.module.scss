@@ -1,0 +1,17 @@
+.wrapper {
+  .head {
+    // display: flex;
+    // align-items: center;
+    // justify-content: flex-end;
+    .action {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+  .targets {
+    .select {
+      width: 100%;
+    }
+  }
+}

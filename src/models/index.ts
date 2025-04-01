@@ -1,20 +1,24 @@
 import { AvilableDuty } from "./duty_models"
-// TYPES & INTERFACES=========================
-
 
 // GLOBAL=====
+export type DataBase = {
+  personnel: (PersonCB | PersonBB)[],
+  fractions: Fraction[],
+  positions: Position[]
+}
+
+export type Months = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11
+export type Weekdays = 0 | 1 | 2 | 3 | 4 | 5 | 6
 
 /**
 * Generic: Interfeysin duzuminde ID:number bar
 */
 export type WithID<T> = T & { id: number }
 
-
 /**
  * Generic: Interfeysin duzuminde Name:string bar
  */
 export type WithName<T> = T & { name: string }
-
 
 /**
  * Harby atlar
@@ -32,16 +36,12 @@ export type Ranks =
   'podpolkownik' |
   'polkownik' 
 
-
-
-
 /**
  * Harby gullugy gecmegin esasy: 
  * cb = cagyrysh boyunca
  * bb = borcnama boyunca 
  */
 export type TypeOfContract = 'cb' | 'bb'
-
 
 /**
  * Bolumcanin interfeysi
@@ -54,9 +54,8 @@ export type Fraction = WithID<{
   },
   parentFractionId?: number,
   level?: FractionLevel,
-
+  isMainFrac?: boolean
 }>
-
 
 /**
  * Wezipanin interfeysi
@@ -70,8 +69,8 @@ export type Position = WithID<{
     fullName?: string
   },
   isChaining?: boolean //eýeleýän wezipesini dine useName - dan almalymy ýa-da funksiýanyň kömegi bilen. false = 1, true = 2
+  isHeadOfFraction?: boolean
 }>
-
 
 /**
  * Gullukcynyn interfeysi
@@ -100,6 +99,7 @@ export type PersonCB = Person<{
   globalStartDate?: Date // harby gulluga bashlan wagty  
   avilableDutyList?: AvilableDuty[]
 }>
+
 export type PersonBB = Person<{
   /**
    * wagtlayyn yerine yeriyan wezipeleri
@@ -111,12 +111,12 @@ export type PersonBB = Person<{
   limitPositionIds?: number[]
 }>
 
+export type PersonFull = PersonCB | PersonBB 
 
 /**
  * Bolumcanin derejesi: bolumce, wzwod, rota, batalyon
  */
 export type FractionLevel = 'bolumce' | 'wzwod' | 'rota' | 'batalyon'
-
 
 /**
  * Gullukcynyn hazirki yagdayy, ex: is saparda, tabsyrykda, rugsatda, tussagda we s.m.
@@ -130,8 +130,8 @@ export type PersonCurrentState =
 'jogapkar' | 
 'hbotg' |
 'nyzamda' |
-'sapara_gelen'
-
+'sapara_gelen' | 
+'yorite'
 
 export type PersonHistoryItem = WithID<{
   date: {
@@ -145,105 +145,30 @@ export type PersonHistoryItem = WithID<{
   description: string
 }>
 
-
 export type PersonHistory = PersonHistoryItem[]
-
-
-export type GarawulType = 'ig' | 'gg'
-
-
-export type GarawulPostType = {
-  id: number,
-  number: number //tertip belgisi,
-  changes: number //calshygyn sany,
-  isActive?: boolean //yapykmy ya acykmy
-  isRest?: boolean //hg tarapyndan goralyanmy
-  _ex?: any[] //goshamca action ucin wagtlayyn
-}
-
-
-export type GarawulBase = {
-  id: number,
-  number: number,
-  type: GarawulType,
-  posts: GarawulPostType[]
-}
-
 
 export type DefFuctionType = (...args:any[]) => any
 
 
 
+// DOCS ==================
 
+type DocumentType = 
+'word' |
+'excel' |
+'powerPoint'
 
+export type DocBase<T extends {} = {}> = WithID<{
+  name: string,
+  descr?:string  
+} & T>
 
+export type DocTemplate = DocBase<{
+  categoryId?: number
+}>
 
-
-
-
-
-
-
-
-
-
-
-// STATIC PRESETS & DATA=========================
-export const personCurrentState: Record<PersonCurrentState, string> = {
-  'sapar': 'Iş sapar',
-  'hassahana': 'Hassahana',
-  'rugsat': 'Rugsat',
-  'tussag': 'Tussag',
-  'tabsyryk': 'Tabşyryk',
-  'jogapkar': 'Jogapkär',
-  'hbotg': 'HBÖTG',
-  'nyzamda': 'Nyzamda',
-  'sapara_gelen': 'Iş sapara gelen'
-}
-
-export const ranks: Record<Ranks, any> = {
-  'hatarcy': {
-    fullName: 'hatarçy',
-    shortName: 'h-çy'
-  },
-  'kici_serzhant': {
-    fullName: 'kiçi seržant',
-    shortName: 'k-snt'
-  },
-  'serzhant': {
-    fullName: 'seržant',
-    shortName: 'snt'
-  },
-  'uly_serzhant': {
-    fullName: 'uly seržant',
-    shortName: 'u-snt'
-  },
-  'starshina': {
-    fullName: 'starşina',
-    shortName: 's-na'
-  },
-  'leytenant': {
-    fullName: 'leýtenant',
-    shortName: 'lnt'
-  },
-  'uly_leytenant': {
-    fullName: 'uly leýtenant',
-    shortName: 'u-lnt'
-  },
-  'kapitan': {
-    fullName: 'kapitan',
-    shortName: 'k-n'
-  },
-  'mayor': {
-    fullName: 'maýor',
-    shortName: 'm-r'
-  },
-  'podpolkownik': {
-    fullName: 'podpolkownik',
-    shortName: 'p/p-k'
-  },
-  'polkownik': {
-    fullName: 'polkownik',
-    shortName: 'p-k'
-  },
-}
+export type DocCategory = DocBase<{
+  isCategory?: boolean,
+  parentId?: number,
+  children?: (DocCategory & DocTemplate)[]
+}>

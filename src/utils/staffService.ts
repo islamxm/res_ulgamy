@@ -1,43 +1,47 @@
-import { Fraction, TypeOfContract } from "@/models"
-import grammar from "./grammar"
+import { DataBase, Fraction, PersonBB, PersonCB, Ranks, TypeOfContract } from "@/models"
+import { _ranks } from "@/data/static"
+import grammar from "./grammarService"
 
 import personnel from "@/data/personnel"
 import fractions from "@/data/fractions"
 import positions from "@/data/positions"
 
-const getParent = (parentId: number,cb: (...args:any[]) => void) => {
-  const parent = fractions.find(f => f.id === parentId)
-  cb(parent)
-  if(parent?.parentFractionId) {
-    getParent(parent.parentFractionId, cb)
-  }
-}
 
-const posgen = {  
+
+const staffService = {
   fracTreeFromPersonId(personId: number) {
     let arr: Fraction[] = []
     const personData = personnel.find(f => f.id === personId)
-    const fractionData = fractions.find(f => f.id === personData?.fractionId);  
-    if(fractionData) {
-      getParent(fractionData.id, (e) => arr = [...arr, e])
+    const fractionData = fractions.find(f => f.id === personData?.fractionId);
+    if (fractionData) {
+      this.getParent(fractionData.id, (e) => arr = [...arr, e])
     }
     return arr.reverse()
   },
-  
+
   fracTreeFromFractionId(fractionId: number) {
     let arr: Fraction[] = []
-    const fractionData = fractions.find(f => f.id === fractionId);  
-    if(fractionData) {
-      getParent(fractionData.id, (e) => arr = [...arr, e])
+    const fractionData = fractions.find(f => f.id === fractionId);
+    if (fractionData) {
+      this.getParent(fractionData.id, (e) => arr = [...arr, e])
     }
     return arr.reverse()
   },
-  
+
+  fracTreeFromFractionIdReversed(fractionId: number, dataBase: DataBase) {
+    let arr: Fraction[] = []
+    let parentFrac = dataBase.fractions.find(frac => frac.id === fractionId)
+    if(parentFrac) arr.push(parentFrac)
+    this.getChild(fractionId, dataBase, e => arr = [...arr, ...e])
+    return arr
+  },
+
   //bölümçe agajynyň şaha boýunça yzygiderlikdäki ýerleşdirilen massiwi (işgär boýunça we bölümçe boýunça)
   getFractionTree() {
     return {
       fracTreeFromPersonId: this.fracTreeFromPersonId,
       fracTreeFromFractionId: this.fracTreeFromFractionId,
+      fracTreeFromFractionIdReversed: this.fracTreeFromFractionIdReversed
     }
   },
 
@@ -61,11 +65,11 @@ const posgen = {
       full: '',
       short: ''
     }
-    if(type === 'cb') obj = {
+    if (type === 'cb') obj = {
       full: 'çagyryş boýunça harby gullukçysy',
       short: 'ç/b'
     }
-    if(type === 'bb') obj = {
+    if (type === 'bb') obj = {
       full: 'borçnama boýunça harby gullukçysy',
       short: 'b/g'
     }
@@ -77,20 +81,80 @@ const posgen = {
     const arr = this.fracTreeFromPersonId(personId)
     const person = personnel.find(o => o.id === personId)
     let bat = arr.find(f => f.level === 'batalyon')
-    let rota = arr.find(f => f.level === 'rota')  
+    let rota = arr.find(f => f.level === 'rota')
     let wzwod = arr.find(f => f.level === 'wzwod')
-    let fraction:Fraction | undefined = undefined
+    let fraction: Fraction | undefined = undefined
 
-    if(bat) fraction = bat
-    if(!bat && rota) fraction = rota
-    if(!bat && !rota && wzwod) fraction = wzwod
+    if (bat) fraction = bat
+    if (!bat && rota) fraction = rota
+    if (!bat && !rota && wzwod) fraction = wzwod
     // return fraction
 
     return `${grammar.setRelationOfFraction(fraction?.name.staffName || '')} ${this.getContractType(person?.rank?.contract).full}`
   },
+
+  getLeaderOfFraction(fractionId: number, db: DataBase) {
+    const { personnel, positions } = db
+    const pArr = positions.filter(person => person.fractionId === fractionId)
+    const headPos = pArr.find(p => p.isHeadOfFraction)
+    const person = personnel.find(p => p.positionId === headPos?.id)
+
+    if (person) {
+      return person
+    }
+  },
+
+  getRankLabel(rank?: Ranks): { fullName: string, shortName: string } | undefined {
+    if (rank) return _ranks[rank]
+    else return undefined
+  },
+
+  getChild(fractionId: number, dataBase: DataBase, cb: (...args: any[]) => any) {
+    const arr = fractions.filter(f => f.parentFractionId === fractionId)
+    cb(arr)
+    if (arr.length > 0) {
+      arr.forEach(a => {
+        this.getChild(a.id, dataBase, cb)
+      })
+    }
+  },
+
+  getParent (parentId: number, cb: (...args: any[]) => void) {
+    const parent = fractions.find(f => f.id === parentId)
+    cb(parent)
+    if (parent?.parentFractionId) {
+      this.getParent(parent.parentFractionId, cb)
+    }
+  },
+
+  getCountOfPersonnelInFraction(fractionId: number, dataBase: DataBase) {
+    const {personnel} = dataBase
+    const fracs = this.fracTreeFromFractionIdReversed(fractionId, dataBase)
+    let s:(PersonBB & PersonCB)[] = []
+    fracs.forEach(f => {
+      s = [...s, ...personnel.filter(p => p.fractionId === f.id)]
+    })
+    return ({
+      cb: s.filter(v => v.rank?.contract === 'cb').length,
+      bb: s.filter(v => v.rank?.contract === 'bb').length
+    })
+  },
+
+  getPersonnelInFraction(fractionId: number, dataBase: DataBase) {
+    const {personnel} = dataBase
+    const fracs = this.fracTreeFromFractionIdReversed(fractionId, dataBase)
+    let s:(PersonBB & PersonCB)[] = []
+    fracs.forEach(f => {
+      s = [...s, ...personnel.filter(p => p.fractionId === f.id)]
+    })
+    return ({
+      cb: s.filter(v => v.rank?.contract === 'cb'),
+      bb: s.filter(v => v.rank?.contract === 'bb')
+    })
+  }
 }
 
-export default posgen;
+export default staffService;
 
 // export class TestDutyGroups extends Posgen {
 //   get_GT_data(data: Duty_GT) {
@@ -98,7 +162,7 @@ export default posgen;
 //       return {
 //         name: i.personData?.name.shortName,
 //         rank: ranks[i.personData?.rank?.rank || 'hatarcy'],
-//         position: this.getFullPosition(i.personId || 0) 
+//         position: this.getFullPosition(i.personId || 0)
 //       }
 //     })
 //     if(arr.length > 1) {
@@ -107,7 +171,7 @@ export default posgen;
 //     if(arr.length === 1) {
 //       return `Harby bölümiň gün tertibine gözegçi - ${arr[0].position} ${arr[0].rank} ${arr[0].name}`
 //     }
-//   } 
+//   }
 
 //   get_HBN_data(data: Duty_HBN) {
 //     const nobatcy = {
@@ -120,7 +184,7 @@ export default posgen;
 //       name: data.body.komekci.personData?.name.forBuyruk,
 //       rank: ranks.find(f => f.id === data.body.komekci.personData?.rank?.rank)?.name.fullName,
 //       label: 'kömekçisi -',
-//       position: this.getFullPosition(data.body.komekci.personId || 0) 
+//       position: this.getFullPosition(data.body.komekci.personId || 0)
 //     }
 //     return `${nobatcy.label} ${nobatcy.position} ${nobatcy.rank} ${nobatcy.name}, ${komekci.label} ${komekci.position} ${komekci.rank} ${komekci.name}`
 //   }
@@ -144,7 +208,7 @@ export default posgen;
 //     let gundeciler = res.map(arr => {
 //       if(arr.length > 1) {
 //         return `${arr[0].f}lary ${arr.map(p => `${ranks.find(f => f.id === p.personData?.rank?.rank)?.name.fullName} ${p.personData?.name.forBuyruk}`)}`
-//       } 
+//       }
 //       if(arr.length === 1) {
 //         return `${arr[0].f} ${arr.map(p => `${ranks.find(f => f.id === p.personData?.rank?.rank)?.name.fullName} ${p.personData?.name.forBuyruk}`)}`
 //       }

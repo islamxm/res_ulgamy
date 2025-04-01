@@ -1,13 +1,16 @@
 import { Typography } from 'antd';
 import { FC, ReactNode } from 'react';
-
+import PageComponent from '@/ui/pages/dutyPage';
 type Props = {
   
 }
 
 const DutyPage:FC<Props> = () => {
   return(
-    <div><Typography.Title level={2}>Tabşyryklar</Typography.Title></div>
+    <>
+    <Typography.Title level={2}>Tabşyryklar</Typography.Title>
+    <PageComponent/>
+    </>
   )
 }
 

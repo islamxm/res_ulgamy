@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .label {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--dark_1);
+  }
+}

@@ -1,0 +1,18 @@
+.ant-picker-body {
+  .ant-picker-content {
+    .ant-picker-cell {
+      vertical-align: middle;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: all .3s ease;
+    }
+    .ant-picker-cell.ant-picker-cell-hover {
+      background-color: var(--light_2);
+    }
+    .ant-picker-cell.ant-picker-cell-selected {
+      background-color: var(--dark_1);
+      color: var(--white);
+
+    }
+  }
+}

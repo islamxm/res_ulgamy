@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Col, Row, Tag } from 'antd';
-import { type PersonCurrentState as PCS, personCurrentState } from '@/models';
+import { type PersonCurrentState as PCS } from '@/models';
+import { _personCurrentState } from '@/data/static';
 import { PresetColorType } from 'antd/es/_util/colors';
 
 type Props = {
@@ -16,7 +17,8 @@ const statusObj: Record<PCS, { color: PresetColorType }> = {
   'jogapkar': { color: 'magenta' },
   'hbotg': { color: 'volcano' },
   'nyzamda': { color: 'green' },
-  'sapara_gelen': { color: 'geekblue' }
+  'sapara_gelen': { color: 'geekblue' },
+  'yorite': {color: 'red-inverse'}
 }
 
 const Status: FC<Props> = ({
@@ -28,7 +30,7 @@ const Status: FC<Props> = ({
         {
           status.map(stat => (
             <Col>
-              <Tag color={statusObj[stat].color}>{personCurrentState[stat]}</Tag>
+              <Tag color={statusObj[stat].color}>{_personCurrentState[stat]}</Tag>
             </Col>
           ))
         }
@@ -36,7 +38,7 @@ const Status: FC<Props> = ({
     )
   } else {
     return (
-      <Tag color={statusObj[status].color}>{personCurrentState[status]}</Tag>
+      <Tag color={statusObj[status].color}>{_personCurrentState[status]}</Tag>
     )
   }
 }

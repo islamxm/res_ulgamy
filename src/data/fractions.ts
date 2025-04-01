@@ -1,4 +1,6 @@
-export default [
+import { Fraction } from "@/models";
+
+export const fractions:Fraction[] = [
   {
     "id": 14,
     "name": {
@@ -24,7 +26,8 @@ export default [
       "number": 1,
     },
     "level": "rota",
-    "parentFractionId": 14
+    "parentFractionId": 14,
+    "isMainFrac": true
   },
   {
     "id": 17,
@@ -144,7 +147,8 @@ export default [
       "number": 2,
     },
     "level": "rota",
-    "parentFractionId": 14
+    "parentFractionId": 14,
+    "isMainFrac": true
   },
   {
     "id": 30,
@@ -264,7 +268,8 @@ export default [
       "number": 3,
     },
     "level": "rota",
-    "parentFractionId": 14
+    "parentFractionId": 14,
+    "isMainFrac": true
   },
   {
     "id": 43,
@@ -383,6 +388,7 @@ export default [
       "shortName": "dolandyryş wzwody",
     },
     "level": "wzwod",
+    "isMainFrac": true,
     "parentFractionId": 14
   },
   {
@@ -428,7 +434,8 @@ export default [
       "shortName": "Üpjünçilik wzwody",
     },
     "level": "wzwod",
-    "parentFractionId": 14
+    "parentFractionId": 14,
+    "isMainFrac": true
   },
   {
     "id": 61,
@@ -458,3 +465,5 @@ export default [
     "parentFractionId": 60
   },
 ]
+
+export default fractions

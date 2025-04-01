@@ -7,9 +7,7 @@ type Props = {
 
 const MainPage:FC<Props> = () => {
   return(
-    <div>
-      <PageComponent/>
-    </div>
+    <PageComponent/>
   )
 }
 

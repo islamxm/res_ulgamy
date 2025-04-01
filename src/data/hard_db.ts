@@ -1,22 +1,16 @@
 import personnel from "./personnel"
 import fractions from "./fractions"
 import positions from "./positions"
-
-
+import schedules from "./schedule"
+import distributions from "./distributions"
 
 const HARD_DB = {
-  personnel: {
-    storeName: 'PERSONNEL',
-    data: personnel
-  },
-  fractions: {
-    storeName: 'FRACTIONS',
-    data: fractions
-  },
-  positions: {
-    storeName: 'POSITIONS',
-    data: positions
-  }
+  personnel,
+  fractions,
+  positions,
+  schedules,
+  distributions
 }
+
 
 export default HARD_DB

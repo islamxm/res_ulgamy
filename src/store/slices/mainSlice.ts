@@ -1,23 +1,21 @@
-import { Fraction, PersonBB, PersonCB, Position } from "@/models";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import HARD_DB from "@/data/hard_db";
+import { DataBase } from "@/models";
 
-type DataBase = {
-  personnel: (PersonCB | PersonBB)[],
-  fractions: Fraction[],
-  positions: Position[]
-}
 
 type InitialState = {
   isSidebarOpen: boolean,
-  dataBase: DataBase
+  dataBase: DataBase,
+
+    
 }
 
 const initialState: InitialState = {
   isSidebarOpen: true,
   dataBase: {
-    personnel: [],
-    fractions: [],
-    positions: []
+    personnel: HARD_DB.personnel,
+    fractions: HARD_DB.fractions,
+    positions: HARD_DB.positions,
   }
 }
 

@@ -1,19 +1,17 @@
-import { Dispatch, FC, ReactNode, SetStateAction, use, useEffect, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import classes from './classes.module.scss'
-import Button from '@/ui/shared/button';
 import { Row, Col, Table, Input, TableProps } from 'antd';
 import StaffSearch from './components/staffSearch';
-import { Person, PersonBB, PersonCB, PersonCurrentState } from '@/models';
+import { PersonCurrentState } from '@/models';
 import personnel from '@/data/personnel';
 import Rank from '@/ui/shared/rank';
-import posgen from '@/utils/posGen';
+import posgen from '@/utils/staffService';
 import Status from '@/ui/shared/status';
 import { useDebounceValue } from 'usehooks-ts';
 
 type Props = {
 
 }
-
 
 type DataType = {
   id: number
@@ -59,10 +57,8 @@ const columns: TableProps<DataType>['columns'] = [
     dataIndex: 'status',
     key: 'status',
     render: (_, record) => <Status status={record.status} />
-
   },
 ]
-
 
 const StaffPage: FC<Props> = () => {
   const [data, setData] = useState<DataType[]>([])
@@ -83,7 +79,8 @@ const StaffPage: FC<Props> = () => {
       rank: <Rank rank={person?.rank?.rank} contractType={person?.rank?.contract} />,
       name: `${person.name.partial.lastName} ${person.name.partial.firstName} ${person.name.partial?.fatherName ?? ''}`,
       fraction: posgen.getFullPosition(person.id),
-      status: person.status
+      status: person.status,
+      key: person.id
     }))
     setData(f)
   }, [])
@@ -116,6 +113,7 @@ const StaffPage: FC<Props> = () => {
             dataSource={result}
             columns={columns}
             pagination={false}
+            virtual
           />
         </Col>
       </Row>

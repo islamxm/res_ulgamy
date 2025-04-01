@@ -2,7 +2,7 @@ import { Person } from "@/models"
 const YogynCekimliler = ['a', 'o', 'u', 'y']
 const InceCekimliler = ['e', 'ä', 'ö', 'i', 'ü']
 
-const grammar = {
+const grammarService = {
   
   setRelationOfFraction(word: string) {
     const lastWord = word[word.length - 1]
@@ -32,4 +32,4 @@ const grammar = {
   }
 }
 
-export default grammar
+export default grammarService

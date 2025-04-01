@@ -1,11 +1,14 @@
-export default [
+import { Position } from "@/models"
+
+const positions: Position[] = [
   {
     "name": {
       "staffName": "diwizion serkerdesi",
       "useName": "serkerdesi"
     },
     "id": 32,
-    "fractionId": 14
+    "fractionId": 14,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -54,7 +57,8 @@ export default [
       "staffName": "Aragatnaşyk müdiri - wzwod serkerdesi"
     },
     "id": 39,
-    "fractionId": 15
+    "fractionId": 15,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -70,6 +74,7 @@ export default [
     },
     "id": 41,
     "fractionId": 16,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -98,13 +103,15 @@ export default [
     },
     "id": 45,
     "fractionId": 17,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Bölümçäniň serkerdesi - hasaplaýjy"
     },
     "id": 46,
-    "fractionId": 17
+    "fractionId": 17,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -125,14 +132,15 @@ export default [
       "staffName": "Sürüji - elektrik"
     },
     "id": 49,
-    "fractionId": 30
+    "fractionId": 17
   },
   {
     "name": {
       "staffName": "Wzwod serkerdesiniň orunbasary - maşynyň serkerdesi"
     },
     "id": 50,
-    "fractionId": 18
+    "fractionId": 18,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -167,7 +175,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 55,
-    "fractionId": 19
+    "fractionId": 19,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -202,7 +211,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 60,
-    "fractionId": 20
+    "fractionId": 20,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -238,13 +248,15 @@ export default [
     },
     "id": 65,
     "fractionId": 21,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Wzwod serkerdesiniň orunbasary - maşynyň serkerdesi"
     },
     "id": 66,
-    "fractionId": 22
+    "fractionId": 22,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -279,7 +291,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 71,
-    "fractionId": 23
+    "fractionId": 23,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -314,7 +327,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 76,
-    "fractionId": 24
+    "fractionId": 24,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -349,7 +363,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi - sürüji-oklaýjy"
     },
     "id": 81,
-    "fractionId": 25
+    "fractionId": 25,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -391,14 +406,16 @@ export default [
       "staffName": "wzwod serkerdesi"
     },
     "id": 87,
-    "fractionId": 26
+    "fractionId": 26,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Bölümçäniň serkerdesi - topogeodeziýaçy"
     },
     "id": 88,
-    "fractionId": 27
+    "fractionId": 27,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -426,7 +443,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi - razwedkaçy"
     },
     "id": 92,
-    "fractionId": 28
+    "fractionId": 28,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -461,7 +479,8 @@ export default [
       "staffName": "Batareýanyň serkerdesi"
     },
     "id": 97,
-    "fractionId": 29
+    "fractionId": 29,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -489,14 +508,16 @@ export default [
       "staffName": "wzwod serkerdesi - batareýada uly hünärmen"
     },
     "id": 101,
-    "fractionId": 30
+    "fractionId": 30,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Bölümçäniň serkerdesi - hasaplaýjy"
     },
     "id": 102,
-    "fractionId": 30
+    "fractionId": 30,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -524,7 +545,8 @@ export default [
       "staffName": "Wzwod serkerdesiniň orunbasary - maşynyň serkerdesi"
     },
     "id": 106,
-    "fractionId": 31
+    "fractionId": 31,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -559,7 +581,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 111,
-    "fractionId": 32
+    "fractionId": 32,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -594,7 +617,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 116,
-    "fractionId": 33
+    "fractionId": 33,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -629,14 +653,16 @@ export default [
       "staffName": "wzwod serkerdesi"
     },
     "id": 121,
-    "fractionId": 34
+    "fractionId": 34,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Wzwod serkerdesiniň orunbasary - maşynyň serkerdesi"
     },
     "id": 122,
-    "fractionId": 35
+    "fractionId": 35,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -671,7 +697,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 127,
-    "fractionId": 36
+    "fractionId": 36,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -706,7 +733,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 132,
-    "fractionId": 37
+    "fractionId": 37,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -741,7 +769,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi - sürüji-oklaýjy"
     },
     "id": 137,
-    "fractionId": 38
+    "fractionId": 38,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -783,14 +812,16 @@ export default [
       "staffName": "wzwod serkerdesi"
     },
     "id": 143,
-    "fractionId": 39
+    "fractionId": 39,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Bölümçäniň serkerdesi - topogeodeziýaçy"
     },
     "id": 144,
-    "fractionId": 40
+    "fractionId": 40,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -818,7 +849,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi - razwedkaçy"
     },
     "id": 148,
-    "fractionId": 41
+    "fractionId": 41,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -853,7 +885,8 @@ export default [
       "staffName": "Batareýanyň serkerdesi"
     },
     "id": 153,
-    "fractionId": 42
+    "fractionId": 42,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -881,14 +914,16 @@ export default [
       "staffName": "wzwod serkerdesi - batareýada uly hünärmen"
     },
     "id": 157,
-    "fractionId": 43
+    "fractionId": 43,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Bölümçäniň serkerdesi - hasaplaýjy"
     },
     "id": 158,
-    "fractionId": 43
+    "fractionId": 43,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -916,7 +951,8 @@ export default [
       "staffName": "Wzwod serkerdesiniň orunbasary - maşynyň serkerdesi"
     },
     "id": 162,
-    "fractionId": 44
+    "fractionId": 44,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -951,7 +987,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 167,
-    "fractionId": 45
+    "fractionId": 45,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -986,7 +1023,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 172,
-    "fractionId": 46
+    "fractionId": 46,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1021,14 +1059,16 @@ export default [
       "staffName": "wzwod serkerdesi"
     },
     "id": 177,
-    "fractionId": 47
+    "fractionId": 47,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Wzwod serkerdesiniň orunbasary - maşynyň serkerdesi"
     },
     "id": 178,
-    "fractionId": 48
+    "fractionId": 48,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1063,7 +1103,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 183,
-    "fractionId": 49
+    "fractionId": 49,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1098,7 +1139,8 @@ export default [
       "staffName": "Maşynyň serkerdesi"
     },
     "id": 188,
-    "fractionId": 50
+    "fractionId": 50,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1133,7 +1175,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi - sürüji-oklaýjy"
     },
     "id": 193,
-    "fractionId": 51
+    "fractionId": 51,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1175,14 +1218,16 @@ export default [
       "staffName": "wzwod serkerdesi"
     },
     "id": 199,
-    "fractionId": 52
+    "fractionId": 52,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Bölümçäniň serkerdesi - topogeodeziýaçy"
     },
     "id": 200,
-    "fractionId": 53
+    "fractionId": 53,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1210,7 +1255,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi - razwedkaçy"
     },
     "id": 204,
-    "fractionId": 54
+    "fractionId": 54,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1245,7 +1291,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi - topogeodeziýaçy"
     },
     "id": 209,
-    "fractionId": 56
+    "fractionId": 56,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1273,7 +1320,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi"
     },
     "id": 213,
-    "fractionId": 57
+    "fractionId": 57,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1315,7 +1363,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi - uzaklygy ölçeýji"
     },
     "id": 219,
-    "fractionId": 58
+    "fractionId": 58,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1392,14 +1441,16 @@ export default [
       "staffName": "wzwod serkerdesi"
     },
     "id": 230,
-    "fractionId": 60
+    "fractionId": 60,
+    "isHeadOfFraction": true
   },
   {
     "name": {
       "staffName": "Bölümçäniň serkerdesi"
     },
     "id": 231,
-    "fractionId": 61
+    "fractionId": 61,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1427,7 +1478,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi"
     },
     "id": 235,
-    "fractionId": 62
+    "fractionId": 62,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1574,7 +1626,8 @@ export default [
       "staffName": "Bölümçäniň serkerdesi - aşpez"
     },
     "id": 256,
-    "fractionId": 63
+    "fractionId": 63,
+    "isHeadOfFraction": true
   },
   {
     "name": {
@@ -1590,4 +1643,7 @@ export default [
     "id": 258,
     "fractionId": 63
   },
+  
 ]
+
+export default positions
