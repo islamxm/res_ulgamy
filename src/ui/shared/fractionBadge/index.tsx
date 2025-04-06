@@ -19,6 +19,7 @@ const FractionBadge: FC<Props> = ({
   useEffect(() => {
     if (id && dataBase) {
       const head = posgen.getLeaderOfFraction(id, dataBase)
+      
       if (head) {
         const rank = posgen.getRankLabel(head?.rank?.rank)
         setHead(`${rank?.shortName} ${head.name.shortName}`)

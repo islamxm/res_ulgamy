@@ -1,4 +1,5 @@
-import { AvilableDuty } from "./duty_models"
+import dayjs from "dayjs"
+import { AvilableDuty, Duties } from "./duty_models"
 
 // GLOBAL=====
 export type DataBase = {
@@ -23,7 +24,7 @@ export type WithName<T> = T & { name: string }
 /**
  * Harby atlar
  */
-export type Ranks = 
+export type Ranks =
   'hatarcy' |
   'kici_serzhant' |
   'serzhant' |
@@ -34,7 +35,7 @@ export type Ranks =
   'kapitan' |
   'mayor' |
   'podpolkownik' |
-  'polkownik' 
+  'polkownik'
 
 /**
  * Harby gullugy gecmegin esasy: 
@@ -86,13 +87,16 @@ export type Person<T = {}> = WithID<T & {
   },
   status: PersonCurrentState | PersonCurrentState[]
   positionId?: number
-  fractionId?: number 
+  fractionId?: number
   rank?: {
     contract: TypeOfContract,
     rank: Ranks
   },
-  
-  history: PersonHistory 
+  dutyAvilability?: {
+    interval?: number // interval days between duties
+    daysInWeek?: Weekdays[]
+  }
+  history: PersonHistory
 }>
 
 export type PersonCB = Person<{
@@ -104,14 +108,14 @@ export type PersonBB = Person<{
   /**
    * wagtlayyn yerine yeriyan wezipeleri
    */
-  emptyPositionIds?: number[] 
+  emptyPositionIds?: number[]
   /**
    * Wagtlayyn borclaryny yerine yetiryan wezipeleri
    */
   limitPositionIds?: number[]
 }>
 
-export type PersonFull = PersonCB | PersonBB 
+export type PersonFull = PersonCB | PersonBB
 
 /**
  * Bolumcanin derejesi: bolumce, wzwod, rota, batalyon
@@ -121,17 +125,17 @@ export type FractionLevel = 'bolumce' | 'wzwod' | 'rota' | 'batalyon'
 /**
  * Gullukcynyn hazirki yagdayy, ex: is saparda, tabsyrykda, rugsatda, tussagda we s.m.
  */
-export type PersonCurrentState = 
-'sapar' | 
-'hassahana' | 
-'rugsat' | 
-'tussag' | 
-'tabsyryk' | 
-'jogapkar' | 
-'hbotg' |
-'nyzamda' |
-'sapara_gelen' | 
-'yorite'
+export type PersonCurrentState =
+  'sapar' |
+  'hassahana' |
+  'rugsat' |
+  'tussag' |
+  'tabsyryk' |
+  'jogapkar' |
+  'hbotg' |
+  'nyzamda' |
+  'sapara_gelen' |
+  'yorite'
 
 export type PersonHistoryItem = WithID<{
   date: {
@@ -147,20 +151,20 @@ export type PersonHistoryItem = WithID<{
 
 export type PersonHistory = PersonHistoryItem[]
 
-export type DefFuctionType = (...args:any[]) => any
+export type DefFuctionType = (...args: any[]) => any
 
 
 
 // DOCS ==================
 
-type DocumentType = 
-'word' |
-'excel' |
-'powerPoint'
+type DocumentType =
+  'word' |
+  'excel' |
+  'powerPoint'
 
 export type DocBase<T extends {} = {}> = WithID<{
   name: string,
-  descr?:string  
+  descr?: string
 } & T>
 
 export type DocTemplate = DocBase<{
@@ -172,3 +176,17 @@ export type DocCategory = DocBase<{
   parentId?: number,
   children?: (DocCategory & DocTemplate)[]
 }>
+
+export type DistributionFrac = {
+  fractionId: number, 
+  data: {
+    id: number
+    targets: Duties[]
+    data: PersonFull[]
+  }[]
+}
+
+export type Distribution = {
+  date: string //MM.YYYY
+  body: DistributionFrac[]
+}

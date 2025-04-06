@@ -1,0 +1,49 @@
+.wrapper {
+  .part {
+    background-color: var(--light_1);
+    border-radius: 15px;
+    overflow: hidden;
+
+    .title {
+      font-weight: 600;
+      color: #fff;
+      padding: 20px 10px 10px 10px;
+      background-color: rgba(var(--dark_2_rgb), 1);
+      font-size: 20px;
+    }
+
+    .body {
+      padding: 10px;
+      border: 2px solid var(--dark_3);
+      border-radius: 0 0 15px 15px;
+      border-top: none;
+      .row {
+        font-size: 20px;
+        font-weight: 600;
+        padding: 10px !important;
+        border-radius: 10px;
+
+      }
+      .row.total {
+        background-color: var(--brown_1);
+      }
+
+      .row.dontCount {
+        background-color: rgba(var(--info_rgb), .3);
+      }
+
+      .row.nyz {
+        background-color: rgba(var(--success_rgb), .7);
+      }
+
+      .label {
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .part.total {
+    background-color: var(--light_1);
+  }
+}

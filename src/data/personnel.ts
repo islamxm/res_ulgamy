@@ -11,7 +11,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Berdimyradowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "podpolkownik"
@@ -30,7 +30,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Baýramdurdyýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "kapitan"
@@ -49,7 +49,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Babakulyýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "mayor"
@@ -68,7 +68,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Jumageldiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "mayor"
@@ -87,7 +87,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Gurbanmyradowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_serzhant"
@@ -106,7 +106,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Didarowna"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "starshina"
@@ -125,7 +125,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Babanazar ogly"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -144,13 +144,13 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": ""
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
     },
     "history": [],
-    "fractionId": 15,
+    "fractionId": 55,
     "positionId": 39
   },
   {
@@ -163,7 +163,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Otoboýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_serzhant"
@@ -182,7 +182,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Baýrammyradowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -238,7 +238,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "lastName": "Sätmyradow"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -257,7 +257,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Aşyrgeldiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -276,7 +276,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Kazakbaýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -295,7 +295,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Durdygulyýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_serzhant"
@@ -314,7 +314,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Töräýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -333,7 +333,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Jumaberdiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -352,7 +352,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Gurbansähedowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -371,7 +371,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Guwanjowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -390,7 +390,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Bazargeldiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "leytenant"
@@ -409,7 +409,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Kerimberdiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -428,7 +428,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Aşyrowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "uly_leytenant"
@@ -447,7 +447,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Baýramgulyýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "bb",
       "rank": "starshina"
@@ -468,7 +468,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Bahtiýarowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -487,7 +487,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Gaýgysyzowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -506,7 +506,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Döwletgeldiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -525,7 +525,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Myradowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -544,7 +544,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": ""
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "kici_serzhant"
@@ -563,7 +563,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Altymuhammedowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -582,7 +582,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Tolkunjanowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -601,7 +601,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Bagtyýarowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -620,7 +620,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Nurberdiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -639,7 +639,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Döwletýarowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -658,7 +658,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Nurgeldiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -677,7 +677,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Mämmetnurowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -696,7 +696,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Sultanowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -715,7 +715,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Saparmyradowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -734,7 +734,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": ""
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -753,7 +753,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Begmyradowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -772,7 +772,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Ismailowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -791,7 +791,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Gurbanalyýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -810,7 +810,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Hemraýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -829,7 +829,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Ýazgeldiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -848,7 +848,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Şiralyýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -867,7 +867,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Merdan ogly"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -886,7 +886,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Dermankul ogly"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -905,7 +905,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Zakirjanowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -924,7 +924,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Şamuhammedowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -943,7 +943,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Seýduýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -962,7 +962,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Döwletowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -981,7 +981,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Maratowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1000,7 +1000,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Burhanowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1019,7 +1019,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Gennadiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1038,7 +1038,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Amanberdiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1057,7 +1057,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Sarwar ogly"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1076,7 +1076,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Şatlykowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1095,7 +1095,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Adylbekowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "serzhant"
@@ -1114,7 +1114,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Nurmuradowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1133,7 +1133,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Yslamowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1152,7 +1152,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Toýlyýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1171,7 +1171,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Nurgeldiýewiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1190,7 +1190,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Bäşimmyradowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1209,7 +1209,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Anwarowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1228,7 +1228,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Muhammedowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1247,7 +1247,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Hydyrowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1266,7 +1266,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": ""
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1285,7 +1285,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Bagtyýarowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1304,7 +1304,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Muhammetnazarowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1323,7 +1323,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Agamyradowiç"
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1342,7 +1342,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": ""
       }
     },
-    "status": 'nyzamda',
+    "status": ['nyzamda'],
     "rank": {
       "contract": "cb",
       "rank": "hatarcy"
@@ -1454,82 +1454,6 @@ const personnel:(PersonBB & PersonCB)[] = [
         "firstName": "Myrat",
         "lastName": "Maksadow",
         "fatherName": "Maksadowiç"
-      }
-    },
-    "status": ['nyzamda', 'sapara_gelen'],
-    "rank": {
-      "contract": "cb",
-      "rank": "hatarcy"
-    },
-    "history": [],
-    "fractionId": 28,
-    "positionId": 0
-  },
-  {
-    "id": 78,
-    "name": {
-      "shortName": "B.Kakalyýew",
-      "partial": {
-        "firstName": "Begenç",
-        "lastName": "Kakalyýew",
-        "fatherName": "Şamyradowiç"
-      }
-    },
-    "status": ['nyzamda', 'sapara_gelen'],
-    "rank": {
-      "contract": "cb",
-      "rank": "hatarcy"
-    },
-    "history": [],
-    "fractionId": 28,
-    "positionId": 0
-  },
-  {
-    "id": 79,
-    "name": {
-      "shortName": "O.Serdarow",
-      "partial": {
-        "firstName": "Oraznazar",
-        "lastName": "Serdarow",
-        "fatherName": "Serdarowiç"
-      }
-    },
-    "status": ['nyzamda', 'sapara_gelen'],
-    "rank": {
-      "contract": "cb",
-      "rank": "hatarcy"
-    },
-    "history": [],
-    "fractionId": 28,
-    "positionId": 0
-  },
-  {
-    "id": 80,
-    "name": {
-      "shortName": "D.Atajanow",
-      "partial": {
-        "firstName": "Didar",
-        "lastName": "Atajanow",
-        "fatherName": "Mansur ogly"
-      }
-    },
-    "status": ['nyzamda', 'sapara_gelen'],
-    "rank": {
-      "contract": "cb",
-      "rank": "hatarcy"
-    },
-    "history": [],
-    "fractionId": 28,
-    "positionId": 0
-  },
-  {
-    "id": 81,
-    "name": {
-      "shortName": "H.Toýlyýew",
-      "partial": {
-        "firstName": "Hangeldi",
-        "lastName": "Toýlyýew",
-        "fatherName": "Batyrowiç"
       }
     },
     "status": ['nyzamda', 'sapara_gelen'],
@@ -4207,6 +4131,27 @@ const personnel:(PersonBB & PersonCB)[] = [
     "history": [],
     "fractionId": 63,
     "positionId": 258
+  },
+  {
+    "id": 209,
+    "name": {
+      "shortName": "M.Hesenow",
+      "partial": {
+        "firstName": "Maksat",
+        "lastName": "Hesenow",
+        "fatherName": ""
+      }
+    },
+    "status": [
+      "nyzamda"
+    ],
+    "rank": {
+      "contract": "bb",
+      "rank": "kici_serzhant"
+    },
+    "history": [],
+    "fractionId": 60,
+    "positionId": 230
   }
 ]
 export default personnel

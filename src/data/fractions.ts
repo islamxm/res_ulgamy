@@ -385,7 +385,7 @@ export const fractions:Fraction[] = [
     "id": 55,
     "name": {
       "staffName": "Diwizionyň dolandyryş wzwody",
-      "shortName": "dolandyryş wzwody",
+      "shortName": "Dolandyryş wzwody",
     },
     "level": "wzwod",
     "isMainFrac": true,

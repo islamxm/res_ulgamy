@@ -1,23 +1,28 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import classes from './classes.module.scss'
 import { Row, Col, DatePicker } from 'antd';
 import Panel from '@/ui/shared/panel';
 import dateLocalize from '@/utils/dateService';
 import FractionPart from './components/fractionPart';
-import { useMonthDistrContext } from './useContext';
 import Button from '@/ui/shared/button';
 import { DownloadOutlined } from '@ant-design/icons'
+import docService from '@/utils/docService';
+import { useDispatch, useSelector } from '@/store/hooks';
+import { dutyDistrActions } from './dutyDistrStoreSlice';
 
 type Props = {
 
 }
 
 const Duty_MonthDistrPage: FC<Props> = () => {
-  const { state, actions } = useMonthDistrContext()
-  const [filterState, setFilterState] = useState()
-  const [duties, setDuties] = useState()
+  const {dataBase: {fractions}} = useSelector(s => s.main)
+  const { month, topLevelFractions, result } = useSelector(s => s.dutyDistr)
+  const dispatch = useDispatch()
 
-  
+  useEffect(() => {
+    if (fractions.length > 0) dispatch(dutyDistrActions.updateTopLevelFraction({fractions}))
+  }, [fractions])
+
 
   return (
     <div className={classes.wrapper}>
@@ -30,38 +35,38 @@ const Duty_MonthDistrPage: FC<Props> = () => {
               <Col span={24}>
                 <DatePicker
                   cellRender={dateLocalize.renderMonthNames}
-                  value={state.month}
-                  onChange={actions.updateMonth}
+                  value={month}
+                  onChange={e => dispatch(dutyDistrActions.updateMonth({date: e}))}
                   picker={'month'} />
               </Col>
             </Row>
           </Panel>
         </Col>
-        <Col span={24}>
-          <Panel
-            label='Bölümçeler'
-          >
-            <Row gutter={[10, 20]}>
-              {
-                state.topLevelFractions.map(fraction => (
-                  <Col span={24}>
-                    <FractionPart
-                      fraction={fraction}
-                      result={state.result}
-                    />
-                  </Col>
-                ))
-              }
-            </Row>
-          </Panel>
+        <Col className={classes.body} span={24}>
+          <Row gutter={[10, 40]}>
+            {/* {
+              topLevelFractions.map(fraction => (
+                <Col span={24}>
+                  <FractionPart
+                    fraction={fraction}
+                  />
+                </Col>
+              ))
+            } */}
+            <Col span={24}>
+              <FractionPart
+                fraction={topLevelFractions[3]}
+                />
+            </Col>
+          </Row>
         </Col>
         {
-          state.result.length > 0 && (
-            <Col span={24}>
+          result.length > 0 && (
+            <Col className={classes.action} span={24}>
               <Row gutter={[10, 10]}>
                 <Col flex={'auto'}>
                   <Button
-                    onClick={actions.getResult}
+                    // onClick={dutyDistrActions}
                     isFill
                     colorVariant={'success'}
                     styleVariant={'solid'}>
@@ -70,6 +75,10 @@ const Duty_MonthDistrPage: FC<Props> = () => {
                 </Col>
                 <Col>
                   <Button
+                    onClick={() => docService.monthDistribution({
+                      date: '04.2025',
+                      body: result
+                    }, topLevelFractions)}
                     beforeIcon={<DownloadOutlined />}
                     styleVariant={'solid'}
                     colorVariant={'warning'}>

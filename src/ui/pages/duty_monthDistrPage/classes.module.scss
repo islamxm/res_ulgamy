@@ -4,3 +4,14 @@
 .day.active {
   background-color: red;
 }
+
+.wrapper {
+  // position: relative;
+
+  .body {
+    border-radius: 10px;
+    background-color: var(--dark_3);
+    background-color: #d2dbe2;
+    padding: 30px !important;
+  }
+}

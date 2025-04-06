@@ -1,4 +1,5 @@
-import { Person } from "@/models"
+import monthNames from "@/data/monthNames"
+import { Months, Person } from "@/models"
 const YogynCekimliler = ['a', 'o', 'u', 'y']
 const InceCekimliler = ['e', 'ä', 'ö', 'i', 'ü']
 
@@ -29,7 +30,7 @@ const grammarService = {
       value = `${firstName[0]}.${lastName}i`
     }
     return value.toUpperCase()
-  }
+  },
 }
 
 export default grammarService

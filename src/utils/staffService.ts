@@ -5,7 +5,7 @@ import grammar from "./grammarService"
 import personnel from "@/data/personnel"
 import fractions from "@/data/fractions"
 import positions from "@/data/positions"
-
+import { PersonCurrentState } from "@/models"
 
 
 const staffService = {
@@ -31,7 +31,7 @@ const staffService = {
   fracTreeFromFractionIdReversed(fractionId: number, dataBase: DataBase) {
     let arr: Fraction[] = []
     let parentFrac = dataBase.fractions.find(frac => frac.id === fractionId)
-    if(parentFrac) arr.push(parentFrac)
+    if (parentFrac) arr.push(parentFrac)
     this.getChild(fractionId, dataBase, e => arr = [...arr, ...e])
     return arr
   },
@@ -95,10 +95,12 @@ const staffService = {
 
   getLeaderOfFraction(fractionId: number, db: DataBase) {
     const { personnel, positions } = db
-    const pArr = positions.filter(person => person.fractionId === fractionId)
-    const headPos = pArr.find(p => p.isHeadOfFraction)
+    console.log(fractionId)
+    const positionsInSelectedFraction = positions.filter(position => position.fractionId === fractionId)
+    console.log(positionsInSelectedFraction)
+    const headPos = positionsInSelectedFraction.find(p => p.isHeadOfFraction)
     const person = personnel.find(p => p.positionId === headPos?.id)
-
+    console.log(person)
     if (person) {
       return person
     }
@@ -119,7 +121,7 @@ const staffService = {
     }
   },
 
-  getParent (parentId: number, cb: (...args: any[]) => void) {
+  getParent(parentId: number, cb: (...args: any[]) => void) {
     const parent = fractions.find(f => f.id === parentId)
     cb(parent)
     if (parent?.parentFractionId) {
@@ -128,9 +130,9 @@ const staffService = {
   },
 
   getCountOfPersonnelInFraction(fractionId: number, dataBase: DataBase) {
-    const {personnel} = dataBase
+    const { personnel } = dataBase
     const fracs = this.fracTreeFromFractionIdReversed(fractionId, dataBase)
-    let s:(PersonBB & PersonCB)[] = []
+    let s: (PersonBB & PersonCB)[] = []
     fracs.forEach(f => {
       s = [...s, ...personnel.filter(p => p.fractionId === f.id)]
     })
@@ -141,9 +143,9 @@ const staffService = {
   },
 
   getPersonnelInFraction(fractionId: number, dataBase: DataBase) {
-    const {personnel} = dataBase
+    const { personnel } = dataBase
     const fracs = this.fracTreeFromFractionIdReversed(fractionId, dataBase)
-    let s:(PersonBB & PersonCB)[] = []
+    let s: (PersonBB & PersonCB)[] = []
     fracs.forEach(f => {
       s = [...s, ...personnel.filter(p => p.fractionId === f.id)]
     })
@@ -151,6 +153,140 @@ const staffService = {
       cb: s.filter(v => v.rank?.contract === 'cb'),
       bb: s.filter(v => v.rank?.contract === 'bb')
     })
+  },
+
+  getCountOfPersonnelFromStatus(status: PersonCurrentState, staff: PersonCB[]) {
+    let count: number | undefined
+    if(status === 'hassahana') {
+      count = staff.filter(st => {
+        let result: boolean = false
+        if(st.status instanceof String) {
+          if(st.status === 'hassahana') {
+            result = true
+          } else result = false
+        } 
+        if(st.status instanceof Array) {
+          if(st.status.find(s => s === 'hassahana')) {
+            result = true
+          } else result = false
+        }
+        return result
+      }).length
+    }
+    if(status === 'tabsyryk') {
+      count = staff.filter(st => {
+        let result: boolean = false
+        if(st.status instanceof String) {
+          if(st.status === 'tabsyryk') {
+            result = true
+          } else result = false
+        } 
+        if(st.status instanceof Array) {
+          if(st.status.find(s => s === 'tabsyryk')) {
+            result = true
+          } else result = false
+        }
+        return result
+      }).length
+    }
+    if(status === 'tussag') {
+      count = staff.filter(st => {
+        let result: boolean = false
+        if(st.status instanceof String) {
+          if(st.status === 'tussag') {
+            result = true
+          } else result = false
+        } 
+        if(st.status instanceof Array) {
+          if(st.status.find(s => s === 'tussag')) {
+            result = true
+          } else result = false
+        }
+        return result
+      }).length
+    }
+    if(status === 'rugsat') {
+      count = staff.filter(st => {
+        let result: boolean = false
+        if(st.status instanceof String) {
+          if(st.status === 'rugsat') {
+            result = true
+          } else result = false
+        } 
+        if(st.status instanceof Array) {
+          if(st.status.find(s => s === 'rugsat')) {
+            result = true
+          } else result = false
+        }
+        return result
+      }).length
+    }
+    if(status === 'sapar') {
+      count = staff.filter(st => {
+        let result: boolean = false
+        if(st.status instanceof String) {
+          if(st.status === 'sapar') {
+            result = true
+          } else result = false
+        } 
+        if(st.status instanceof Array) {
+          if(st.status.find(s => s === 'sapar')) {
+            result = true
+          } else result = false
+        }
+        return result
+      }).length
+    }
+    if(status === 'sapara_gelen') {
+      count = staff.filter(st => {
+        let result: boolean = false
+        if(st.status instanceof String) {
+          if(st.status === 'sapara_gelen') {
+            result = true
+          } else result = false
+        } 
+        if(st.status instanceof Array) {
+          if(st.status.find(s => s === 'sapara_gelen')) {
+            result = true
+          } else result = false
+        }
+        return result
+      }).length
+    }
+    if(status === 'hbotg') {
+      count = staff.filter(st => {
+        let result: boolean = false
+        if(st.status instanceof String) {
+          if(st.status === 'hbotg') {
+            result = true
+          } else result = false
+        } 
+        if(st.status instanceof Array) {
+          if(st.status.find(s => s === 'hbotg')) {
+            result = true
+          } else result = false
+        }
+        return result
+      }).length
+    }
+    if(status === 'nyzamda') {
+      count = staff.filter(st => {
+        let result: boolean = false
+        if(st.status instanceof String) {
+          if(st.status === 'nyzamda') {
+            result = true
+          } else result = false
+        } 
+        if(st.status instanceof Array) {
+          if(st.status.find(s => s === 'nyzamda')) {
+            result = true
+          } else result = false
+        }
+        return result
+      }).length
+    }
+    
+    return count === 0 ? '' : count
   }
 }
 

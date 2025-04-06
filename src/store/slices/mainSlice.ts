@@ -6,13 +6,12 @@ import { DataBase } from "@/models";
 type InitialState = {
   isSidebarOpen: boolean,
   dataBase: DataBase,
-
-    
 }
 
 const initialState: InitialState = {
   isSidebarOpen: true,
-  dataBase: {
+  dataBase: { 
+    // personnel: HARD_DB.personnel.filter(person => person.rank?.contract !== 'bb'),
     personnel: HARD_DB.personnel,
     fractions: HARD_DB.fractions,
     positions: HARD_DB.positions,

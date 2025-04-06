@@ -57,7 +57,7 @@ const positions: Position[] = [
       "staffName": "Aragatnaşyk müdiri - wzwod serkerdesi"
     },
     "id": 39,
-    "fractionId": 15,
+    "fractionId": 55,
     "isHeadOfFraction": true
   },
   {

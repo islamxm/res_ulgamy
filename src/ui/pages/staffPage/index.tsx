@@ -3,12 +3,13 @@ import classes from './classes.module.scss'
 import { Row, Col, Table, Input, TableProps } from 'antd';
 import StaffSearch from './components/staffSearch';
 import { PersonCurrentState } from '@/models';
-import personnel from '@/data/personnel';
 import Rank from '@/ui/shared/rank';
 import posgen from '@/utils/staffService';
 import Status from '@/ui/shared/status';
 import { useDebounceValue } from 'usehooks-ts';
-
+import { useNavigate } from 'react-router';
+import { useSelector } from '@/store/hooks';
+import Button from '@/ui/shared/button';
 type Props = {
 
 }
@@ -61,6 +62,8 @@ const columns: TableProps<DataType>['columns'] = [
 ]
 
 const StaffPage: FC<Props> = () => {
+  const nav = useNavigate()
+  const {dataBase: {personnel}} = useSelector(s => s.main)
   const [data, setData] = useState<DataType[]>([])
   const [result, setResult] = useState<DataType[]>([])
   const [value, setValue] = useState('')
@@ -108,12 +111,21 @@ const StaffPage: FC<Props> = () => {
           />
         </Col>
         <Col span={24}>
+          <Row justify={"end"} gutter={[10,10]}>
+            <Col><Button onClick={() => nav('/staff/consumption')} styleVariant={'outlined'}>Şahsy düzümiň sanawy</Button></Col>
+          </Row>
+        </Col>
+        <Col span={24}>
           <Table
             <DataType>
             dataSource={result}
             columns={columns}
             pagination={false}
-            virtual
+            onRow={(record) => {
+              return {
+                onClick: () => nav(`/staff/${record.id}`) 
+              }
+            }}
           />
         </Col>
       </Row>

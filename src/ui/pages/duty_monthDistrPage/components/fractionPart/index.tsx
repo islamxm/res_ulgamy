@@ -1,33 +1,32 @@
-import { FC, ReactNode, useEffect, useState } from 'react';
-import { Row, Col } from 'antd';
-import Panel from '@/ui/shared/panel';
+import { FC, useEffect, useState } from 'react';
+import { Row, Col, Flex } from 'antd';
 import FractionBadge from '@/ui/shared/fractionBadge';
-import { Fraction, PersonFull } from '@/models';
+import { DistributionFrac, Fraction, PersonFull } from '@/models';
 import DutyPart from '../dutyPart';
 import Button from '@/ui/shared/button';
 import posgen from '@/utils/staffService';
-import { useSelector } from '@/store/hooks';
-import { ResultDataItem, useMonthDistrContext } from '../../useContext';
+import { useDispatch, useSelector } from '@/store/hooks';
 import SelectPersonModal from '../../modals/selectPersonModal';
 import useSwitcher from '@/hooks/useModal';
-import { Result } from '../../useContext';
 import { Duties } from '@/models/duty_models';
+import classes from './classes.module.scss'
+import { PlusOutlined } from '@ant-design/icons'
+import { dutyDistrActions } from '../../dutyDistrStoreSlice';
 
 type Props = {
   fraction: Fraction,
-  result: Result[],
 }
-
 
 const FractionPart: FC<Props> = ({
   fraction,
 }) => {
   const { dataBase } = useSelector(s => s.main)
-  const { actions, state } = useMonthDistrContext()
+  const {result} = useSelector(s => s.dutyDistr)
+  const dispatch = useDispatch()
   const [fractionPersonnel, setFractionPersonnel] = useState<PersonFull[]>([])
   const { isOpen, close, open, toggle } = useSwitcher(false)
-  const [editData, setEditData] = useState<ResultDataItem>()
-  const [data, setData] = useState<ResultDataItem[]>([])
+  const [editData, setEditData] = useState<DistributionFrac['data'][0]>()
+  const [data, setData] = useState<DistributionFrac['data']>([])
 
   useEffect(() => {
     fraction?.id && setFractionPersonnel(posgen.getPersonnelInFraction(fraction.id, dataBase).cb)
@@ -38,41 +37,35 @@ const FractionPart: FC<Props> = ({
     setEditData(data)
   }
 
-  // const closeModal = () => {
-  //   close()
-  //   setEditData(undefined)
-  // }
-
   const saveModal = (data: PersonFull[]) => {
     if (editData) {
-      actions.updateDutyGroup(fraction.id, {
+      dispatch(dutyDistrActions.updateDutyGroup({fractionId: fraction.id, data: {
         ...editData,
         data
-      })
+      }}))
     }
   }
 
   useEffect(() => {
-    if (state && fraction) {
-      setData(state.result.find(r => r.fractionId === fraction.id)?.data || [])
+    if (fraction) {
+      setData(result.find(r => r.fractionId === fraction.id)?.data || [])
     }
-  }, [state, fraction])
+  }, [fraction])
 
-
-  const saveDuties = (groupId: number, targets: Duties[]) => { 
+  const saveDuties = (groupId: number, targets: Duties[]) => {
     const d = data.find(f => f.id === groupId)
-    if(d) {
-      actions.updateDutyGroup(fraction.id, {
+    if (d) {
+      dispatch(dutyDistrActions.updateDutyGroup({fractionId: fraction.id, data: {
         ...d,
         targets
-      })
+      }}))
     }
   }
 
 
 
   return (
-    <Panel>
+    <div className={classes.wrapper}>
       <SelectPersonModal
         modalPorps={{
           open: isOpen,
@@ -92,20 +85,24 @@ const FractionPart: FC<Props> = ({
           <Col span={24} key={d.id}>
             <DutyPart
               openModal={() => openModal(d)}
-              saveDuties={(targets) => saveDuties(d.id, targets)}
-              deleteGroup={(groupId) => actions.deleteDutyGroupFromFraction(fraction.id, groupId)}
+              saveDuties={targets => saveDuties(d.id, targets)}
+              deleteGroup={groupId => dispatch(dutyDistrActions.deleteDutyGroupFromFraction({fractionId: fraction.id, groupId}))}
               data={d}
             />
           </Col>
         ))}
         <Col span={24}>
-          <Button
-            onClick={() => actions.addDutyGroupToFraction(fraction.id)}
-            styleVariant={'simple'}
-            isFill>Tabşyrygy goş</Button>
+          <Flex justify='center'>
+            <Button
+              beforeIcon={<PlusOutlined />}
+              onClick={() => dispatch(dutyDistrActions.addDutyGroupToFraction({fractionId: fraction.id}))}
+              styleVariant={'solid'}
+              colorVariant={'success'}
+            >Tabşyrygy goş</Button>
+          </Flex>
         </Col>
       </Row>
-    </Panel>
+    </div>
   )
 }
 

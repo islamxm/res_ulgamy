@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import classes from './classes.module.scss'
-import { Modal, Col, Row, ModalFuncProps } from 'antd';
+import { Modal, Col, Row, ModalFuncProps, Input } from 'antd';
 import { PersonFull } from '@/models';
 import Button from '@/ui/shared/button';
 import posgen from '@/utils/staffService';
@@ -22,7 +22,16 @@ const SelectPersonModal: FC<Props> = ({
   const [selected, setSelected] = useState<PersonFull[]>([])
   const { onCancel, ...restModalProps } = modalPorps || {}
   const [isMoving, setIsMoving] = useState(false)
+  const [searchVal, setSearchVal] = useState('')
+  const [filtered, setFiltered] = useState<PersonFull[]>([])
 
+  useEffect(() => setFiltered(fractionPersonnel), [fractionPersonnel])
+
+  useEffect(() => {
+    if(searchVal) {
+      setFiltered(fractionPersonnel.filter(f => `${f.name.partial.firstName} ${f.name.partial.lastName} ${f.name.partial.fatherName}`.toLowerCase().includes(searchVal.toLowerCase())))
+    } else setFiltered(fractionPersonnel)
+  }, [searchVal])
 
   useEffect(() => {
     setSelected(initialData)
@@ -52,6 +61,7 @@ const SelectPersonModal: FC<Props> = ({
   }
 
 
+
   return (
     <Modal
       {...restModalProps}
@@ -59,6 +69,15 @@ const SelectPersonModal: FC<Props> = ({
       onCancel={onClose}
     >
       <Row gutter={[10, 10]} className={classes.wrapper}>
+        <Col span={24}>
+          <Input
+            value={searchVal}
+            size={'large'}
+            // style={{width: '100%'}}
+            placeholder='Gözle'
+            onChange={e => setSearchVal(e.target.value)}
+            />
+        </Col>
         <Col
           onMouseLeave={() => setIsMoving(false)}
           onMouseDown={() => setIsMoving(true)}
@@ -67,7 +86,7 @@ const SelectPersonModal: FC<Props> = ({
           className={classes.body}>
           <Row gutter={[5, 5]}>
             {
-              fractionPersonnel.map(person => (
+              filtered.map(person => (
                 <Col key={person.id} span={24}>
                   <div onMouseMove={e => {
                     if(isMoving) {

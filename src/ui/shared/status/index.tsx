@@ -3,6 +3,7 @@ import { Col, Row, Tag } from 'antd';
 import { type PersonCurrentState as PCS } from '@/models';
 import { _personCurrentState } from '@/data/static';
 import { PresetColorType } from 'antd/es/_util/colors';
+import classes from './classes.module.scss'
 
 type Props = {
   status: PCS | PCS[]
@@ -30,7 +31,7 @@ const Status: FC<Props> = ({
         {
           status.map(stat => (
             <Col>
-              <Tag color={statusObj[stat].color}>{_personCurrentState[stat]}</Tag>
+              <Tag className={classes.tag} color={statusObj[stat].color}>{_personCurrentState[stat]}</Tag>
             </Col>
           ))
         }
@@ -38,7 +39,7 @@ const Status: FC<Props> = ({
     )
   } else {
     return (
-      <Tag color={statusObj[status].color}>{_personCurrentState[status]}</Tag>
+      <Tag className={classes.tag} color={statusObj[status].color}>{_personCurrentState[status]}</Tag>
     )
   }
 }

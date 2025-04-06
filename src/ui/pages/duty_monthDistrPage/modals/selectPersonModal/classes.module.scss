@@ -1,9 +1,10 @@
 .wrapper {
+  padding-top: 30px;
   .head {}
 
   .body {
     max-height: 450px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     .item {
       border-radius: 5px;
