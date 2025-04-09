@@ -11,10 +11,6 @@ type Props = {
 
 }
 
-
-
-
-
 const StaffPersonPage: FC<Props> = () => {
   const { dataBase: { personnel } } = useSelector(s => s.main)
   const { id } = useParams<{ id: string }>()
@@ -23,7 +19,6 @@ const StaffPersonPage: FC<Props> = () => {
   useEffect(() => {
     dispatch(staffPersonActions.getUserData({ id: Number(id), personnel }))
   }, [id])
-
 
   return (
     <div className={classes.wrapper}>

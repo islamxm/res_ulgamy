@@ -1,0 +1,59 @@
+.wrapper {
+  .duties {
+    .duty_tag {
+      font-size: 16px;
+      line-height: 18px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  }
+  .fractions {
+    .fraction {
+      background-color: var(--light_2);
+      padding: 10px;
+      border-radius: 10px;
+
+      .label {
+        font-weight: 500;
+      }
+      .days {
+        display: flex;
+        flex-wrap: wrap;
+
+        .day {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 5px;
+          background-color: #fff;
+          margin: 4px;
+          text-align: center;
+          transition: all .2s ease;
+          cursor: pointer;
+          border: 1px solid transparent;
+         
+
+          &:hover {
+            border-color: var(--light_3);
+          }
+
+          &:active {
+            transform: scale(0.95);
+          }
+        }
+        
+        .day.allDays {  
+          font-size: 10px;
+          line-height: 13px;
+        }
+
+        .day.active {
+          background-color: var(--info);
+          color: #fff;
+        }
+      }
+    }
+  }
+}

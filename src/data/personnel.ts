@@ -201,7 +201,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": "Hojaýewna"
       }
     },
-    "status": 'rugsat',
+    "status": ['rugsat'],
     "rank": {
       "contract": "bb",
       "rank": "leytenant"
@@ -220,7 +220,7 @@ const personnel:(PersonBB & PersonCB)[] = [
         "fatherName": ""
       }
     },
-    "status": 'rugsat',
+    "status": ['rugsat'],
     "rank": {
       "contract": "bb",
       "rank": "uly_serzhant"

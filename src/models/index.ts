@@ -8,6 +8,7 @@ export type DataBase = {
   positions: Position[]
 }
 
+
 export type Months = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11
 export type Weekdays = 0 | 1 | 2 | 3 | 4 | 5 | 6
 
@@ -85,7 +86,7 @@ export type Person<T = {}> = WithID<T & {
       fatherName?: string //Amanowic
     }
   },
-  status: PersonCurrentState | PersonCurrentState[]
+  status: PersonCurrentState[]
   positionId?: number
   fractionId?: number
   rank?: {
@@ -178,7 +179,7 @@ export type DocCategory = DocBase<{
 }>
 
 export type DistributionFrac = {
-  fractionId: number, 
+  fractionId: number,
   data: {
     id: number
     targets: Duties[]

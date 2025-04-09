@@ -10,7 +10,7 @@ import Status from '@/ui/shared/status'
 
 const MainCard: FC = () => {
   const { userData } = useSelector(s => s.staffPerson)
-  const {dataBase: {positions, fractions}} = useSelector(s => s.main)
+  const { dataBase: { positions, fractions } } = useSelector(s => s.main)
 
   if (userData) return (
     <div className={classes.wrapper}>
@@ -26,7 +26,7 @@ const MainCard: FC = () => {
           <Col span={24}>
             <BoxWithLabel label="Harby ady">
               <div className={classes.part}>
-                <Rank rank={userData.rank?.rank} contractType={userData.rank?.contract}/>
+                <Rank rank={userData.rank?.rank} contractType={userData.rank?.contract} />
               </div>
             </BoxWithLabel>
           </Col>
@@ -47,11 +47,7 @@ const MainCard: FC = () => {
           <Col span={24}>
             <BoxWithLabel label="Häzirki wagtda">
               <div className={classes.part}>
-                {
-                  typeof userData.status === 'object' ? (
-                    null
-                  ) : <Status status={userData.status}/>
-                }
+                <Status status={userData.status} />
               </div>
             </BoxWithLabel>
           </Col>

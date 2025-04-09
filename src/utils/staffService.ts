@@ -95,12 +95,9 @@ const staffService = {
 
   getLeaderOfFraction(fractionId: number, db: DataBase) {
     const { personnel, positions } = db
-    console.log(fractionId)
     const positionsInSelectedFraction = positions.filter(position => position.fractionId === fractionId)
-    console.log(positionsInSelectedFraction)
     const headPos = positionsInSelectedFraction.find(p => p.isHeadOfFraction)
     const person = personnel.find(p => p.positionId === headPos?.id)
-    console.log(person)
     if (person) {
       return person
     }

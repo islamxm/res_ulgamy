@@ -16,6 +16,9 @@ const DutyPage: FC<Props> = () => {
           <Button
             isFill
             styleVariant={'simple'}
+            link={{
+              to: '/duty/month_schedule'
+            }}
           >
             Bölümçeler boýunça reje (func: ???()) 
           </Button>
@@ -25,7 +28,7 @@ const DutyPage: FC<Props> = () => {
           <Button
             styleVariant={'simple'}
             link={{
-              to: '/duty/month_distr_page'
+              to: '/duty/month_distr'
             }}>
             Aýlyk tabşyryga goýbermek (func: distr())
           </Button>

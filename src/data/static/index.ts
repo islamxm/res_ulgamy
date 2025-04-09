@@ -6,8 +6,11 @@ type T = {
   _ranks: Record<Ranks, { fullName: string, shortName: string }>,
   _dutiesMap: Map<Duties, DutyData>,
   _documents: DocTemplate[]
-  _duties: Record<Duties, number>,
+  _duties: Set<Duties>,
+  _dutyGroups: Record<string, Duties[]>
+  [key: string]: any
 }
+
 
 const STATIC_DATA: T = {
   _personCurrentState: {
@@ -114,33 +117,33 @@ const STATIC_DATA: T = {
       fullName: 'Nobatçy bölümçe'
     }],
   ]),
-  _duties: {
-    ['Içerki garawul serkerdesiniň kömekçisi']: 1,
-    ['Içerki garawul çalşyryjy']: 2,
-    ['Içerki garawul sakçy']: 3,
-    ['Park gündeçisi']: 4,
-    ['Nobatçy çekiji']: 5,
-    ['Nobatçy awtoulag']: 6,
-    ['Garnizon garawullar boýunça nobatçyň kömekçisi']: 7,
-    ['Garnizon garawul serkerdesiniň kömekçisi']: 8,
-    ['Garnizon garawulynyň daşyna çykaryjysy']: 9,
-    ['Garnizon garawulynyň çalşyryjysy']: 10,
-    ['Garnizon garawul sakçy']: 11,
-    ['Barlag goýberiş nokadynyň nobatçysynyň kömekçisi']: 12,
-    ['Batareýa boýunça nobatçy']: 13,
-    ['Batareýa boýunça gündeçi']: 14,
-    ['Naharhana işçisi']: 15,
-    ['Nobatçy bölümçe']: 16,
-    ['Dolandyryş binasynyň nobatçysy']: 17,
-    ['Gatnadyjy']: 18,
-    ['Garnizon patrul']: 19,
-    ['Içerki patrul serkerdesi']: 20,
-    ['Içerki patrul']: 21,
-    ['Harby bölüm boýunça nobatçynyň tehniki serişdeler boýunça kömekçisi']: 22,
-    ["Barlag goýberiş nokadynyň nobatçysy"]: 23,
-    ['Garnizon patrul serkerdesi']: 24,
-    ['Naharhana boýunça nobatçy']: 25
-  },
+  _duties: new Set<Duties>([
+    'Içerki garawul serkerdesiniň kömekçisi',
+    'Içerki garawul çalşyryjy',
+    'Içerki garawul sakçy',
+    'Park gündeçisi',
+    'Nobatçy çekiji',
+    'Nobatçy awtoulag',
+    'Garnizon garawullar boýunça nobatçyň kömekçisi',
+    'Garnizon garawul serkerdesiniň kömekçisi',
+    'Garnizon garawulynyň daşyna çykaryjysy',
+    'Garnizon garawulynyň çalşyryjysy',
+    'Garnizon garawul sakçy',
+    'Barlag goýberiş nokadynyň nobatçysynyň kömekçisi',
+    'Batareýa boýunça nobatçy',
+    'Batareýa boýunça gündeçi',
+    'Naharhana işçisi',
+    'Nobatçy bölümçe',
+    'Dolandyryş binasynyň nobatçysy',
+    'Gatnadyjy',
+    'Garnizon patrul',
+    'Içerki patrul serkerdesi',
+    'Içerki patrul',
+    'Harby bölüm boýunça nobatçynyň tehniki serişdeler boýunça kömekçisi',
+    'Barlag goýberiş nokadynyň nobatçysy',
+    'Garnizon patrul serkerdesi',
+    'Naharhana boýunça nobatçy'
+  ]),
   _documents: [
     {
       id: 1,
@@ -151,8 +154,55 @@ const STATIC_DATA: T = {
       name: 'Rugsat habarnamasy',
       descr: 'Dynç güni tabşyrykda duranlygy sebäpli hepdäniň dowamynda 1 gün rugsat almak'
     }
-  ]
+  ],
+  _dutyGroups: {
+    ['Batareýa boýunça nobatçy we gündeçi']: [
+      'Batareýa boýunça gündeçi',
+      'Batareýa boýunça nobatçy'
+    ],
+    ['Içerki garawul']: [
+      'Içerki garawul sakçy',
+      'Içerki garawul serkerdesiniň kömekçisi',
+      'Içerki garawul çalşyryjy'
+    ],
+    ['Içerki patrul']: [
+      'Içerki patrul',
+      'Içerki patrul serkerdesi'
+    ],
+    ['Naharhana işçileri']: [
+      'Naharhana işçisi'
+    ],
+    ['Dolandyryş binasynyň çaparlary']: [
+      'Gatnadyjy',
+      'Dolandyryş binasynyň nobatçysy'
+    ],
+    ['Garnizon garawul']: [
+      'Garnizon garawul sakçy',
+      'Garnizon garawul serkerdesiniň kömekçisi',
+      'Garnizon garawulynyň daşyna çykaryjysy',
+      'Garnizon garawulynyň çalşyryjysy'
+    ],
+    ['Garnizon patrul']: [
+      'Garnizon patrul',
+    ],
+    ['Garnizon boýunça nobatçynyň kömekçisi']: [
+      'Garnizon garawullar boýunça nobatçyň kömekçisi'
+    ],
+    ['BGN boýunça nobatçynyň kömekçisi']: [
+      'Barlag goýberiş nokadynyň nobatçysynyň kömekçisi'
+    ],
+    ['Wideo gözegçiligiň operatory']: [
+      'Harby bölüm boýunça nobatçynyň tehniki serişdeler boýunça kömekçisi'
+    ],
+    ['Nobatçy bölümçe']: [
+      'Nobatçy bölümçe'
+    ],
+    ['Nobatçy çekiji']: [
+      'Nobatçy çekiji'
+    ]
+  }
 }
+
 
 export const { _personCurrentState, _ranks, _dutiesMap, _duties } = STATIC_DATA
 

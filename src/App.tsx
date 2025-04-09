@@ -7,6 +7,7 @@ import PageLayout from "@/ui/layouts/pageLayout"
 import store from "@/store/store"
 import SandboxPage from "./pages/_sanboxPage"
 import useGoStartWhenRootChange from "./hooks/useGoStartWhenRootChange"
+import Duty_monthSchedulePage from "./pages/duty_monthSchedulePage"
 
 // PAGES
 // import MainPage from "@/pages/mainPage"
@@ -41,8 +42,8 @@ const App = () => {
             <Route path="/staff/consumption" element={<Staff_ConsumptionPage />} />
 
             <Route path="/duty" element={<DutyPage />} />
-            <Route path="/duty/month_distr_page" element=
-              {<Duty_monthDistrPage />} />
+            <Route path="/duty/month_distr" element={<Duty_monthDistrPage />} />
+            <Route path="/duty/month_schedule" element={<Duty_monthSchedulePage />} />
 
             <Route path="/settings" element={<SettingsPage />} />
 

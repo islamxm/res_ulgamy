@@ -14,6 +14,7 @@ type Props = {
 
 }
 
+
 const Duty_MonthDistrPage: FC<Props> = () => {
   const {dataBase: {fractions}} = useSelector(s => s.main)
   const { month, topLevelFractions, result } = useSelector(s => s.dutyDistr)
@@ -23,6 +24,9 @@ const Duty_MonthDistrPage: FC<Props> = () => {
     if (fractions.length > 0) dispatch(dutyDistrActions.updateTopLevelFraction({fractions}))
   }, [fractions])
 
+  const saveResult = () => {
+    
+  }
 
   return (
     <div className={classes.wrapper}>
@@ -44,20 +48,15 @@ const Duty_MonthDistrPage: FC<Props> = () => {
         </Col>
         <Col className={classes.body} span={24}>
           <Row gutter={[10, 40]}>
-            {/* {
+            {
               topLevelFractions.map(fraction => (
-                <Col span={24}>
+                <Col key={fraction.id} span={24}>
                   <FractionPart
                     fraction={fraction}
                   />
                 </Col>
               ))
-            } */}
-            <Col span={24}>
-              <FractionPart
-                fraction={topLevelFractions[3]}
-                />
-            </Col>
+            }
           </Row>
         </Col>
         {
@@ -66,7 +65,7 @@ const Duty_MonthDistrPage: FC<Props> = () => {
               <Row gutter={[10, 10]}>
                 <Col flex={'auto'}>
                   <Button
-                    // onClick={dutyDistrActions}
+                    onClick={saveResult}
                     isFill
                     colorVariant={'success'}
                     styleVariant={'solid'}>

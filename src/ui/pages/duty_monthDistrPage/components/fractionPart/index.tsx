@@ -24,7 +24,7 @@ const FractionPart: FC<Props> = ({
   const {result} = useSelector(s => s.dutyDistr)
   const dispatch = useDispatch()
   const [fractionPersonnel, setFractionPersonnel] = useState<PersonFull[]>([])
-  const { isOpen, close, open, toggle } = useSwitcher(false)
+  const { isOpen, close, open } = useSwitcher(false)
   const [editData, setEditData] = useState<DistributionFrac['data'][0]>()
   const [data, setData] = useState<DistributionFrac['data']>([])
 
@@ -50,7 +50,7 @@ const FractionPart: FC<Props> = ({
     if (fraction) {
       setData(result.find(r => r.fractionId === fraction.id)?.data || [])
     }
-  }, [fraction])
+  }, [fraction, result])
 
   const saveDuties = (groupId: number, targets: Duties[]) => {
     const d = data.find(f => f.id === groupId)

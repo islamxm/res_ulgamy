@@ -43,7 +43,7 @@ export type AvilableDuty = {
 }
 
 type DataPerMonth<T extends Schedule | Distr> = {
-  date: string,
+  date: string, //date like MM.YYYY
   body: T
 }[]
 

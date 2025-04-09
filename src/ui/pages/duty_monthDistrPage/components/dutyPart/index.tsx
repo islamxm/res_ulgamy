@@ -36,7 +36,7 @@ const DutyPart: FC<Props> = ({
                   size={'large'}
                   style={{ width: '100%' }}
                   placeholder={'Tabşyryklary saýla'}
-                  options={Object.entries(_duties).map(f => ({ value: f[0], label: f[0] }))}
+                  options={Array.from(_duties).map(f => ({ value: f, label: f }))}
                   onChange={saveDuties}
                 />
               </Col>

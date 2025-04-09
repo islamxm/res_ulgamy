@@ -21,7 +21,7 @@ export const aprelMock: Distribution = {
                 "fatherName": ""
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "kici_serzhant"
@@ -40,7 +40,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Adylbekowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "serzhant"
@@ -67,7 +67,7 @@ export const aprelMock: Distribution = {
                 "fatherName": ""
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -86,7 +86,7 @@ export const aprelMock: Distribution = {
                 "fatherName": ""
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -105,7 +105,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Anwarowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -124,7 +124,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Myradowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -143,7 +143,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Nurberdiýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -162,7 +162,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Mämmetnurowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -181,7 +181,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Şiralyýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -200,7 +200,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Hydyrowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -219,7 +219,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Şamuhammedowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -238,7 +238,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Döwletgeldiýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -257,7 +257,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Burhanowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -276,7 +276,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Tolkunjanowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -295,7 +295,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Nurmuradowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -314,7 +314,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Döwletýarowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -333,7 +333,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Begmyradowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -362,7 +362,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Bahtiýarowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -381,7 +381,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Gaýgysyzowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -400,7 +400,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Altymuhammedowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -419,7 +419,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Bagtyýarowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -438,7 +438,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Nurgeldiýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -457,7 +457,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Sultanowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -476,7 +476,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Saparmyradowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -495,7 +495,7 @@ export const aprelMock: Distribution = {
                 "fatherName": ""
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -514,7 +514,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Ismailowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -533,7 +533,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Gurbanalyýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -552,7 +552,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Ýazgeldiýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -571,7 +571,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Merdan ogly"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -590,7 +590,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Dermankul ogly"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -609,7 +609,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Zakirjanowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -628,7 +628,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Seýduýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -647,7 +647,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Döwletowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -666,7 +666,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Maratowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -685,7 +685,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Gennadiýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -704,7 +704,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Amanberdiýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -723,7 +723,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Şatlykowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -742,7 +742,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Yslamowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -761,7 +761,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Toýlyýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -780,7 +780,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Nurgeldiýewiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -799,7 +799,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Bäşimmyradowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -818,7 +818,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Muhammedowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -837,7 +837,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Bagtyýarowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -856,7 +856,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Muhammetnazarowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -875,7 +875,7 @@ export const aprelMock: Distribution = {
                 "fatherName": "Agamyradowiç"
               }
             },
-            "status": "nyzamda",
+            "status": ["nyzamda"],
             "rank": {
               "contract": "cb",
               "rank": "hatarcy"
@@ -890,7 +890,8 @@ export const aprelMock: Distribution = {
   },
   {
     "fractionId": 29,
-    "data": [
+    "data":
+    [
       {
         "id": 1,
         "targets": [
@@ -908,7 +909,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -929,7 +930,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -950,7 +951,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -971,7 +972,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1000,7 +1001,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1021,7 +1022,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1042,7 +1043,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1074,7 +1075,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1095,7 +1096,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1116,7 +1117,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1137,7 +1138,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1158,7 +1159,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1179,7 +1180,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1200,7 +1201,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1221,7 +1222,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1242,7 +1243,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1263,7 +1264,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1284,7 +1285,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1305,7 +1306,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1326,7 +1327,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1347,7 +1348,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1368,7 +1369,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1389,7 +1390,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1410,7 +1411,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1439,7 +1440,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1460,7 +1461,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1481,7 +1482,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1502,7 +1503,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1523,7 +1524,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1544,7 +1545,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1573,7 +1574,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1594,7 +1595,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1615,7 +1616,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1636,7 +1637,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1657,7 +1658,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1678,7 +1679,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1699,7 +1700,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1720,7 +1721,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1741,7 +1742,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1762,7 +1763,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1791,7 +1792,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1812,7 +1813,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1833,7 +1834,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1854,7 +1855,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1875,7 +1876,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1896,7 +1897,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1917,7 +1918,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1938,7 +1939,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1959,7 +1960,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -1988,7 +1989,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2009,7 +2010,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2030,7 +2031,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2051,7 +2052,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2080,7 +2081,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2101,7 +2102,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2117,7 +2118,8 @@ export const aprelMock: Distribution = {
   },
   {
     "fractionId": 42,
-    "data": [
+    "data":
+    [
       {
         "id": 1,
         "targets": [
@@ -2135,7 +2137,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2156,7 +2158,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2177,7 +2179,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2198,7 +2200,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2219,7 +2221,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2248,7 +2250,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2269,7 +2271,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2290,7 +2292,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2311,7 +2313,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2332,7 +2334,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2353,7 +2355,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2374,7 +2376,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2395,7 +2397,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2416,7 +2418,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2437,7 +2439,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2458,7 +2460,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2479,7 +2481,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2500,7 +2502,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2531,7 +2533,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2552,7 +2554,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2573,7 +2575,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2594,7 +2596,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2615,7 +2617,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2636,7 +2638,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2657,7 +2659,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2686,7 +2688,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2707,7 +2709,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2728,7 +2730,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2749,7 +2751,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2770,7 +2772,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2799,7 +2801,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2820,7 +2822,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2841,7 +2843,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2862,7 +2864,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2883,7 +2885,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2904,7 +2906,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2925,7 +2927,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2946,7 +2948,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2967,7 +2969,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -2988,7 +2990,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3017,7 +3019,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3038,7 +3040,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3059,7 +3061,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3080,7 +3082,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3101,7 +3103,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3130,7 +3132,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3151,7 +3153,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3167,7 +3169,8 @@ export const aprelMock: Distribution = {
   },
   {
     "fractionId": 55,
-    "data": [
+    "data":
+    [
       {
         "id": 1,
         "targets": [
@@ -3185,7 +3188,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3206,7 +3209,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3235,7 +3238,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3267,7 +3270,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3288,7 +3291,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3309,7 +3312,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3330,7 +3333,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3351,7 +3354,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3372,7 +3375,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3393,7 +3396,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3414,7 +3417,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3435,7 +3438,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3456,7 +3459,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3477,7 +3480,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3498,7 +3501,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3519,7 +3522,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3540,7 +3543,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3561,7 +3564,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3577,7 +3580,8 @@ export const aprelMock: Distribution = {
   },
   {
     "fractionId": 60,
-    "data": [
+    "data": 
+    [
       {
         "id": 1,
         "targets": [
@@ -3598,7 +3602,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3619,7 +3623,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3640,7 +3644,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3661,7 +3665,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3682,7 +3686,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3703,7 +3707,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3724,7 +3728,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3745,7 +3749,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3766,7 +3770,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3787,7 +3791,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3808,7 +3812,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3829,7 +3833,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3850,7 +3854,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3871,7 +3875,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3900,7 +3904,7 @@ export const aprelMock: Distribution = {
               }
             },
             "status": [
-              "nyzamda"
+             "nyzamda"
             ],
             "rank": {
               "contract": "cb",
@@ -3917,7 +3921,7 @@ export const aprelMock: Distribution = {
 }
 
 export const distribution = []
-const distributions:Distribution[] = [
-  {...aprelMock}
+const distributions: Distribution[] = [
+  { ...aprelMock }
 ]
 export default distributions

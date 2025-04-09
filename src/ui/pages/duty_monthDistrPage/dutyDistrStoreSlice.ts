@@ -54,7 +54,7 @@ const dutyDistrSlice = createSlice({
       const frac = s.result.find(f => f.fractionId === fractionId)
       if (frac) {
         s.result = s.result.map(fraction => {
-          if (fraction.fractionId === frac.fractionId) {
+          if (fraction.fractionId === fractionId) {
             return ({
               fractionId: fraction.fractionId,
               data: fraction.data.filter(d => d.id !== groupId)
@@ -91,8 +91,8 @@ const dutyDistrSlice = createSlice({
       }
     },
 
-    updateTopLevelFraction: (s, {payload: {fractions}}: PayloadAction<{fractions: Fraction[]}>) => {
-      s.topLevelFractions = fractions.filter(fraction => fraction.isMainFrac) 
+    updateTopLevelFraction: (s, { payload: { fractions } }: PayloadAction<{ fractions: Fraction[] }>) => {
+      s.topLevelFractions = fractions.filter(fraction => fraction.isMainFrac)
     }
   }
 })

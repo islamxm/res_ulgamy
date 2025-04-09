@@ -6,7 +6,7 @@ import { PresetColorType } from 'antd/es/_util/colors';
 import classes from './classes.module.scss'
 
 type Props = {
-  status: PCS | PCS[]
+  status: PCS[]
 }
 
 const statusObj: Record<PCS, { color: PresetColorType }> = {
@@ -25,23 +25,18 @@ const statusObj: Record<PCS, { color: PresetColorType }> = {
 const Status: FC<Props> = ({
   status
 }) => {
-  if (status instanceof Array) {
-    return (
-      <Row gutter={[3, 3]}>
-        {
-          status.map(stat => (
-            <Col>
-              <Tag className={classes.tag} color={statusObj[stat].color}>{_personCurrentState[stat]}</Tag>
-            </Col>
-          ))
-        }
-      </Row>
-    )
-  } else {
-    return (
-      <Tag className={classes.tag} color={statusObj[status].color}>{_personCurrentState[status]}</Tag>
-    )
-  }
+  
+  return (
+    <Row gutter={[3, 3]}>
+      {
+        status.map(stat => (
+          <Col>
+            <Tag className={classes.tag} color={statusObj[stat].color}>{_personCurrentState[stat]}</Tag>
+          </Col>
+        ))
+      }
+    </Row>
+  )
 }
 
 export default Status;

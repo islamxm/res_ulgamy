@@ -20,6 +20,5 @@ const dutyGroups: DutyGroup[] = [
   {type: 14, name: 'Naharhana'},
   {type: 15, name: 'Nobatçy lukman'},
   {type: 16, name: 'Nobatçy awtoulag'},
-  {type: 17, name: 'Aragatnaşyk boguny'},
 ]
 export default dutyGroups;

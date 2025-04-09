@@ -1,0 +1,14 @@
+.wrapper {
+  .item {
+    padding: 5px 10px;
+    // font-weight: 500;
+    background-color: var(--light_2);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all .2s ease;
+
+    &:hover {
+      
+    }
+  }
+}
