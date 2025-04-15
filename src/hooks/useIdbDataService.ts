@@ -4,6 +4,18 @@ import { Distr, DistrStore, Schedule, ScheduleStore } from "@/models/duty_models
 import idbUtils from "@/utils/idbUtils"
 
 type Resolve<T> = (value: T) => any
+
+type Options<DataType, SuccessType, ErrorType> = {
+  db: IDBDatabase,
+  data: DataType,
+  onsuccess: (value: SuccessType) => void,
+  onerror?: (value: ErrorType) => void
+}
+
+type DefaultError = '[idb]: transaction error'
+
+type StandartAction<DataType, SuccessType, ErrorType = DefaultError> = (options: Options<DataType, SuccessType, ErrorType>) => void
+
 // type StandartAction<T, K> = (db: IDBDatabase, data?:T) => Promise<K> 
 
 const useIdbDataService = () => {
@@ -54,7 +66,7 @@ const useIdbDataService = () => {
       resolve(req.result)
     }
     req.onerror = () => reject('error')
-  }) 
+  })
 
   const getAllSchedules = (db: IDBDatabase) => new Promise((resolve: Resolve<ScheduleStore>, reject) => {
     let store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.schedules, 'readonly', db)
@@ -110,55 +122,87 @@ const useIdbDataService = () => {
     }
   })
 
-  const getDistribution = (db: IDBDatabase, id: number) => new Promise((resolve: Resolve<DistrStore[0]>, reject) => {
-    const store = idbUtils.getTransaction('distributions', 'readonly', db) 
-    let req = store.get(id)
-    req.onsuccess = () => resolve(req.result)
-    req.onerror = () => reject('error')
-  })
-
-  const addDistribution = (db: IDBDatabase, data: Pick<DistrStore[0], 'body' | 'date'>) => new Promise((resolve, reject) => {
-    const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.distributions, 'readwrite', db)
-    let req = store.add(data)
-    req.onsuccess = () => resolve(req.result)
-    req.onerror = () => reject('error')
-  })
-
-  const putDistribution = (db: IDBDatabase, data: DistrStore[0]) => new Promise((resolve, reject) => {
-    const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.distributions, 'readwrite', db)
-    let req = store.put(data)
-    req.onsuccess = () => resolve(req.result)
-    req.onerror = () => reject('error')
-  })
-
-  const getSchedule = (db: IDBDatabase, id: number) => new Promise((resolve:Resolve<ScheduleStore[0]>, reject) => {
+  const getSchedule: StandartAction<
+    number,
+    ScheduleStore[0]
+  > = ({ db, data, onsuccess, onerror }) => {
     const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.schedules, 'readonly', db)
-    let req = store.get(id)
-    req.onsuccess = () => resolve(req.result)
-    req.onerror = () => reject('error')
-  })
+    let r = store.get(data)
+    r.onsuccess = () => onsuccess(r.result)
+    r.onerror = () => onerror && onerror('[idb]: transaction error')
+  }
 
-  const addSchedule = (db: IDBDatabase, data: Pick<ScheduleStore[0], 'body' | 'date'>) => new Promise((resolve:Resolve<IDBValidKey>, reject) => {
+  const addSchedule: StandartAction<
+    Pick<ScheduleStore[0], 'body' | 'date'>,
+    IDBValidKey
+  > = ({db, data, onerror, onsuccess}) => {
     const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.schedules, 'readwrite', db)
-    let req = store.add(data)
-    req.onsuccess = () => resolve(req.result)
-    req.onerror = () => reject('error')
-  })
+    let r = store.add(data)
+    r.onsuccess = () => onsuccess(r.result)
+    r.onerror = () => onerror && onerror('[idb]: transaction error')
+  }
 
-  const putSchedule = (db: IDBDatabase, data: ScheduleStore[0]) => new Promise((resolve:Resolve<IDBValidKey>, reject) => {
+  const putSchedule: StandartAction<
+    ScheduleStore[0],
+    IDBValidKey
+  > = ({db, data, onsuccess, onerror}) => {
     const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.schedules, 'readwrite', db)
-    let req = store.put(data)
-    req.onsuccess = () => resolve(req.result)
-    req.onerror = () => reject('error')
-  })
+    let r = store.put(data)
+    r.onsuccess = () => onsuccess(r.result)
+    r.onerror = () => onerror && onerror('[idb]: transaction error')
+  }
 
-  const deleteSchedule = (db: IDBDatabase, id: number) => new Promise((resolve:Resolve<boolean>, reject) => {
+  const deleteSchedule: StandartAction<
+    number,
+    boolean,
+    false
+  > = ({db, data, onsuccess, onerror}) => {
     const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.schedules, 'readwrite', db)
-    let req = store.delete(id)
-    req.onsuccess = () => resolve(true)
-    req.onerror = () => reject(false)
-  })
+    let r = store.delete(data)
+    r.onsuccess = () => onsuccess(true)
+    r.onerror = () => onerror && onerror(false)
+  }
 
+  const getDistribution: StandartAction<
+    number,
+    DistrStore[0]
+  > = ({db, data, onsuccess, onerror}) => {
+    const store = idbUtils.getTransaction('distributions', 'readonly', db)
+    let r = store.get(data)
+    r.onsuccess = () => onsuccess(r.result)
+    r.onerror = () => onerror && onerror('[idb]: transaction error')
+  }
+
+  const addDistribution: StandartAction<
+    Pick<DistrStore[0], 'body' | 'date'>,
+    IDBValidKey
+  > = ({ db, data, onsuccess, onerror }) => {
+    const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.distributions, 'readwrite', db)
+    let r = store.add(data)
+    r.onsuccess = () => onsuccess(r.result)
+    r.onerror = () => onerror && onerror('[idb]: transaction error')
+  }
+
+  const putDistribution: StandartAction<
+    DistrStore[0],
+    IDBValidKey
+  > = ({ db, data, onsuccess, onerror }) => {
+    const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.distributions, 'readwrite', db)
+    let r = store.put(data)
+    r.onsuccess = () => onsuccess(r.result)
+    r.onerror = () => onerror && onerror('[idb]: transaction error')
+  }
+
+  const deleteDistribution: StandartAction<
+    number,
+    boolean,
+    false
+  > = ({ db, data, onsuccess, onerror }) => {
+    const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.distributions, 'readwrite', db)
+    let r = store.delete(data)
+    r.onsuccess = () => onsuccess(true)
+    r.onerror = () => onerror && onerror(false)
+  }
 
   return {
     getAllPersonnel,
@@ -171,13 +215,16 @@ const useIdbDataService = () => {
     updateProfile,
     deleteProfile,
     getProfile,
-    getDistribution,
-    addDistribution,
-    putDistribution,
+
     getSchedule,
     addSchedule,
     putSchedule,
-    deleteSchedule
+    deleteSchedule,
+
+    getDistribution,
+    addDistribution,
+    putDistribution,
+    deleteDistribution,
   }
 }
 

@@ -1,10 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { DataBase, DatabaseUpdateActionTypes } from "@/models";
-import { ScheduleStore } from "@/models/duty_models";
+import { DistrStore, ScheduleStore } from "@/models/duty_models";
+import { MessageInstance } from "antd/es/message/interface";
+import { message } from "antd";
 
 type InitialState = {
   isSidebarOpen: boolean,
   dataBase: DataBase,
+  messageApi: MessageInstance | undefined
 }
 
 const initialState: InitialState = {
@@ -15,7 +18,8 @@ const initialState: InitialState = {
     positions: [],
     distributions: [],
     schedules: []
-  }
+  },
+  messageApi: undefined 
 }
 
 const mainSlice = createSlice({
@@ -35,7 +39,7 @@ const mainSlice = createSlice({
       switch (payload.action) {
         case 'add':
           s.dataBase.schedules.push(payload.data)
-          break;
+          break
         case 'put':
           s.dataBase.schedules.map(schedule => {
             if (schedule.id === payload.data.id) {
@@ -44,18 +48,34 @@ const mainSlice = createSlice({
               return schedule
             }
           })
-          break;
+          break
         case 'delete':
-          s.dataBase.schedules.filter(schedule => schedule.id !== payload.data.id)
+          s.dataBase.schedules = s.dataBase.schedules.filter(schedule => schedule.id !== payload.data.id)
+          break
       }
     },
 
-    updateDistribution: (s, { payload }: PayloadAction<{ action: DatabaseUpdateActionTypes }>) => {
-      // switch(payload.action) {
-      //   case 'add':
-      //   case 'put':
-      //   case 'delete':
-      // }
+    updateDistribution: (s, { payload }: PayloadAction<{ action: DatabaseUpdateActionTypes, data: DistrStore[0] }>) => {
+      switch(payload.action) {
+        case 'add':
+          s.dataBase.distributions.push(payload.data)
+          break
+        case 'put':
+          s.dataBase.distributions.map(distr => {
+            if(distr.id === payload.data.id) {
+              return payload.data 
+            } else {
+              return distr
+            }
+          })
+          break
+        case 'delete':
+          s.dataBase.distributions = s.dataBase.distributions.filter(distr => distr.id !== payload.data.id)
+      }
+    },
+
+    updateMessageApi: (s, {payload}: PayloadAction<MessageInstance>) => {
+      s.messageApi = payload
     }
   }
 })
@@ -65,7 +85,9 @@ const { reducer, actions } = mainSlice
 export const {
   updateSidebarState,
   updateDataBase,
-  updateSchedule
+  updateSchedule,
+  updateDistribution,
+  updateMessageApi
 } = actions
 
 export default reducer

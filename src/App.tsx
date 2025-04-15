@@ -1,19 +1,18 @@
-import { lazy, useEffect, useState } from "react"
-import { Routes, Route, data } from "react-router"
+import { lazy, useEffect } from "react"
+import { Routes, Route } from "react-router"
 import { ConfigProvider as AntConfigProvider } from "antd"
 
 import PageLayout from "@/ui/layouts/pageLayout"
 import SandboxPage from "@/pages/_sanboxPage"
 import useGoStartWhenRootChange from "@/hooks/useGoStartWhenRootChange"
 import Duty_monthSchedulePage from "@/pages/duty_monthSchedulePage"
-import Button from "@/ui/shared/button"
 import useIdb from "./hooks/useIdb"
-import positions from "./data/positions"
-import { useSelector } from "./store/hooks"
-import useIdbDataService from "./hooks/useIdbDataService"
+
+import {message} from 'antd'
+import { useDispatch } from "./store/hooks"
+import { updateMessageApi } from "./store/slices/mainSlice"
 
 // PAGES
-// import MainPage from "@/pages/mainPage"
 const MainPage = lazy(() => import("@/pages/mainPage"))
 const DocsPage = lazy(() => import("@/pages/docsPage"))
 const StaffPage = lazy(() => import("@/pages/staffPage"))
@@ -24,9 +23,14 @@ const Staff_PersonPage = lazy(() => import('@/pages/staff_PersonPage'))
 const Staff_ConsumptionPage = lazy(() => import('@/pages/staff_ConsumptionPage'))
 
 const App = () => {
+  const [messageApi, messageHolder] = message.useMessage()
+  const dispatch = useDispatch()
   useGoStartWhenRootChange()
   useIdb()
 
+  useEffect(() => {
+    messageApi && dispatch(updateMessageApi(messageApi))
+  }, [messageApi]) 
 
   return (
     <AntConfigProvider
@@ -34,6 +38,7 @@ const App = () => {
         token: undefined
       }}
     >
+      {messageHolder}
       <PageLayout>
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -51,7 +56,6 @@ const App = () => {
           <Route path="/duty/month_schedule/:id" element={<Duty_monthSchedulePage />} />
 
           <Route path="/settings" element={<SettingsPage />} />
-
 
           <Route path="/_sb_" element={<SandboxPage />} />
         </Routes>

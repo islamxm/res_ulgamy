@@ -47,7 +47,8 @@ const Button: FC<Props> = ({
           isCircle && classes.circle,
           isFill && classes.fill,
           'flex-centered',
-          getClassesFromStylePresets([colorVariant, styleVariant, baseSize], classes)
+          getClassesFromStylePresets([colorVariant, styleVariant, baseSize], classes),
+          defaultButtonProps.disabled && classes.disabled
         ])}
         style={{
           ...defaultButtonProps.style,

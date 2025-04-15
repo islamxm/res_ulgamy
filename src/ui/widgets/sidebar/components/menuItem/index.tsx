@@ -7,6 +7,7 @@ type Props = {
   path: string,
   icon: ReactNode,
   isActive: boolean
+  isDisabled?: boolean
 }
 
 const MenuItem:FC<Props> = ({
@@ -14,7 +15,8 @@ const MenuItem:FC<Props> = ({
   title,
   path,
   icon,
-  isActive
+  isActive,
+  isDisabled
 }) => {
   return(
     <Button
@@ -25,6 +27,7 @@ const MenuItem:FC<Props> = ({
       beforeIcon={icon}
       children={title}
       isFill
+      disabled={isDisabled}
       />
   )
 }

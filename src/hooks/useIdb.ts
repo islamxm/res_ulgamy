@@ -175,18 +175,18 @@ const useIdb = () => {
         }
       })
     })
-    const p4 = new Promise((res, rej) => {
-      let distributionsStore = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.distributions, 'readwrite', database)
-      HARD_DB.distributions.forEach((distr, index) => {
-        let putReq = distributionsStore.put(distr)
-        putReq.onerror = () => rej('error filling')
-        if(index === HARD_DB.distributions.length - 1) {
-          putReq.onsuccess = () => res(putReq.result)
-        }
-      })
-    })
+    // const p4 = new Promise((res, rej) => {
+    //   let distributionsStore = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.distributions, 'readwrite', database)
+    //   HARD_DB.distributions.forEach((distr, index) => {
+    //     let putReq = distributionsStore.put(distr)
+    //     putReq.onerror = () => rej('error filling')
+    //     if(index === HARD_DB.distributions.length - 1) {
+    //       putReq.onsuccess = () => res(putReq.result)
+    //     }
+    //   })
+    // })
 
-    Promise.all([p1,p2,p3,p4]).then(r => {
+    Promise.all([p1,p2,p3]).then(r => {
       if(r.every(f => f)) {
         resolve(true)
       } else {

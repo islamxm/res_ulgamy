@@ -1,8 +1,8 @@
 import { CSSProperties, useEffect, useRef, useState } from "react"
 
-const useCollapse = () => {
+const useCollapse = (initValue?: boolean) => {
   const ref = useRef<HTMLDivElement>(null)
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(initValue)
   const [bodyStyle, setBodyStyle] = useState<CSSProperties>({height: 0})
   const [arrowStyle, setArrowStyle] = useState<CSSProperties>({transform: 'rotate(0)'})
 

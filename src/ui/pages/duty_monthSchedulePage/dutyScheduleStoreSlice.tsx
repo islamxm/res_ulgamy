@@ -13,62 +13,6 @@ type InitialState = {
   daysInMonth: number[]
 }
 
-const dataMock: InitialState['data'] = [
-  {
-    title: 'Batareýa boýunça nobatçy we gündeçi',
-    duties: ['Batareýa boýunça gündeçi', 'Batareýa boýunça nobatçy'],
-    body: [
-      {
-        fraction: {
-          id: 16,
-          isMainFrac: 1,
-          level: 'rota',
-          name: {
-            number: 1,
-            shortName: '1-nji ReAB',
-            staffName: '1-nji reaktiw artilleriýa batareýasy'
-          },
-          parentFractionId: 14
-        },
-        days: [1, 3, 5, 7]
-      },
-      {
-        fraction: {
-          id: 60,
-          isMainFrac: 1,
-          level: 'wzwod',
-          name: {
-            shortName: 'Üpjünçilik wzwody',
-            staffName: 'Üpjünçilik wzwody'
-          },
-          parentFractionId: 14
-        },
-        days: [20, 21, 22, 23, 24, 25, 26]
-      }
-    ]
-  },
-  {
-    title: 'Içerki patrul',
-    duties: ['Içerki patrul', 'Içerki patrul serkerdesi'],
-    body: [
-      {
-        fraction: {
-          id: 29,
-          isMainFrac: 1,
-          level: 'rota',
-          name: {
-            number: 2,
-            shortName: '2-nji ReAB',
-            staffName: '2-nji reaktiw artilleriýa batareýasy'
-          },
-          parentFractionId: 14
-        },
-        days: [1,10,20,30]
-      },
-    ]
-  }
-]
-
 const initialState: InitialState = {
   avilableDutyGroups: [],
   data: [],

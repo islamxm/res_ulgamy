@@ -21,7 +21,7 @@ const dutyDistrSlice = createSlice({
   initialState,
   reducers: {
     
-    updateMonth: (s, { payload }: PayloadAction<{ date: dayjs.Dayjs }>) => { s.month = payload.date },
+    updateMonth: (s, { payload }: PayloadAction<{ date: dayjs.Dayjs | undefined }>) => { s.month = payload.date },
 
     setInitResult: (s, {payload}: PayloadAction<{result: Distr}>) => {
       s.result = payload.result
@@ -99,7 +99,6 @@ const dutyDistrSlice = createSlice({
     updateTopLevelFraction: (s, { payload: { fractions } }: PayloadAction<{ fractions: Fraction[] }>) => {
       s.topLevelFractions = fractions.filter(fraction => fraction.isMainFrac)
     },
-
     
   }
 })

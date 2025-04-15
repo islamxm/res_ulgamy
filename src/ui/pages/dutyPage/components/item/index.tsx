@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import classes from './classes.module.scss'
 import { Col, Row } from 'antd';
 import setClassNames from '@/utils/setClassNames';
-import {PlusOutlined} from '@ant-design/icons'
+import {PlusOutlined, FlagOutlined} from '@ant-design/icons'
 import { Link, To } from 'react-router';
 
 type Props = {
@@ -11,6 +11,7 @@ type Props = {
   ex?: string,
   link: To,
   isAddButton?: boolean,
+  isDailyDuty?: boolean,
   onClick?: (...args:any[]) => any
 }
 
@@ -20,20 +21,21 @@ const Item: FC<Props> = ({
   ex,
   isAddButton,
   link,
-  onClick
+  onClick,
+  isDailyDuty
 }) => {
   if (isAddButton) {
     return (
-      <Link to={link} onClick={onClick} className={setClassNames([classes.wrapper, classes.add])}>
+      <Link to={link} onClick={onClick} className={setClassNames([classes.wrapper, classes.add, isDailyDuty && classes.dailyduty])}>
         <Row style={{height: '100%'}}>
           <Col span={24}>
             <div className={classes.icon}>
-              <PlusOutlined/>
+              {isDailyDuty ? <FlagOutlined/> : <PlusOutlined/>}
             </div>
           </Col>
           <Col span={24}>
             <div className={classes.date}>
-              Goşmak
+              {isDailyDuty ? 'Şü günki tabşyryklary düz' : 'Goşmak'}
             </div>
           </Col>
         </Row>

@@ -13,7 +13,6 @@ type Props = {
 
 const DutyPage: FC<Props> = () => {
   const { dataBase } = useSelector(s => s.main)
-  
 
   return (
     <div>
@@ -26,6 +25,7 @@ const DutyPage: FC<Props> = () => {
             {
               dataBase.schedules.map(schedule => (
                 <Item
+                  key={schedule.id}
                   link={`/duty/month_schedule/${schedule.id}`}
                   date={`${dayjs(schedule.date).format('YYYY')} ýyl`}
                   title={`${dateService.getMonthName(dayjs(schedule.date).month())}`}
@@ -46,6 +46,7 @@ const DutyPage: FC<Props> = () => {
             {
               dataBase.distributions.map(distribution => (
                 <Item
+                  key={distribution.id}
                   link={`/duty/month_distr/${distribution.id}`}
                   date={`${dayjs(distribution.date).format('YYYY')} ýyl`}
                   title={`${dateService.getMonthName(dayjs(distribution.date).month())}`}
@@ -58,19 +59,18 @@ const DutyPage: FC<Props> = () => {
             />
           </Part>
         </Col>
-        {/* <Col
+        <Col
           span={24}>
           <Part
-            title='Gündelik tabşyryga goýbermek'
+            title='Gündelik tabşyryklar'
           >
-            {
-
-            }
             <Item
+              isDailyDuty={true}
+              link={''}
               isAddButton
             />
           </Part>
-        </Col> */}
+        </Col>
       </Row>
     </div>
   )

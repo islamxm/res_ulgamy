@@ -19,7 +19,7 @@ const Part: FC<Props> = ({
     arrowStyle,
     isOpen,
     toggle
-  } = useCollapse()
+  } = useCollapse(true)
 
   return (
 

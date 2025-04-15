@@ -46,3 +46,10 @@
     line-height: 30px;
   }
 }
+
+.wrapper.dailyduty {
+  background-color: rgba(var(--warning_rgb), .5);
+  &:hover {
+    background-color: var(--warning);
+  }
+}

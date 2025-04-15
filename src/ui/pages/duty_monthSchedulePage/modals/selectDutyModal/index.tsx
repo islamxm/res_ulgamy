@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import classes from './classes.module.scss'
 import { ModalFuncProps, Modal, Row, Col } from 'antd'
 import  { _duties } from '@/data/static';
@@ -7,7 +7,7 @@ import { Duties } from '@/models/duty_models';
 
 type Props = {
   modalProps?: ModalFuncProps,
-  onSave: (...args:any[]) => any
+  onSave: (duties: Duties[]) => any
 }
 
 const SelectDutyModal: FC<Props> = ({
@@ -43,10 +43,9 @@ const SelectDutyModal: FC<Props> = ({
         <Row gutter={[5, 5]}>
           {
             Array.from(_duties).map(d => (
-              <Col span={24}>
+              <Col key={d} span={24}>
                 <Button
                   style={{textAlign: 'left'}}
-                  //@ts-ignore
                   onClick={() => onSelect(d)}
                   isFill
                   justify={'flex-start'}

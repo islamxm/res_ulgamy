@@ -9,7 +9,8 @@ type Props = {
     path: string,
     title: string,
     icon: ReactNode,
-    isActive: boolean
+    isActive: boolean,
+    isDisabled?: boolean
   }[]
 }
 

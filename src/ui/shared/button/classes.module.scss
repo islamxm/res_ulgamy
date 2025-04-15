@@ -1,3 +1,15 @@
+.wrapper.disabled {
+  filter: grayscale(1);
+  opacity: .5;
+  cursor: not-allowed;
+  touch-action: none;
+  // pointer-events: none;
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
 .wrapper {
   overflow: hidden;
   cursor: pointer;
@@ -20,7 +32,7 @@
   &:disabled {
     filter: grayscale(1);
     opacity: .5;
-    cursor:not-allowed;
+    cursor: not-allowed;
     touch-action: none;
 
     &:active {
@@ -34,13 +46,9 @@
     flex: 0 0 auto;
   }
 
-  .icon.before {
-     
-  }
+  .icon.before {}
 
-  .icon.after {
-
-  }
+  .icon.after {}
 }
 
 .wrapper.fill {
@@ -103,6 +111,7 @@
   color: var(--white);
   background-color: var(--dark_1);
   border-color: var(--dark_1);
+
   &:focus {
     outline-color: rgba(var(--dark_1_rgb), .5);
   }
@@ -112,6 +121,7 @@
   color: var(--white);
   background-color: var(--danger);
   border-color: var(--danger);
+
   &:focus {
     outline-color: rgba(var(--danger_rgb), .5);
   }
@@ -121,6 +131,7 @@
   color: var(--white);
   background-color: var(--success);
   border-color: var(--success);
+
   &:focus {
     outline-color: rgba(var(--success_rgb), .5);
   }
@@ -130,6 +141,7 @@
   color: var(--white);
   background-color: var(--info);
   border-color: var(--info);
+
   &:focus {
     outline-color: rgba(var(--info_rgb), .5);
   }
@@ -139,6 +151,7 @@
   color: var(--white);
   background-color: var(--warning);
   border-color: var(--warning);
+
   &:focus {
     outline-color: rgba(var(--warning_rgb), .5);
   }
@@ -146,9 +159,10 @@
 
 
 .wrapper.simple {
-  background-color: rgba(var(--light_2_rgb),.5);
+  background-color: rgba(var(--light_2_rgb), .5);
   border-color: transparent;
   outline: 3px solid transparent;
+
   &:focus {
     outline-color: rgba(var(--light_3_rgb));
   }
@@ -183,39 +197,44 @@
 .wrapper.outlined.primary {
   // border-color: var(--dark_1);
   color: var(--dark_1);
+
   &:focus {
-    outline-color: rgba(var(--dark_1_rgb),.3);
+    outline-color: rgba(var(--dark_1_rgb), .3);
   }
 }
 
 .wrapper.outlined.danger {
   border-color: var(--danger);
   color: var(--danger);
+
   &:focus {
-    outline-color: rgba(var(--danger_rgb),.3);
+    outline-color: rgba(var(--danger_rgb), .3);
   }
 }
 
 .wrapper.outlined.success {
   border-color: var(--success);
   color: var(--success);
+
   &:focus {
-    outline-color: rgba(var(--success_rgb),.3);
+    outline-color: rgba(var(--success_rgb), .3);
   }
 }
 
 .wrapper.outlined.info {
   border-color: var(--info);
   color: var(--info);
+
   &:focus {
-    outline-color: rgba(var(--info_rgb),.3);
+    outline-color: rgba(var(--info_rgb), .3);
   }
 }
 
 .wrapper.outlined.warning {
   border-color: var(--warning);
   color: var(--warning);
+
   &:focus {
-    outline-color: rgba(var(--warning_rgb),.3);
+    outline-color: rgba(var(--warning_rgb), .3);
   }
 }
