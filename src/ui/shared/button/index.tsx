@@ -13,7 +13,7 @@ type Props = PropsWithChildren<HTMLProps<HTMLButtonElement> & ComponentBaseProps
   beforeIcon?: ReactNode,
   afterIcon?: ReactNode,
   isFill?: boolean,
-  justify?: 'flex-start' | 'center' | 'flex-end',
+  justify?: 'flex-start' | 'center' | 'flex-end' | 'space-between',
   link?: {
     props?: HTMLProps<HTMLAnchorElement>
     to: To

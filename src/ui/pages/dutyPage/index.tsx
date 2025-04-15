@@ -1,6 +1,10 @@
 import { FC } from 'react';
-import Button from '@/ui/shared/button';
 import { Col, Row } from 'antd';
+import Part from './components/part';
+import { useSelector } from '@/store/hooks';
+import Item from './components/item';
+import dayjs from 'dayjs';
+import dateService from '@/utils/dateService';
 
 
 type Props = {
@@ -8,42 +12,65 @@ type Props = {
 }
 
 const DutyPage: FC<Props> = () => {
+  const { dataBase } = useSelector(s => s.main)
+  
+
   return (
     <div>
       <Row gutter={[10, 10]}>
         <Col
           span={24}>
-          <Button
-            isFill
-            styleVariant={'simple'}
-            link={{
-              to: '/duty/month_schedule'
-            }}
+          <Part
+            title='Bölümçeler boýunça reje'
           >
-            Bölümçeler boýunça reje (func: ???()) 
-          </Button>
+            {
+              dataBase.schedules.map(schedule => (
+                <Item
+                  link={`/duty/month_schedule/${schedule.id}`}
+                  date={`${dayjs(schedule.date).format('YYYY')} ýyl`}
+                  title={`${dateService.getMonthName(dayjs(schedule.date).month())}`}
+                />
+              ))
+            }
+            <Item
+              link={'/duty/month_schedule'}
+              isAddButton
+            />
+          </Part>
         </Col>
         <Col
           span={24}>
-          <Button
-            styleVariant={'simple'}
-            link={{
-              to: '/duty/month_distr'
-            }}>
-            Aýlyk tabşyryga goýbermek (func: distr())
-          </Button>
-        </Col>
-        <Col
-          span={24}>
-          <Button
-            isFill
-            styleVariant={'simple'}
+          <Part
+            title='Aýlyk tabşyryga goýbermek'
           >
-            Gündelik tabşyryga goýbermek {`(func: ???() --> disrt() --> status())`}
-          </Button>
+            {
+              dataBase.distributions.map(distribution => (
+                <Item
+                  link={`/duty/month_distr/${distribution.id}`}
+                  date={`${dayjs(distribution.date).format('YYYY')} ýyl`}
+                  title={`${dateService.getMonthName(dayjs(distribution.date).month())}`}
+                />
+              ))
+            }
+            <Item
+              link={'/duty/month_distr'}
+              isAddButton
+            />
+          </Part>
         </Col>
-        {/* <Col span={24}><Button>Bölümçeler boýunça reje</Button></Col> */}
-        {/* <Col span={24}><Button>Gündelik tabşyryklar</Button></Col> */}
+        {/* <Col
+          span={24}>
+          <Part
+            title='Gündelik tabşyryga goýbermek'
+          >
+            {
+
+            }
+            <Item
+              isAddButton
+            />
+          </Part>
+        </Col> */}
       </Row>
     </div>
   )

@@ -1,23 +1,24 @@
 import { FC, useEffect, useState } from 'react';
 import classes from './classes.module.scss'
 import { Col, Input, message, Row, Tag } from 'antd';
-import { MonthScheduleDataType } from '../..';
+import { Schedule } from '@/models/duty_models';
 import dayjs from 'dayjs';
 import setClassNames from '@/utils/setClassNames';
 import Button from '@/ui/shared/button';
-import { CopyOutlined, DeleteOutlined, DownloadOutlined, EditOutlined } from '@ant-design/icons'
+import { CopyOutlined, DeleteOutlined, DownloadOutlined, EditOutlined, CloseSquareOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from '@/store/hooks';
 import { dutyScheduleActions } from '../../dutyScheduleStoreSlice';
 
 type Props = {
   index: number
-  data: MonthScheduleDataType
+  data: Schedule[0]
 }
 
 const Group: FC<Props> = ({
   data,
   index
 }) => {
+  const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch()
   const dutySchedule = useSelector(s => s.dutySchedule)
 
@@ -31,18 +32,21 @@ const Group: FC<Props> = ({
     dispatch(dutyScheduleActions.copyDateScheme({
       days: dutySchedule.data[index].body.find(t => t.fraction.id === fractionId)?.days || []
     }))
-    // message.open({
-    //   content: 'Günler kopiýalandy',
-    //   icon: <CopyOutlined/>
-    // })
+    messageApi.success('Kopiýa alyndy')
   }
 
-  const paste = () => {
+  const paste = (fractionId: number) => {
+    dispatch(dutyScheduleActions.pasteDataScheme({index, fractionId}))
+    messageApi.success('Kopiýa goýuldy')
+  }
 
+  const clear = (fractionId: number) => {
+    dispatch(dutyScheduleActions.clearDateScheme({index, fractionId}))
   }
 
   return (
     <div className={classes.wrapper}>
+      {contextHolder}
       <Row gutter={[5, 5]}>
         <Col span={24}>
           <Row gutter={[5, 5]}>
@@ -99,11 +103,21 @@ const Group: FC<Props> = ({
                           </Col>
                           <Col span={24}>
                             <Button
-                              onClick={paste}
+                              onClick={() => paste(f.fraction.id)}
                               isFill
                               beforeIcon={<DownloadOutlined />}
                               baseSize={'small'}>
                               Kopiýany giriz
+                            </Button>
+                          </Col>
+                          <Col span={24}>
+                            <Button 
+                              onClick={() => clear(f.fraction.id)}
+                              beforeIcon={<CloseSquareOutlined/>}
+                              isFill
+                              baseSize='small'
+                              colorVariant={'danger'}>
+                              Saýlananlary aýyr
                             </Button>
                           </Col>
                         </Row>

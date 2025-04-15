@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from '@/store/hooks';
 import { staffPersonActions } from './staffPersonStoreSlice';
 import MainCard from './components/mainCard';
 import Calendar from './components/calendar';
+import useIdbDataService from '@/hooks/useIdbDataService';
 
 type Props = {
 
@@ -13,12 +14,17 @@ type Props = {
 
 const StaffPersonPage: FC<Props> = () => {
   const { dataBase: { personnel } } = useSelector(s => s.main)
+  const {database} = useSelector(s => s.db)
+  const {getProfile} = useIdbDataService()
   const { id } = useParams<{ id: string }>()
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(staffPersonActions.getUserData({ id: Number(id), personnel }))
-  }, [id])
+    if(database) getProfile(database, Number(id)).then(res => {
+      dispatch(staffPersonActions.setUserData(res))      
+    })
+    // dispatch(staffPersonActions.getUserData({ id: Number(id), personnel }))
+  }, [id, database])
 
   return (
     <div className={classes.wrapper}>

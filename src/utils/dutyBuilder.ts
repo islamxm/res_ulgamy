@@ -1,29 +1,58 @@
-import { DG_Bgn, DG_GP, DG_IP, DG_Naharhana, DG_Rota, DG_Shtab, Duties } from "@/models/duty_models"
+import { DG_Bgn, DG_GP, DG_IP, DG_Naharhana, DG_Rota, DG_Shtab, Duties, Schedule } from "@/models/duty_models"
 import dayjs from "dayjs"
 import { schedule } from "@/data/schedule"
 
 const dutyBuilder = {
 
-  //получение доступных нарядов из графика по подразделениям
-  filterSchedule(day: dayjs.Dayjs, data: typeof schedule = schedule) {
-    //работает с бд SCHEDULE src/data/schedule.ts
-    // результат функции это отражение нарядов на массив доступных подразделений
-    // 'rota boýunça gündeçi': [fractionId, fractionId, ...restFractionId]
-    let result: Partial<Record<string, number[]>> = {}
-    Array.from(data).map(f => {
-      const t = Object.entries(f[1])
-      t.forEach(w => {
-        const d = w[0]
-        if (w[1] === 'everyDay') {
-          result[d] = result[d] ? [...result[d], f[0]] : [f[0]]
-        }
-        if (w[1] instanceof Array) {
-          if (w[1].find(q => q.valueOf() === day.valueOf())) {
-            result[d] = result[d] ? [...result[d], f[0]] : [f[0]]
+  // //получение доступных нарядов из графика по подразделениям
+  // filterSchedule(day: dayjs.Dayjs, data: typeof schedule = schedule) {
+  //   //работает с бд SCHEDULE src/data/schedule.ts
+  //   // результат функции это отражение нарядов на массив доступных подразделений
+  //   // 'rota boýunça gündeçi': [fractionId, fractionId, ...restFractionId]
+  //   let result: Partial<Record<string, number[]>> = {}
+  //   Array.from(data).map(f => {
+  //     const t = Object.entries(f[1])
+  //     t.forEach(w => {
+  //       const d = w[0]
+  //       if (w[1] === 'everyDay') {
+  //         result[d] = result[d] ? [...result[d], f[0]] : [f[0]]
+  //       }
+  //       if (w[1] instanceof Array) {
+  //         if (w[1].find(q => q.valueOf() === day.valueOf())) {
+  //           result[d] = result[d] ? [...result[d], f[0]] : [f[0]]
+  //         }
+  //       }
+  //     })
+  //   })      
+  //   return result
+  // },
+
+  filterSchedule(data: Schedule, daysInMonth: number[]) {
+    //удаление пустых групп и дней
+    const modified = data.map(d => ({
+      ...d,
+      body: d.body.filter(f => f.days.length > 0)
+    })).filter(s => s.body.length > 0)
+
+    // разделение по дням месяца
+    let result = daysInMonth.map(day => {
+      let fractions: Set<number> = new Set()
+      let duties: Set<Duties> = new Set()
+      modified.forEach(group => {
+        for (let f of group.body) {
+          if (f.days.find(d => d === day)) {
+            fractions.add(f.fraction.id)
+            group.duties.forEach(duty => duties.add(duty))
           }
         }
       })
-    })      
+      return ({
+        day,
+        fractions: Array.from(fractions),
+        duties: Array.from(duties)
+      })
+    })
+
     return result
   },
 

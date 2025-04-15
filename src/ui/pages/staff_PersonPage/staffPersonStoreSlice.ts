@@ -18,6 +18,9 @@ const staffPersonStoreSlice = createSlice({
       s.userData = payload.personnel.find(person => person.id === payload.id)
     },
 
+    setUserData: (s, { payload }: PayloadAction<PersonFull>) => {
+      s.userData = payload
+    }
   }
 })
 

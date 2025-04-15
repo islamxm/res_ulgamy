@@ -8,5 +8,14 @@
     color: var(--dark_1);  
     font-size: 25px;
     line-height: 25px;
+
+    span {
+      border: 1px solid var(--light_2);
+      border-radius: 5px;
+      margin-left: 10px;
+      padding: 0 4px;
+      font-size: 15px;
+      color: var(--dark_2);
+    }
   }
 }

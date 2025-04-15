@@ -10,7 +10,7 @@ const dateService = {
   dateStringToNormalString(dateString: string):dayjs.Dayjs {
     return dayjs(dayjs(dateString).format('DD.MM.YYYY'))
   },
-  getMonthName(month: Months) {
+  getMonthName(month: Months | number) {
     return CONSTANTS.DATE.MONTH_NAMES[month]
   },
   getWeekdayName(weekday: Weekdays) {

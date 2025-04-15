@@ -1,70 +1,76 @@
 import { Fraction } from "@/models";
 
-export const fractions:Fraction[] = [
+export const fractions: Fraction[] = [
   {
     "id": 14,
     "name": {
       "staffName": "1-nji reaktiw-artilleriýa diwiziony",
       "shortName": "1-nji ReAD",
-      "number": 1,
+      "number": 1
     },
-    "level": "batalyon"
+    "level": "batalyon",
+    "isMainFrac": 0
   },
   {
     "id": 15,
     "name": {
       "staffName": "Dolandyryş bölümi",
-      "shortName": "DB",
+      "shortName": "DB"
     },
-    "parentFractionId": 14
+    "parentFractionId": 14,
+    "isMainFrac": 0
   },
   {
     "id": 16,
     "name": {
       "staffName": "1-nji reaktiw-artilleriýa batareýasy",
       "shortName": "1-nji ReAB",
-      "number": 1,
+      "number": 1
     },
     "level": "rota",
     "parentFractionId": 14,
-    "isMainFrac": true
+    "isMainFrac": 1
   },
   {
     "id": 17,
     "name": {
       "staffName": "1-nji reaktiw artilleriýa wzwody",
       "shortName": "1-nji ReAW",
-      "number": 1,
+      "number": 1
     },
     "level": "wzwod",
-    "parentFractionId": 16
+    "parentFractionId": 16,
+    "isMainFrac": 0
   },
   {
     "id": 18,
     "name": {
       "staffName": "1-nji hasap",
       "shortName": "1-nji hasap",
-      "number": 1,
+      "number": 1
     },
-    "parentFractionId": 17
+    "parentFractionId": 17,
+    "isMainFrac": 0
   },
   {
     "id": 19,
     "name": {
       "staffName": "2-nji hasap",
       "shortName": "2-nji hasap",
-      "number": 2,
+      "number": 2
     },
-    "parentFractionId": 17
+    "parentFractionId": 17,
+    "isMainFrac": 0
   },
   {
     "id": 20,
     "name": {
       "staffName": "3-nji hasap",
       "shortName": "3-nji hasap",
-      "number": 3,
+      "number": 3
     },
-    "parentFractionId": 17
+    "parentFractionId": 17,
+    "isMainFrac": 0
   },
   {
     "id": 21,
@@ -74,396 +80,435 @@ export const fractions:Fraction[] = [
       "number": 2
     },
     "level": "wzwod",
-    "parentFractionId": 16
+    "parentFractionId": 16,
+    "isMainFrac": 0
   },
   {
     "id": 22,
     "name": {
       "staffName": "4-nji hasap",
       "shortName": "4-nji hasap",
-      "number": 4,
+      "number": 4
     },
-    "parentFractionId": 21
+    "parentFractionId": 21,
+    "isMainFrac": 0
   },
   {
     "id": 23,
     "name": {
       "staffName": "5-nji hasap",
       "shortName": "5-nji hasap",
-      "number": 5,
+      "number": 5
     },
-    "parentFractionId": 21
+    "parentFractionId": 21,
+    "isMainFrac": 0
   },
   {
     "id": 24,
     "name": {
       "staffName": "6-njy hasap",
       "shortName": "6-nji hasap",
-      "number": 6,
+      "number": 6
     },
-    "parentFractionId": 21
+    "parentFractionId": 21,
+    "isMainFrac": 0
   },
   {
     "id": 25,
     "name": {
       "staffName": "Ok-däri daşaýjy bölümçe",
-      "shortName": "Ok-däri daşaýjy bölümçe",
+      "shortName": "Ok-däri daşaýjy bölümçe"
     },
     "level": "bolumce",
-    "parentFractionId": 21
+    "parentFractionId": 21,
+    "isMainFrac": 0
   },
   {
     "id": 26,
     "name": {
       "staffName": "Dolandyryş wzwody",
-      "shortName": "DW",
+      "shortName": "DW"
     },
     "level": "wzwod",
-    "parentFractionId": 16
+    "parentFractionId": 16,
+    "isMainFrac": 0
   },
   {
     "id": 27,
     "name": {
       "staffName": "Dolandyryş bölümçesi (batareýa serkerdesiniňki)",
-      "shortName": "Dolandyryş bölümçesi (batareýa serkerdesiniňki)",
+      "shortName": "Dolandyryş bölümçesi (batareýa serkerdesiniňki)"
     },
     "level": "bolumce",
-    "parentFractionId": 26
+    "parentFractionId": 26,
+    "isMainFrac": 0
   },
   {
     "id": 28,
     "name": {
       "staffName": "Dolandyryş bölümçesi",
-      "shortName": "Dolandyryş bölümçesi",
+      "shortName": "Dolandyryş bölümçesi"
     },
     "level": "bolumce",
-    "parentFractionId": 26
+    "parentFractionId": 26,
+    "isMainFrac": 0
   },
   {
     "id": 29,
     "name": {
       "staffName": "2-nji reaktiw artilleriýa batareýasy",
       "shortName": "2-nji ReAB",
-      "number": 2,
+      "number": 2
     },
     "level": "rota",
     "parentFractionId": 14,
-    "isMainFrac": true
+    "isMainFrac": 1
   },
   {
     "id": 30,
     "name": {
       "staffName": "1-nji reaktiw artilleriýa wzwody",
       "shortName": "1-nji ReAW",
-      "number": 1,
+      "number": 1
     },
     "level": "wzwod",
-    "parentFractionId": 29
+    "parentFractionId": 29,
+    "isMainFrac": 0
   },
   {
     "id": 31,
     "name": {
       "staffName": "1-nji hasap",
       "shortName": "1-nji hasap",
-      "number": 1,
+      "number": 1
     },
-    "parentFractionId": 30
+    "parentFractionId": 30,
+    "isMainFrac": 0
   },
   {
     "id": 32,
     "name": {
       "staffName": "2-nji hasap",
       "shortName": "2-nji hasap",
-      "number": 2,
+      "number": 2
     },
-    "parentFractionId": 30
+    "parentFractionId": 30,
+    "isMainFrac": 0
   },
   {
     "id": 33,
     "name": {
       "staffName": "3-nji hasap",
       "shortName": "3-nji hasap",
-      "number": 3,
+      "number": 3
     },
-    "parentFractionId": 30
+    "parentFractionId": 30,
+    "isMainFrac": 0
   },
   {
     "id": 34,
     "name": {
       "staffName": "2-nji reaktiw artilleriýa wzwody",
       "shortName": "2-nji ReAW",
-      "number": 2,
+      "number": 2
     },
     "level": "wzwod",
-    "parentFractionId": 29
+    "parentFractionId": 29,
+    "isMainFrac": 0
   },
   {
     "id": 35,
     "name": {
       "staffName": "4-nji hasap",
       "shortName": "4-nji hasap",
-      "number": 4,
+      "number": 4
     },
-    "parentFractionId": 34
+    "parentFractionId": 34,
+    "isMainFrac": 0
   },
   {
     "id": 36,
     "name": {
       "staffName": "5-nji hasap",
       "shortName": "5-nji hasap",
-      "number": 5,
+      "number": 5
     },
-    "parentFractionId": 34
+    "parentFractionId": 34,
+    "isMainFrac": 0
   },
   {
     "id": 37,
     "name": {
       "staffName": "6-njy hasap",
       "shortName": "6-njy hasap",
-      "number": 6,
+      "number": 6
     },
-    "parentFractionId": 34
+    "parentFractionId": 34,
+    "isMainFrac": 0
   },
   {
     "id": 38,
     "name": {
       "staffName": "Ok-däri daşaýjy bölümçe",
-      "shortName": "Ok-däri daşaýjy bölümçe",
+      "shortName": "Ok-däri daşaýjy bölümçe"
     },
     "level": "bolumce",
-    "parentFractionId": 34
+    "parentFractionId": 34,
+    "isMainFrac": 0
   },
   {
     "id": 39,
     "name": {
       "staffName": "Dolandyryş wzwody",
-      "shortName": "DW",
+      "shortName": "DW"
     },
     "level": "wzwod",
-    "parentFractionId": 29
+    "parentFractionId": 29,
+    "isMainFrac": 0
   },
   {
     "id": 40,
     "name": {
       "staffName": "Dolandyryş bölümçesi (batareýa serkerdesiniňki)",
-      "shortName": "Dolandyryş bölümçesi (batareýa serkerdesiniňki)",
+      "shortName": "Dolandyryş bölümçesi (batareýa serkerdesiniňki)"
     },
     "level": "bolumce",
-    "parentFractionId": 39
+    "parentFractionId": 39,
+    "isMainFrac": 0
   },
   {
     "id": 41,
     "name": {
       "staffName": "Dolandyryş bölümçesi",
-      "shortName": "Dolandyryş bölümçesi",
+      "shortName": "Dolandyryş bölümçesi"
     },
     "level": "bolumce",
-    "parentFractionId": 39
+    "parentFractionId": 39,
+    "isMainFrac": 0
   },
   {
     "id": 42,
     "name": {
       "staffName": "3-nji reaktiw artilleriýa batareýasy",
       "shortName": "3-nji ReAB",
-      "number": 3,
+      "number": 3
     },
     "level": "rota",
     "parentFractionId": 14,
-    "isMainFrac": true
+    "isMainFrac": 1
   },
   {
     "id": 43,
     "name": {
       "staffName": "1-nji reaktiw artilleriýa wzwody",
       "shortName": "1-nji ReAW",
-      "number": 1,
+      "number": 1
     },
     "level": "wzwod",
-    "parentFractionId": 42
+    "parentFractionId": 42,
+    "isMainFrac": 0
   },
   {
     "id": 44,
     "name": {
       "staffName": "1-nji hasap",
       "shortName": "1-nji hasap",
-      "number": 1,
+      "number": 1
     },
-    "parentFractionId": 43
+    "parentFractionId": 43,
+    "isMainFrac": 0
   },
   {
     "id": 45,
     "name": {
       "staffName": "2-nji hasap",
       "shortName": "2-nji hasap",
-      "number": 2,
+      "number": 2
     },
-    "parentFractionId": 43
+    "parentFractionId": 43,
+    "isMainFrac": 0
   },
   {
     "id": 46,
     "name": {
       "staffName": "3-nji hasap",
       "shortName": "3-nji hasap",
-      "number": 3,
+      "number": 3
     },
-    "parentFractionId": 43
+    "parentFractionId": 43,
+    "isMainFrac": 0
   },
   {
     "id": 47,
     "name": {
       "staffName": "2-nji reaktiw artilleriýa wzwody",
       "shortName": "2-nji ReAW",
-      "number": 2,
+      "number": 2
     },
     "level": "wzwod",
-    "parentFractionId": 42
+    "parentFractionId": 42,
+    "isMainFrac": 0
   },
   {
     "id": 48,
     "name": {
       "staffName": "4-nji hasap",
       "shortName": "4-nji hasap",
-      "number": 4,
+      "number": 4
     },
-    "parentFractionId": 47
+    "parentFractionId": 47,
+    "isMainFrac": 0
   },
   {
     "id": 49,
     "name": {
       "staffName": "5-nji hasap",
       "shortName": "5-nji hasap",
-      "number": 5,
+      "number": 5
     },
-    "parentFractionId": 47
+    "parentFractionId": 47,
+    "isMainFrac": 0
   },
   {
     "id": 50,
     "name": {
       "staffName": "6-njy hasap",
       "shortName": "6-njy hasap",
-      "number": 6,
+      "number": 6
     },
-    "parentFractionId": 47
+    "parentFractionId": 47,
+    "isMainFrac": 0
   },
   {
     "id": 51,
     "name": {
       "staffName": "Ok-däri daşaýjy bölümçe",
-      "shortName": "Ok-däri daşaýjy bölümçe",
+      "shortName": "Ok-däri daşaýjy bölümçe"
     },
     "level": "bolumce",
-    "parentFractionId": 47
+    "parentFractionId": 47,
+    "isMainFrac": 0
   },
   {
     "id": 52,
     "name": {
       "staffName": "Dolandyryş wzwody",
-      "shortName": "DW",
+      "shortName": "DW"
     },
     "level": "wzwod",
-    "parentFractionId": 42
+    "parentFractionId": 42,
+    "isMainFrac": 0
   },
   {
     "id": 53,
     "name": {
       "staffName": "Dolandyryş bölümçesi (batareýa serkerdesiniňki)",
-      "shortName": "Dolandyryş bölümçesi (batareýa serkerdesiniňki)",
+      "shortName": "Dolandyryş bölümçesi (batareýa serkerdesiniňki)"
     },
     "level": "bolumce",
-    "parentFractionId": 52
+    "parentFractionId": 52,
+    "isMainFrac": 0
   },
   {
     "id": 54,
     "name": {
       "staffName": "Dolandyryş bölümçesi",
-      "shortName": "Dolandyryş bölümçesi",
+      "shortName": "Dolandyryş bölümçesi"
     },
     "level": "bolumce",
-    "parentFractionId": 52
+    "parentFractionId": 52,
+    "isMainFrac": 0
   },
   {
     "id": 55,
     "name": {
       "staffName": "Diwizionyň dolandyryş wzwody",
-      "shortName": "Dolandyryş wzwody",
+      "shortName": "Dolandyryş wzwody"
     },
     "level": "wzwod",
-    "isMainFrac": true,
+    "isMainFrac": 1,
     "parentFractionId": 14
   },
   {
     "id": 56,
     "name": {
       "staffName": "Dolandyryş bölümçesi (diwizionyň serkerdesiniňki)",
-      "shortName": "Dolandyryş bölümçesi (diwizionyň serkerdesiniňki)",
+      "shortName": "Dolandyryş bölümçesi (diwizionyň serkerdesiniňki)"
     },
     "level": "bolumce",
-    "parentFractionId": 55
+    "parentFractionId": 55,
+    "isMainFrac": 0
   },
   {
     "id": 57,
     "name": {
       "staffName": "Dolandyryş bölümçesi (diwizionyň dolandyryş bölüminiňki)",
-      "shortName": "Dolandyryş bölümçesi (diwizionyň dolandyryş bölüminiňki)",
+      "shortName": "Dolandyryş bölümçesi (diwizionyň dolandyryş bölüminiňki)"
     },
     "level": "bolumce",
-    "parentFractionId": 55
+    "parentFractionId": 55,
+    "isMainFrac": 0
   },
   {
     "id": 58,
     "name": {
       "staffName": "Artilleriýa razwedka bölümçesi",
-      "shortName": "Artilleriýa razwedka bölümçesi",
+      "shortName": "Artilleriýa razwedka bölümçesi"
     },
     "level": "bolumce",
-    "parentFractionId": 55
+    "parentFractionId": 55,
+    "isMainFrac": 0
   },
   {
     "id": 59,
     "name": {
       "staffName": "Dolandyryş bölümçesi",
-      "shortName": "Dolandyryş bölümçesi",
+      "shortName": "Dolandyryş bölümçesi"
     },
     "level": "bolumce",
-    "parentFractionId": 55
+    "parentFractionId": 55,
+    "isMainFrac": 0
   },
   {
     "id": 60,
     "name": {
       "staffName": "Üpjünçilik wzwody",
-      "shortName": "Üpjünçilik wzwody",
+      "shortName": "Üpjünçilik wzwody"
     },
     "level": "wzwod",
     "parentFractionId": 14,
-    "isMainFrac": true
+    "isMainFrac": 1
   },
   {
     "id": 61,
     "name": {
       "staffName": "Tehniki hyzmat ediş bölümçesi",
-      "shortName": "Tehniki hyzmat ediş bölümçesi",
+      "shortName": "Tehniki hyzmat ediş bölümçesi"
     },
     "level": "bolumce",
-    "parentFractionId": 60
+    "parentFractionId": 60,
+    "isMainFrac": 0
   },
   {
     "id": 62,
     "name": {
       "staffName": "Awtomobil bölümçesi",
-      "shortName": "Awtomobil bölümçesi",
+      "shortName": "Awtomobil bölümçesi"
     },
     "level": "bolumce",
-    "parentFractionId": 60
+    "parentFractionId": 60,
+    "isMainFrac": 0
   },
   {
     "id": 63,
     "name": {
       "staffName": "Hojalyk bölümçesi",
-      "shortName": "Hojalyk bölümçesi",
+      "shortName": "Hojalyk bölümçesi"
     },
     "level": "bolumce",
-    "parentFractionId": 60
-  },
+    "parentFractionId": 60,
+    "isMainFrac": 0
+  }
 ]
 
 export default fractions

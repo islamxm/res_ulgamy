@@ -1,11 +1,13 @@
 import dayjs from "dayjs"
-import { AvilableDuty, Duties } from "./duty_models"
+import { AvilableDuty, DistrStore, Duties, ScheduleStore } from "./duty_models"
 
 // GLOBAL=====
 export type DataBase = {
   personnel: (PersonCB | PersonBB)[],
   fractions: Fraction[],
-  positions: Position[]
+  positions: Position[],
+  distributions: DistrStore,
+  schedules: ScheduleStore
 }
 
 
@@ -56,7 +58,7 @@ export type Fraction = WithID<{
   },
   parentFractionId?: number,
   level?: FractionLevel,
-  isMainFrac?: boolean
+  isMainFrac: 1 | 0
 }>
 
 /**
@@ -71,7 +73,7 @@ export type Position = WithID<{
     fullName?: string
   },
   isChaining?: boolean //eýeleýän wezipesini dine useName - dan almalymy ýa-da funksiýanyň kömegi bilen. false = 1, true = 2
-  isHeadOfFraction?: boolean
+  isHeadOfFraction: 1 | 0
 }>
 
 /**
@@ -178,16 +180,5 @@ export type DocCategory = DocBase<{
   children?: (DocCategory & DocTemplate)[]
 }>
 
-export type DistributionFrac = {
-  fractionId: number,
-  data: {
-    id: number
-    targets: Duties[]
-    data: PersonFull[]
-  }[]
-}
 
-export type Distribution = {
-  date: string //MM.YYYY
-  body: DistributionFrac[]
-}
+export type DatabaseUpdateActionTypes = 'put' | 'add' | 'delete'

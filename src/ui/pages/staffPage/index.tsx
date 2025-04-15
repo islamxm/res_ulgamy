@@ -10,6 +10,7 @@ import { useDebounceValue } from 'usehooks-ts';
 import { useNavigate } from 'react-router';
 import { useSelector } from '@/store/hooks';
 import Button from '@/ui/shared/button';
+import useIdbDataService from '@/hooks/useIdbDataService';
 type Props = {
 
 }
@@ -20,7 +21,7 @@ type DataType = {
   rank: ReactNode,
   name: string,
   fraction: string,
-  status: PersonCurrentState | PersonCurrentState[]
+  status: PersonCurrentState[]
 }
 
 const columns: TableProps<DataType>['columns'] = [
@@ -63,14 +64,16 @@ const columns: TableProps<DataType>['columns'] = [
 
 const StaffPage: FC<Props> = () => {
   const nav = useNavigate()
-  const {dataBase: {personnel}} = useSelector(s => s.main)
+  const { dataBase: {personnel} } = useSelector(s => s.main)
+  const { database } = useSelector(s => s.db)
+  const idbDataService = useIdbDataService()
   const [data, setData] = useState<DataType[]>([])
   const [result, setResult] = useState<DataType[]>([])
   const [value, setValue] = useState('')
-  const [debValue] = useDebounceValue(value, 500)  
+  const [debValue] = useDebounceValue(value, 500)
 
   useEffect(() => {
-    if(value === '') {
+    if (value === '') {
       setResult(data)
     }
   }, [value])
@@ -81,19 +84,21 @@ const StaffPage: FC<Props> = () => {
       tb: person.id,
       rank: <Rank rank={person?.rank?.rank} contractType={person?.rank?.contract} />,
       name: `${person.name.partial.lastName} ${person.name.partial.firstName} ${person.name.partial?.fatherName ?? ''}`,
-      fraction: posgen.getFullPosition(person.id),
+      fraction: posgen.fracTreeFromPersonId(person.id)[posgen.fracTreeFromPersonId(person.id).length - 1].name.staffName,
       status: person.status,
       key: person.id
     }))
     setData(f)
-  }, [])
+  }, [personnel])
+
+
 
   useEffect(() => {
     setResult(data)
   }, [data])
 
   useEffect(() => {
-    if(value === '') {
+    if (value === '') {
       setResult(data)
     } else {
       setResult(data.filter(f => f.name.toLowerCase().includes(value.toLowerCase())))
@@ -111,7 +116,7 @@ const StaffPage: FC<Props> = () => {
           />
         </Col>
         <Col span={24}>
-          <Row justify={"end"} gutter={[10,10]}>
+          <Row justify={"end"} gutter={[10, 10]}>
             <Col><Button onClick={() => nav('/staff/consumption')} styleVariant={'outlined'}>Şahsy düzümiň sanawy</Button></Col>
           </Row>
         </Col>
@@ -123,7 +128,7 @@ const StaffPage: FC<Props> = () => {
             pagination={false}
             onRow={(record) => {
               return {
-                onClick: () => nav(`/staff/${record.id}`) 
+                onClick: () => nav(`/staff/${record.id}`)
               }
             }}
           />

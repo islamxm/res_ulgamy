@@ -24,7 +24,10 @@ const Logo: FC<Props> = () => {
             <ReadOutlined />
           </Button>
         </div>
-        <div className={classes.label}>Resminamalar</div>
+        <div className={classes.label}>
+          Resminamalar
+          <span> v1.0.0</span>
+        </div>
       </Flex>
     </Link>
   )

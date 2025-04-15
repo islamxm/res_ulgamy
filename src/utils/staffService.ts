@@ -157,128 +157,72 @@ const staffService = {
     if(status === 'hassahana') {
       count = staff.filter(st => {
         let result: boolean = false
-        if(st.status instanceof String) {
-          if(st.status === 'hassahana') {
-            result = true
-          } else result = false
-        } 
-        if(st.status instanceof Array) {
-          if(st.status.find(s => s === 'hassahana')) {
-            result = true
-          } else result = false
-        }
+        if(st.status.find(s => s === 'hassahana')) {
+          result = true
+        } else result = false
         return result
       }).length
     }
     if(status === 'tabsyryk') {
       count = staff.filter(st => {
         let result: boolean = false
-        if(st.status instanceof String) {
-          if(st.status === 'tabsyryk') {
-            result = true
-          } else result = false
-        } 
-        if(st.status instanceof Array) {
-          if(st.status.find(s => s === 'tabsyryk')) {
-            result = true
-          } else result = false
-        }
+        if(st.status.find(s => s === 'tabsyryk')) {
+          result = true
+        } else result = false
         return result
       }).length
     }
     if(status === 'tussag') {
       count = staff.filter(st => {
         let result: boolean = false
-        if(st.status instanceof String) {
-          if(st.status === 'tussag') {
-            result = true
-          } else result = false
-        } 
-        if(st.status instanceof Array) {
-          if(st.status.find(s => s === 'tussag')) {
-            result = true
-          } else result = false
-        }
+        if(st.status.find(s => s === 'tussag')) {
+          result = true
+        } else result = false
         return result
       }).length
     }
     if(status === 'rugsat') {
       count = staff.filter(st => {
         let result: boolean = false
-        if(st.status instanceof String) {
-          if(st.status === 'rugsat') {
-            result = true
-          } else result = false
-        } 
-        if(st.status instanceof Array) {
-          if(st.status.find(s => s === 'rugsat')) {
-            result = true
-          } else result = false
-        }
+        if(st.status.find(s => s === 'rugsat')) {
+          result = true
+        } else result = false
         return result
       }).length
     }
     if(status === 'sapar') {
       count = staff.filter(st => {
         let result: boolean = false
-        if(st.status instanceof String) {
-          if(st.status === 'sapar') {
-            result = true
-          } else result = false
-        } 
-        if(st.status instanceof Array) {
-          if(st.status.find(s => s === 'sapar')) {
-            result = true
-          } else result = false
-        }
+        if(st.status.find(s => s === 'sapar')) {
+          result = true
+        } else result = false
         return result
       }).length
     }
     if(status === 'sapara_gelen') {
       count = staff.filter(st => {
         let result: boolean = false
-        if(st.status instanceof String) {
-          if(st.status === 'sapara_gelen') {
-            result = true
-          } else result = false
-        } 
-        if(st.status instanceof Array) {
-          if(st.status.find(s => s === 'sapara_gelen')) {
-            result = true
-          } else result = false
-        }
+        if(st.status.find(s => s === 'sapara_gelen')) {
+          result = true
+        } else result = false
         return result
       }).length
     }
     if(status === 'hbotg') {
       count = staff.filter(st => {
         let result: boolean = false
-        if(st.status instanceof String) {
-          if(st.status === 'hbotg') {
-            result = true
-          } else result = false
-        } 
-        if(st.status instanceof Array) {
-          if(st.status.find(s => s === 'hbotg')) {
-            result = true
-          } else result = false
-        }
+        if(st.status.find(s => s === 'hbotg')) {
+          result = true
+        } else result = false
         return result
       }).length
     }
     if(status === 'nyzamda') {
       count = staff.filter(st => {
         let result: boolean = false
-        if(st.status instanceof String) {
-          if(st.status === 'nyzamda') {
-            result = true
-          } else result = false
-        } 
-        if(st.status instanceof Array) {
-          if(st.status.find(s => s === 'nyzamda')) {
-            result = true
-          } else result = false
-        }
+        if(st.status.find(s => s === 'nyzamda')) {
+          result = true
+        } else result = false
         return result
       }).length
     }

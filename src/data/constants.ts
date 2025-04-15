@@ -3,7 +3,13 @@ const CONSTANTS = {
   DATABASE: {
     NAME: 'res_system',
     VERSION: 1,
-    OBJECT_STORE_NAMES: ['fractions', 'positions', 'personnel']
+    OBJECT_STORE_NAMES: {
+      fractions: 'fractions',
+      personnel: 'personnel',
+      positions: 'positions',
+      distributions: 'distributions',
+      schedules: 'schedules'
+    }
   },
   DATE: {
     MONTH_NAMES: [

@@ -9,7 +9,10 @@ type Props = {
 
 const StaffPage:FC<Props> = () => {
   return(
-    <div><PageComponent/></div>
+    <>
+    <Typography.Title level={2}>Düzüm</Typography.Title>
+    <PageComponent/>
+    </>
   )
 }
 

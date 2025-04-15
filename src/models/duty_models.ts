@@ -1,41 +1,38 @@
 import type dayjs from "dayjs"
-import { Months, Person, PersonFull, Weekdays, WithID } from "./index"
+import { Fraction, Months, Person, PersonFull, Weekdays, WithID } from "./index"
 
 export type DutyGroupType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17
-export type Duties = 
-'Içerki garawul serkerdesiniň kömekçisi' |
-'Içerki garawul çalşyryjy' |
-'Içerki garawul sakçy' |
-'Park gündeçisi' |
-'Nobatçy çekiji' |
-'Nobatçy awtoulag' |
-'Garnizon garawullar boýunça nobatçyň kömekçisi' |
-'Garnizon garawul serkerdesiniň kömekçisi' |
-'Garnizon garawulynyň daşyna çykaryjysy' |
-'Garnizon garawulynyň çalşyryjysy' |
-'Garnizon garawul sakçy' |
-'Barlag goýberiş nokadynyň nobatçysynyň kömekçisi' |
-'Batareýa boýunça nobatçy' |
-'Batareýa boýunça gündeçi' |
-'Naharhana işçisi' |
-'Nobatçy bölümçe' |
-'Dolandyryş binasynyň nobatçysy' |
-'Gatnadyjy' |
-'Garnizon patrul' |
-'Içerki patrul serkerdesi' |
-'Içerki patrul' |
-'Harby bölüm boýunça nobatçynyň tehniki serişdeler boýunça kömekçisi' | 
-'Barlag goýberiş nokadynyň nobatçysy' | 
-'Garnizon patrul serkerdesi' | 
-'Naharhana boýunça nobatçy'
+export type Duties =
+  'Içerki garawul serkerdesiniň kömekçisi' |
+  'Içerki garawul çalşyryjy' |
+  'Içerki garawul sakçy' |
+  'Park gündeçisi' |
+  'Nobatçy çekiji' |
+  'Nobatçy awtoulag' |
+  'Garnizon garawullar boýunça nobatçyň kömekçisi' |
+  'Garnizon garawul serkerdesiniň kömekçisi' |
+  'Garnizon garawulynyň daşyna çykaryjysy' |
+  'Garnizon garawulynyň çalşyryjysy' |
+  'Garnizon garawul sakçy' |
+  'Barlag goýberiş nokadynyň nobatçysynyň kömekçisi' |
+  'Batareýa boýunça nobatçy' |
+  'Batareýa boýunça gündeçi' |
+  'Naharhana işçisi' |
+  'Nobatçy bölümçe' |
+  'Dolandyryş binasynyň nobatçysy' |
+  'Gatnadyjy' |
+  'Garnizon patrul' |
+  'Içerki patrul serkerdesi' |
+  'Içerki patrul' |
+  'Harby bölüm boýunça nobatçynyň tehniki serişdeler boýunça kömekçisi' |
+  'Barlag goýberiş nokadynyň nobatçysy' |
+  'Garnizon patrul serkerdesi' |
+  'Naharhana boýunça nobatçy'
 
 export type DutyData = {
   shortName: string
   fullName: string,
 }
-
-
-
 
 export type AvilableDuty = {
   date: Date
@@ -43,17 +40,31 @@ export type AvilableDuty = {
 }
 
 type DataPerMonth<T extends Schedule | Distr> = {
-  date: string, //date like MM.YYYY
+  id: number,
+  date: Date
   body: T
 }[]
 
-export type Schedule = Map<number, Partial<Record<Duties, dayjs.Dayjs[] | 'everyDay'>>>
+
+export type Schedule = {
+  title: string,
+  duties: Duties[],
+  body: {
+    fraction: Fraction,
+    days: number[]
+  }[]
+}[]
 export type ScheduleStore = DataPerMonth<Schedule>
 
-export type Distr = Map<number, {targets: Duties[], data: PersonFull[]}>
+export type Distr = {
+  fractionId: number,
+  data: {
+    id: number
+    targets: Duties[]
+    data: PersonFull[]
+  }[]
+}[]
 export type DistrStore = DataPerMonth<Distr>
-
-
 
 type GarawulType = 'ig' | 'gg'
 type GarawulPost = WithID<{
@@ -65,7 +76,7 @@ type GarawulPost = WithID<{
 export type GarawulCluster = WithID<{
   number: number,
   type: GarawulType
-  posts: GarawulPost[] 
+  posts: GarawulPost[]
   name?: string,
 }>
 

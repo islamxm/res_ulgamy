@@ -8,8 +8,10 @@ import {
   FileTextOutlined,
   UsergroupAddOutlined,
   PushpinOutlined,
-  SettingOutlined
+  SettingOutlined,
+  InfoCircleOutlined
 } from '@ant-design/icons'
+import Button from '@/ui/shared/button';
 
 type Props = {
   style?:CSSProperties
@@ -31,6 +33,17 @@ const Sidebar:FC<Props> = ({style}) => {
         <Menu
           menuList={menuList}
           />
+      </div>
+      <div className={classes.ex}>
+        <Button
+          justify={'flex-start'} 
+          isFill 
+          baseSize={'small'} 
+          beforeIcon={<InfoCircleOutlined/>} 
+          styleVariant={'outlined'}
+          >
+          Ulgam hakynda
+        </Button>
       </div>
     </div>
   )

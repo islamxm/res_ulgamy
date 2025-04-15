@@ -9,24 +9,55 @@ import { DownloadOutlined } from '@ant-design/icons'
 import docService from '@/utils/docService';
 import { useDispatch, useSelector } from '@/store/hooks';
 import { dutyDistrActions } from './dutyDistrStoreSlice';
+import { useParams } from 'react-router';
+import useIdbDataService from '@/hooks/useIdbDataService';
+import dayjs from 'dayjs';
 
 type Props = {
 
 }
 
-
 const Duty_MonthDistrPage: FC<Props> = () => {
-  const {dataBase: {fractions}} = useSelector(s => s.main)
+  const {
+    getDistribution,
+    putDistribution,
+    addDistribution
+  } = useIdbDataService()
+  const { database } = useSelector(s => s.db)
+  const { id } = useParams<{ id: string }>()
+  const { dataBase: { fractions } } = useSelector(s => s.main)
   const { month, topLevelFractions, result } = useSelector(s => s.dutyDistr)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (fractions.length > 0) dispatch(dutyDistrActions.updateTopLevelFraction({fractions}))
+    if (fractions.length > 0) dispatch(dutyDistrActions.updateTopLevelFraction({ fractions }))
   }, [fractions])
 
+  useEffect(() => {
+    if (id && database) {
+      getDistribution(database, Number(id)).then(res => {
+        dispatch(dutyDistrActions.setInitResult({ result: res.body }))
+        dispatch(dutyDistrActions.updateMonth({ date: dayjs(res.date) }))
+      })
+    }
+  }, [id, database])
+
   const saveResult = () => {
-    
+    if(database) {
+      if (id) {
+        putDistribution(database, {id: Number(id), date: dayjs(month).toDate(), body: result}).then(res => {
+          if(res) {
+            dispatch()
+          }
+        })
+      } else {
+        addDistribution(database, {date: dayjs(month).toDate(), body: result}).then(res => {
+
+        })
+      }
+    }
   }
+
 
   return (
     <div className={classes.wrapper}>
@@ -40,7 +71,7 @@ const Duty_MonthDistrPage: FC<Props> = () => {
                 <DatePicker
                   cellRender={dateLocalize.renderMonthNames}
                   value={month}
-                  onChange={e => dispatch(dutyDistrActions.updateMonth({date: e}))}
+                  onChange={e => dispatch(dutyDistrActions.updateMonth({ date: e }))}
                   picker={'month'} />
               </Col>
             </Row>
@@ -60,7 +91,7 @@ const Duty_MonthDistrPage: FC<Props> = () => {
           </Row>
         </Col>
         {
-          result.length > 0 && (
+          (result.length > 0 && month) && (
             <Col className={classes.action} span={24}>
               <Row gutter={[10, 10]}>
                 <Col flex={'auto'}>
@@ -74,8 +105,9 @@ const Duty_MonthDistrPage: FC<Props> = () => {
                 </Col>
                 <Col>
                   <Button
+                    disabled
                     onClick={() => docService.monthDistribution({
-                      date: '04.2025',
+                      date: dayjs(month).format('MM.YYYY'),
                       body: result
                     }, topLevelFractions)}
                     beforeIcon={<DownloadOutlined />}

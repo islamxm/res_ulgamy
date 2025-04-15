@@ -1,17 +1,18 @@
-import { aprelMock } from "@/data/distributions";
-import { Distribution, DistributionFrac, Fraction } from "@/models";
+import { Fraction } from "@/models";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Distr } from "@/models/duty_models";
 import dayjs from "dayjs";
+import { aprelMock } from "@/data/distributions";
 
 type InitialState = {
-  month: dayjs.Dayjs,
-  result: Distribution['body'],
+  month: dayjs.Dayjs | undefined,
+  result: Distr,
   topLevelFractions: Fraction[]
 }
 
 const initialState: InitialState = {
-  month: dayjs(),
-  result: aprelMock.body,
+  month: undefined,
+  result: [],
   topLevelFractions: []
 }
 
@@ -19,8 +20,12 @@ const dutyDistrSlice = createSlice({
   name: 'dutyDistr',
   initialState,
   reducers: {
-
+    
     updateMonth: (s, { payload }: PayloadAction<{ date: dayjs.Dayjs }>) => { s.month = payload.date },
+
+    setInitResult: (s, {payload}: PayloadAction<{result: Distr}>) => {
+      s.result = payload.result
+    },
 
     addDutyGroupToFraction: (s, { payload: { fractionId } }: PayloadAction<{ fractionId: number }>) => {
       s.result = s.result.find(f => f.fractionId === fractionId) ?
@@ -66,10 +71,10 @@ const dutyDistrSlice = createSlice({
       }
     },
 
-    updateDutyGroup: (s, { payload: { fractionId, data } }: PayloadAction<{ fractionId: number, data: DistributionFrac['data'][0] }>) => {
+    updateDutyGroup: (s, { payload: { fractionId, data } }: PayloadAction<{ fractionId: number, data: Distr[0]['data'][0] }>) => {
       const fraction = s.result.find(f => f.fractionId === fractionId)
       if (fraction) {
-        let newData: DistributionFrac = {
+        let newData: Distr[0] = {
           fractionId,
           data: fraction.data.find(d => d.id === data.id) ?
             fraction.data.map(d => {
@@ -93,7 +98,9 @@ const dutyDistrSlice = createSlice({
 
     updateTopLevelFraction: (s, { payload: { fractions } }: PayloadAction<{ fractions: Fraction[] }>) => {
       s.topLevelFractions = fractions.filter(fraction => fraction.isMainFrac)
-    }
+    },
+
+    
   }
 })
 

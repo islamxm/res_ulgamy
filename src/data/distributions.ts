@@ -1,7 +1,9 @@
-import { Distribution } from "@/models"
+import { Distr, DistrStore } from "@/models/duty_models"
+import dayjs from "dayjs"
 
-export const aprelMock: Distribution = {
-  date: '04.2025',
+export const aprelMock: DistrStore[0] = {
+  id: 1,
+  date: dayjs('2025-04').toDate(),
   body: [{
     "fractionId": 16,
     "data": [
@@ -3921,7 +3923,7 @@ export const aprelMock: Distribution = {
 }
 
 export const distribution = []
-const distributions: Distribution[] = [
+const distributions: DistrStore = [
   { ...aprelMock }
 ]
 export default distributions

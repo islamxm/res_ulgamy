@@ -5,13 +5,33 @@
       border-radius: 10px;
       font-weight: 500;
       transition: all .3s ease;
+
+      .ant-picker-cell-inner {
+        background-color: unset !important;
+      }
+      .ant-picker-calendar-date-value {
+        transition: all .2s ease;
+      }
     }
     .ant-picker-cell.ant-picker-cell-hover {
       background-color: var(--light_2);
+      .ant-picker-calendar-date-value {
+        color: var(--black) !important;
+      }
     }
     .ant-picker-cell.ant-picker-cell-selected {
-      background-color: var(--dark_1);
+      background-color: var(--info);
       color: var(--white);
+
+      &:hover {
+        .ant-picker-calendar-date-value {
+          color: var(--white);
+        }  
+      }
+
+      .ant-picker-calendar-date-value {
+        color: var(--white);
+      }
 
     }
   }

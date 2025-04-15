@@ -1,14 +1,15 @@
 import { Duties } from "@/models/duty_models";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { MonthScheduleDataType } from ".";
+import { Schedule } from "@/models/duty_models";
 import { Fraction } from "@/models";
 import dayjs from "dayjs";
+import { schedule } from "@/data/schedule";
 
 type InitialState = {
   avilableDutyGroups: Duties[]
-  data: MonthScheduleDataType[]
-  month: dayjs.Dayjs
-  copiedDays: MonthScheduleDataType['body'][0]['days'] | undefined,
+  data: Schedule
+  month: dayjs.Dayjs | undefined
+  copiedDays: Schedule[0]['body'][0]['days'] | undefined,
   daysInMonth: number[]
 }
 
@@ -20,7 +21,7 @@ const dataMock: InitialState['data'] = [
       {
         fraction: {
           id: 16,
-          isMainFrac: true,
+          isMainFrac: 1,
           level: 'rota',
           name: {
             number: 1,
@@ -34,7 +35,7 @@ const dataMock: InitialState['data'] = [
       {
         fraction: {
           id: 60,
-          isMainFrac: true,
+          isMainFrac: 1,
           level: 'wzwod',
           name: {
             shortName: 'Üpjünçilik wzwody',
@@ -53,7 +54,7 @@ const dataMock: InitialState['data'] = [
       {
         fraction: {
           id: 29,
-          isMainFrac: true,
+          isMainFrac: 1,
           level: 'rota',
           name: {
             number: 2,
@@ -70,8 +71,8 @@ const dataMock: InitialState['data'] = [
 
 const initialState: InitialState = {
   avilableDutyGroups: [],
-  data: dataMock,
-  month: dayjs(),
+  data: [],
+  month: undefined,
   copiedDays: undefined,
   daysInMonth: []
 }
@@ -81,8 +82,12 @@ const dutyScheduleStoreSlice = createSlice({
   initialState,
   reducers: {
 
-    selectMonth(s, {payload}: PayloadAction<dayjs.Dayjs>) {
-      s.month = payload
+    updateMonth(s, {payload}: PayloadAction<{date: dayjs.Dayjs | undefined}>) {
+      s.month = payload.date
+    },
+
+    setInitData(s, {payload}: PayloadAction<{data: Schedule}>) {
+      s.data = payload.data
     },
 
     updateTitle(s, { payload }: PayloadAction<{ value: string, index: number }>) {
@@ -101,7 +106,7 @@ const dutyScheduleStoreSlice = createSlice({
     },
 
     deleteGroup(s, { payload }: PayloadAction<{ index: number }>) {
-      s.data = s.data.filter((f, fIndex) => fIndex !== payload.index)
+      s.data = s.data.filter((_, fIndex) => fIndex !== payload.index)
     },
 
     selectAllDate(s, { payload }: PayloadAction<{ index: number, fractionId: number, days: number[] }>) {
@@ -136,7 +141,7 @@ const dutyScheduleStoreSlice = createSlice({
       }
     },
 
-    copyDateScheme(s, { payload }: PayloadAction<{ days: MonthScheduleDataType['body'][0]['days'] }>) {
+    copyDateScheme(s, { payload }: PayloadAction<{ days: Schedule[0]['body'][0]['days'] }>) {
       s.copiedDays = payload.days
     },
 
@@ -152,7 +157,20 @@ const dutyScheduleStoreSlice = createSlice({
           } else return b
         })
       }
-      console.log('Pasted')
+    },
+
+    clearDateScheme(s, {payload}: PayloadAction<{index: number, fractionId: number}>) {
+      s.data[payload.index] = {
+        ...s.data[payload.index],
+        body: s.data[payload.index].body.map(b => {
+          if (b.fraction.id === payload.fractionId) {
+            return ({
+              ...b,
+              days: []
+            })
+          } else return b
+        })
+      }  
     },
 
     setDaysInMonth(s, {payload}: PayloadAction<number[]>) {
