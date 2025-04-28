@@ -11,6 +11,7 @@ import useIdb from "./hooks/useIdb"
 import {message} from 'antd'
 import { useDispatch } from "./store/hooks"
 import { updateMessageApi } from "./store/slices/mainSlice"
+import Duty_dailyDistr from "./pages/duty_dailyDistr"
 
 // PAGES
 const MainPage = lazy(() => import("@/pages/mainPage"))
@@ -48,13 +49,13 @@ const App = () => {
           <Route path="/staff" element={<StaffPage />} />
           <Route path="/staff/:id" element={<Staff_PersonPage />} />
           <Route path="/staff/consumption" element={<Staff_ConsumptionPage />} />
-
+          
           <Route path="/duty" element={<DutyPage />} />
           <Route path="/duty/month_distr" element={<Duty_monthDistrPage />} />
           <Route path="/duty/month_distr/:id" element={<Duty_monthDistrPage />} />
           <Route path="/duty/month_schedule" element={<Duty_monthSchedulePage />} />
           <Route path="/duty/month_schedule/:id" element={<Duty_monthSchedulePage />} />
-
+          <Route path="/duty/daily_distr" element={<Duty_dailyDistr/>}/>
           <Route path="/settings" element={<SettingsPage />} />
 
           <Route path="/_sb_" element={<SandboxPage />} />

@@ -26,7 +26,8 @@ const Logo: FC<Props> = () => {
         </div>
         <div className={classes.label}>
           Resminamalar
-          <span> v1.0.0</span>
+          {/* <span> v1.0.0</span> */}
+          {}
         </div>
       </Flex>
     </Link>

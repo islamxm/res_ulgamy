@@ -2,6 +2,16 @@ import { DG_Bgn, DG_GP, DG_IP, DG_Naharhana, DG_Rota, DG_Shtab, Duties, Schedule
 import dayjs from "dayjs"
 import { schedule } from "@/data/schedule"
 
+type FScheduleReturnType = Array<{
+  day: number
+  fractions: number[]
+  duties: Duties[]
+}>
+
+type FDistrReturnType = Array<{
+
+}>
+
 const dutyBuilder = {
 
   // //получение доступных нарядов из графика по подразделениям
@@ -27,7 +37,7 @@ const dutyBuilder = {
   //   return result
   // },
 
-  filterSchedule(data: Schedule, daysInMonth: number[]) {
+  filterSchedule(data: Schedule, daysInMonth: number[]):FScheduleReturnType {
     //удаление пустых групп и дней
     const modified = data.map(d => ({
       ...d,
@@ -57,8 +67,14 @@ const dutyBuilder = {
   },
 
   //получение доступных солдатов по результату предыдущей функции
-  filterDistr() {
+  filterDistr(data: FScheduleReturnType):FDistrReturnType {
     
+    return []
+  },
+
+  //разделение по нарядам где возможны несение службы на различных местах
+  filterMultipleDuty() {
+
   },
 
   // фильтрация по занятости результата предыдущей функции

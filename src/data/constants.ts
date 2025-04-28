@@ -8,7 +8,8 @@ const CONSTANTS = {
       personnel: 'personnel',
       positions: 'positions',
       distributions: 'distributions',
-      schedules: 'schedules'
+      schedules: 'schedules',
+      settings: 'settings'
     }
   },
   DATE: {

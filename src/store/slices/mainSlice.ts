@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DataBase, DatabaseUpdateActionTypes } from "@/models";
+import { DataBase, DatabaseUpdateActionTypes, Settings } from "@/models";
 import { DistrStore, ScheduleStore } from "@/models/duty_models";
 import { MessageInstance } from "antd/es/message/interface";
 import { message } from "antd";
@@ -8,6 +8,7 @@ type InitialState = {
   isSidebarOpen: boolean,
   dataBase: DataBase,
   messageApi: MessageInstance | undefined
+  settings: Settings | undefined
 }
 
 const initialState: InitialState = {
@@ -19,7 +20,18 @@ const initialState: InitialState = {
     distributions: [],
     schedules: []
   },
-  messageApi: undefined 
+  messageApi: undefined,
+  settings: {
+    multipleDutyPlaces: {
+      'rota': {
+        duties: ['Batareýa boýunça gündeçi', 'Batareýa boýunça nobatçy'],
+        sources: [
+          {name: '1-nji gat', fractions: []},
+          {name: '2-nji gat', fractions: []},
+        ]
+      }
+    }
+  }
 }
 
 const mainSlice = createSlice({
@@ -76,7 +88,12 @@ const mainSlice = createSlice({
 
     updateMessageApi: (s, {payload}: PayloadAction<MessageInstance>) => {
       s.messageApi = payload
-    }
+    },
+
+    updateSettings: (s, {payload}: PayloadAction<Partial<Settings>>) => {
+      s.settings = s.settings ? {...s.settings, ...payload} : undefined
+    },
+    
   }
 })
 

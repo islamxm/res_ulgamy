@@ -156,29 +156,16 @@ export type PersonHistory = PersonHistoryItem[]
 
 export type DefFuctionType = (...args: any[]) => any
 
-
-
-// DOCS ==================
-
-type DocumentType =
-  'word' |
-  'excel' |
-  'powerPoint'
-
-export type DocBase<T extends {} = {}> = WithID<{
-  name: string,
-  descr?: string
-} & T>
-
-export type DocTemplate = DocBase<{
-  categoryId?: number
-}>
-
-export type DocCategory = DocBase<{
-  isCategory?: boolean,
-  parentId?: number,
-  children?: (DocCategory & DocTemplate)[]
-}>
-
-
 export type DatabaseUpdateActionTypes = 'put' | 'add' | 'delete'
+
+export type MultipleDutyPlaceType = {
+  duties: Duties[],
+  sources: Array<{name: string, fractions:Fraction[]}>
+}
+
+
+export type Settings = {
+  multipleDutyPlaces: {
+    [key: string]: MultipleDutyPlaceType,
+  }
+}

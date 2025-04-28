@@ -32,7 +32,7 @@ const SettingsPage: FC = () => {
             <Row gutter={[10, 10]}>
               <Col span={24}>
                 <Panel label='Batareýa boýunça nobatçy we gündeçi çykylýan ýerler'>
-
+                  
                 </Panel>
               </Col>
               <Col span={24}>

@@ -39,7 +39,7 @@ export type AvilableDuty = {
   duties: unknown[]
 }
 
-type DataPerMonth<T extends Schedule | Distr> = {
+type DataPerMonth<T extends Schedule | Distr | DailyDutyMonthGroup> = {
   id: number,
   date: Date
   body: T
@@ -65,6 +65,27 @@ export type Distr = {
   }[]
 }[]
 export type DistrStore = DataPerMonth<Distr>
+
+export type DailyDuty = Map<Date, {
+  id: number
+  date: Date
+  body: unknown
+}>
+export type DailyDutyMonthGroup = {
+  id: number
+  date: Date,
+  days: DailyDuty[] 
+}
+export type DailyDutyStore = DataPerMonth<DailyDutyMonthGroup>
+
+
+
+
+
+
+
+
+
 
 type GarawulType = 'ig' | 'gg'
 type GarawulPost = WithID<{
