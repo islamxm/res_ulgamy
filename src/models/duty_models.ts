@@ -1,7 +1,9 @@
-import type dayjs from "dayjs"
-import { Fraction, Months, Person, PersonFull, Weekdays, WithID } from "./index"
+import { Cluster } from "./duty_cluster_models"
+import { Fraction, PersonFull, WithID } from "./index"
 
 export type DutyGroupType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17
+
+
 export type Duties =
   'Içerki garawul serkerdesiniň kömekçisi' |
   'Içerki garawul çalşyryjy' |
@@ -39,31 +41,32 @@ export type AvilableDuty = {
   duties: unknown[]
 }
 
-type DataPerMonth<T extends Schedule | Distr | DailyDutyMonthGroup> = {
+export type DataPerMonth<T extends Schedule | Distr | DailyDutyMonthGroup | Cluster> = Array<{
   id: number,
   date: Date
   body: T
-}[]
+}>
 
 
-export type Schedule = {
+export type Schedule = Array<{
   title: string,
-  duties: Duties[],
-  body: {
+  duties: Array<Duties>,
+  body: Array<{
     fraction: Fraction,
-    days: number[]
-  }[]
-}[]
+    days: Array<number>
+  }>
+}>
 export type ScheduleStore = DataPerMonth<Schedule>
 
-export type Distr = {
+export type Distr = Array<{
   fractionId: number,
-  data: {
+  data: Array<{
     id: number
-    targets: Duties[]
-    data: PersonFull[]
-  }[]
-}[]
+    targets: Array<Duties>
+    data: Array<PersonFull>
+  }>
+}>
+
 export type DistrStore = DataPerMonth<Distr>
 
 export type DailyDuty = Map<Date, {
@@ -71,10 +74,11 @@ export type DailyDuty = Map<Date, {
   date: Date
   body: unknown
 }>
+
 export type DailyDutyMonthGroup = {
   id: number
   date: Date,
-  days: DailyDuty[] 
+  days: Array<DailyDuty>
 }
 export type DailyDutyStore = DataPerMonth<DailyDutyMonthGroup>
 
@@ -82,26 +86,29 @@ export type DailyDutyStore = DataPerMonth<DailyDutyMonthGroup>
 
 
 
+/**
+ * GARAWUL COMMON
+ */
+export type GarawulType = 'ig' | 'gg'
 
-
-
-
-
-type GarawulType = 'ig' | 'gg'
-type GarawulPost = WithID<{
+export type GarawulPost = WithID<{
   number: number
   changes: number
   isActive: boolean,
 }>
-//GARAWUL
-export type GarawulCluster = WithID<{
-  number: number,
-  type: GarawulType
-  posts: GarawulPost[]
-  name?: string,
-}>
 
-type DutyPlacement = 'in' | 'out'
+
+
+
+/** tabşyrygyň ýerleşýän ýeri, meselem çagyryş boýunça harby gullukçylar üçin:
+ * rota narýad - in
+ * beýleki narýadlar - out
+ * borçnama boýunça harby gullukçylar üçin
+ * harby bölümiň içindäki narýad - in
+ * garnizon narýad - out
+*/
+export type DutyPlacement = 'in' | 'out'
+
 
 export type DutyMonthDistr = {
   targets: Duties[],
@@ -110,52 +117,65 @@ export type DutyMonthDistr = {
 }
 
 export type DutyGroupMember<MemberType extends Duties> = {
-  // id: number
-  // dutyName: string,
   memberType: MemberType
   person?: PersonFull,
 }
 
 export type DutyGroupBase<T extends {}> = {
-  // id: number
   name: string
-  placement: DutyPlacement
+  placement: DutyPlacement,
+  groupId?: number
   body: T
 }
 
 //DG ==> Duty Group
 export type DG_Rota = DutyGroupBase<{
   nobatcy?: DutyGroupMember<'Batareýa boýunça nobatçy'>
-  gundeciler?: DutyGroupMember<'Batareýa boýunça gündeçi'>[]
+  gundeciler?: [DutyGroupMember<'Batareýa boýunça gündeçi'>, DutyGroupMember<'Batareýa boýunça gündeçi'>]
 }>
 
 //dolandyrysh binasy
 export type DG_Shtab = DutyGroupBase<{
   nobatcy?: DutyGroupMember<'Dolandyryş binasynyň nobatçysy'>,
-  gatnadyjylar?: DutyGroupMember<'Gatnadyjy'>[]
+  gatnadyjylar?: Array<DutyGroupMember<'Gatnadyjy'>>
 }>
 
 //barlag goyberish nokady
 export type DG_Bgn = DutyGroupBase<{
   nobatcy?: DutyGroupMember<'Barlag goýberiş nokadynyň nobatçysy'>,
-  komekciler?: DutyGroupMember<'Barlag goýberiş nokadynyň nobatçysynyň kömekçisi'>[]
+  komekciler?: Array<DutyGroupMember<'Barlag goýberiş nokadynyň nobatçysynyň kömekçisi'>>
 }>
 
 //icerki patrul
 export type DG_IP = DutyGroupBase<{
   serkerdesi?: DutyGroupMember<'Içerki patrul serkerdesi'>,
-  patrullar?: DutyGroupMember<'Içerki patrul'>[]
+  patrullar?: Array<DutyGroupMember<'Içerki patrul'>>
 }>
 
 //garnizon patrul
 export type DG_GP = DutyGroupBase<{
   serkerdesi?: DutyGroupMember<'Garnizon patrul serkerdesi'>,
-  patrullar?: DutyGroupMember<'Garnizon patrul'>[]
+  patrullar?: Array<DutyGroupMember<'Garnizon patrul'>>
 }>
 
 //naharhana naryad
 export type DG_Naharhana = DutyGroupBase<{
   nobatcy?: DutyGroupMember<'Naharhana boýunça nobatçy'>,
-  ishciler?: DutyGroupMember<'Naharhana işçisi'>[]
+  ishciler?: Array<DutyGroupMember<'Naharhana işçisi'>>
 }>
 
+//icerki garawul
+export type DG_Igarawul = DutyGroupBase<{
+  // serkerdesi?: DutyGroupMember<''>,
+  // komekcisi?: DutyGroupMember<''>
+  calshyryjy?: DutyGroupMember<'Içerki garawul çalşyryjy'>,
+  sakcylar?: Array<DutyGroupMember<'Içerki garawul sakçy'>>
+}>
+
+//garnizon garawul
+export type DG_GGarawul = DutyGroupBase<{
+  komekcisi?: DutyGroupMember<'Garnizon garawul serkerdesiniň kömekçisi'>,
+  calshyryjy?: DutyGroupMember<'Garnizon garawulynyň çalşyryjysy'>,
+  dashynaChykaryjy?: DutyGroupMember<'Garnizon garawulynyň daşyna çykaryjysy'>,
+  sakcylar?: Array<DutyGroupMember<'Garnizon garawul sakçy'>>,
+}>

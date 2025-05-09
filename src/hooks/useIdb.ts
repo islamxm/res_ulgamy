@@ -11,7 +11,7 @@ const useIdb = () => {
   const idbDataService = useIdbDataService()
   const { config, database } = useSelector(s => s.db)
   const dispatch = useDispatch()
-  const [actionAfterOpening, setActionAfterOpening] = useState<'init_data' | 'none'>('none')
+  const [actionAfterOpening, setActionAfterOpening] = useState<'init_data' | 'none' | 'get_data'>('none')
   const [isFilledWithData, setIsFilledWithData] = useState(false)
 
 
@@ -24,12 +24,14 @@ const useIdb = () => {
 
   useEffect(() => {
     if (database && isFilledWithData) {
+      
       Promise.all([
         idbDataService.getAllFractions(database),
         idbDataService.getAllPersonnel(database),
         idbDataService.getAllPositions(database),
         idbDataService.getAllSchedules(database),
-        idbDataService.getAllDistributions(database)
+        idbDataService.getAllDistributions(database),
+        idbDataService.getAllClusters(database)
       ])
         .then(res => {
           dispatch(updateDataBase({
@@ -37,7 +39,8 @@ const useIdb = () => {
             personnel: res[1],
             positions: res[2],
             schedules: res[3],
-            distributions: res[4]
+            distributions: res[4],
+            clusters: res[5]
           }))
         })
     }
@@ -64,7 +67,11 @@ const useIdb = () => {
         }
       }
       request.onsuccess = () => {
-        if(!upg) setActionAfterOpening('init_data')
+        if (upg) {
+          setActionAfterOpening('init_data')
+        } else {
+          setActionAfterOpening('get_data')
+        }
         dispatch(dbActions.updateStatus('connected'))
         dispatch(dbActions.updateDbObject(request.result))
         console.log('[idb]:opened')
@@ -125,6 +132,13 @@ const useIdb = () => {
               unique: true,
             })
           }
+          if (os === 'clusters') {
+            let store = dbObject.createObjectStore(os, {
+              keyPath: 'id',
+              autoIncrement: true
+            })
+            store.createIndex('date', 'date')
+          }
         }
       })
     }
@@ -139,8 +153,11 @@ const useIdb = () => {
 
   //fill database
   useEffect(() => {
-    if (actionAfterOpening === 'init_data' && database) {      
+    if (actionAfterOpening === 'init_data' && database) {
       _fillDataBaseWithInitData().then(r => r && setIsFilledWithData(true)).catch(_ => setIsFilledWithData(false))
+    }
+    if(actionAfterOpening === 'get_data' && database) {
+      setIsFilledWithData(true)
     }
   }, [actionAfterOpening, database])
 
@@ -180,15 +197,37 @@ const useIdb = () => {
       HARD_DB.distributions.forEach((distr, index) => {
         let putReq = distrStore.put(distr)
         putReq.onerror = () => rej('error filling')
-        if(index === HARD_DB.distributions.length - 1) {
+        if (index === HARD_DB.distributions.length - 1) {
           putReq.onsuccess = () => res(putReq.result)
         }
       })
     })
-    
 
-    Promise.all([p1,p2,p3,p4]).then(r => {
-      if(r.every(f => f)) {
+    const p5 = new Promise((res, rej) => {
+      let clusterStore = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.schedules, 'readwrite', database)
+      HARD_DB.schedules.forEach((schedule, index) => {
+        let putReq = clusterStore.put(schedule)
+        putReq.onerror = () => rej('error filling')
+        if (index === HARD_DB.schedules.length - 1) {
+          putReq.onsuccess = () => res(putReq.result)
+        }
+      })
+    })
+
+    const p6 = new Promise((res, rej) => {
+      let clusterStore = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.clusters, 'readwrite', database)
+      HARD_DB.clusters.forEach((cluster, index) => {
+        let putReq = clusterStore.put(cluster)
+        putReq.onerror = () => rej('error filling')
+        if (index === HARD_DB.clusters.length - 1) {
+          putReq.onsuccess = () => res(putReq.result)
+        }
+      })
+    })
+
+
+    Promise.all([p1, p2, p3, p4, p5, p6]).then(r => {
+      if (r.every(f => f)) {
         resolve(true)
       } else {
         reject(false)

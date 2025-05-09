@@ -4,7 +4,7 @@ import { Fraction } from '@/models';
 import { Col, Row, Tag, Tooltip } from 'antd';
 import { UsergroupAddOutlined, StarOutlined } from '@ant-design/icons'
 import { useSelector } from '@/store/hooks';
-import posgen from '@/utils/staffService';
+import posgen from '@/services/staffService';
 
 type Props = Fraction
 

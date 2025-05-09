@@ -1,0 +1,14 @@
+.wrapper {
+  border-radius: 10px;
+  background-color: rgba(var(--light_2_rgb), .5);
+  padding: 5px 10px;
+
+  .title {
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--info);
+  }
+}
+
+
+

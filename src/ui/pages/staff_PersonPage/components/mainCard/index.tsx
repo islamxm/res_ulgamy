@@ -5,7 +5,7 @@ import { useSelector } from '@/store/hooks'
 import Panel from '@/ui/shared/panel'
 import BoxWithLabel from '@/ui/shared/boxWithLabel'
 import Rank from '@/ui/shared/rank'
-import capitalizeWord from '@/utils/capitalizeWord'
+import { capitalizeWord } from '@/utils/globalUtils'
 import Status from '@/ui/shared/status'
 
 const MainCard: FC = () => {

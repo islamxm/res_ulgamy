@@ -5,8 +5,8 @@ import { PlusOutlined, SaveOutlined, DeleteOutlined } from '@ant-design/icons'
 import { useParams } from 'react-router';
 import Button from '@/ui/shared/button';
 import Panel from '@/ui/shared/panel';
-import useSwitcher from '@/hooks/useModal';
-import dateService from '@/utils/dateService';
+import useSwitcher from '@/hooks/useSwitcher';
+import dateService from '@/services/dateService';
 import SelectDutyModal from './modals/selectDutyModal';
 import Group from './components/group';
 import useDutySchedule from './useDutySchedule';
@@ -23,7 +23,6 @@ const Duty_monthSchedulePage: FC = () => {
     saveSchedule,
     deleteSchedule
   } = useDutySchedule(id)
-
 
 
   return (
@@ -109,7 +108,6 @@ const Duty_monthSchedulePage: FC = () => {
                       onClick={deleteSchedule}
                       colorVariant={'danger'}
                       beforeIcon={<DeleteOutlined />}
-                    // styleVariant={'outlined'}
                     >
                       Rejäni poz
                     </Button>

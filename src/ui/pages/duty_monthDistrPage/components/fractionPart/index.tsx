@@ -1,17 +1,18 @@
 import { FC, useEffect, useState } from 'react';
 import { Row, Col, Flex } from 'antd';
 import FractionBadge from '@/ui/shared/fractionBadge';
-import { DistributionFrac, Fraction, PersonFull } from '@/models';
+import { Fraction, PersonFull } from '@/models';
 import DutyPart from '../dutyPart';
 import Button from '@/ui/shared/button';
-import posgen from '@/utils/staffService';
+import posgen from '@/services/staffService';
 import { useDispatch, useSelector } from '@/store/hooks';
-import SelectPersonModal from '../../modals/selectPersonModal';
-import useSwitcher from '@/hooks/useModal';
+import SelectPersonModal from '@/ui/modals/selectPersonModal';
+import useSwitcher from '@/hooks/useSwitcher';
 import { Duties } from '@/models/duty_models';
 import classes from './classes.module.scss'
 import { PlusOutlined } from '@ant-design/icons'
 import { dutyDistrActions } from '../../dutyDistrStoreSlice';
+import { Distr } from '@/models/duty_models';
 
 type Props = {
   fraction: Fraction,
@@ -25,8 +26,8 @@ const FractionPart: FC<Props> = ({
   const dispatch = useDispatch()
   const [fractionPersonnel, setFractionPersonnel] = useState<PersonFull[]>([])
   const { isOpen, close, open } = useSwitcher(false)
-  const [editData, setEditData] = useState<DistributionFrac['data'][0]>()
-  const [data, setData] = useState<DistributionFrac['data']>([])
+  const [editData, setEditData] = useState<Distr[0]['data'][0]>()
+  const [data, setData] = useState<Distr[0]['data']>([])
 
   useEffect(() => {
     fraction?.id && setFractionPersonnel(posgen.getPersonnelInFraction(fraction.id, dataBase).cb)

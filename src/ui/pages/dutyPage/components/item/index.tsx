@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import classes from './classes.module.scss'
 import { Col, Row } from 'antd';
-import setClassNames from '@/utils/setClassNames';
+import { setClassNames } from '@/utils/globalUtils';
 import {PlusOutlined, FlagOutlined} from '@ant-design/icons'
 import { Link, To } from 'react-router';
 

@@ -5,10 +5,10 @@ type Props = {
   
 }
 
-const SelectPers:FC<Props> = () => {
+const Dg_shtab:FC<Props> = () => {
   return(
-    <div className={classes.wrapper}></div>
+    <div></div>
   )
 }
 
-export default SelectPers;
+export default Dg_shtab

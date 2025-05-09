@@ -8,7 +8,7 @@ type Props = {
 const DutyPage:FC<Props> = () => {
   return(
     <>
-    <Typography.Title level={2}>Tabşyryklar</Typography.Title>
+    <Typography.Title level={2}>Tabşyryklar bölümi</Typography.Title>
     <PageComponent/>
     </>
   )

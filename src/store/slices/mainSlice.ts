@@ -3,6 +3,8 @@ import { DataBase, DatabaseUpdateActionTypes, Settings } from "@/models";
 import { DistrStore, ScheduleStore } from "@/models/duty_models";
 import { MessageInstance } from "antd/es/message/interface";
 import { message } from "antd";
+import { ClusterStore } from "@/models/duty_cluster_models";
+import dayjs from "dayjs";
 
 type InitialState = {
   isSidebarOpen: boolean,
@@ -18,19 +20,12 @@ const initialState: InitialState = {
     fractions: [],
     positions: [],
     distributions: [],
-    schedules: []
+    schedules: [],
+    clusters: []
   },
   messageApi: undefined,
   settings: {
-    multipleDutyPlaces: {
-      'rota': {
-        duties: ['Batareýa boýunça gündeçi', 'Batareýa boýunça nobatçy'],
-        sources: [
-          {name: '1-nji gat', fractions: []},
-          {name: '2-nji gat', fractions: []},
-        ]
-      }
-    }
+    multipleDutyPlaces: []
   }
 }
 
@@ -86,6 +81,26 @@ const mainSlice = createSlice({
       }
     },
 
+    updateCluster: (s, {payload}: PayloadAction<{action: DatabaseUpdateActionTypes, data: ClusterStore[0]}>) => {
+      switch(payload.action) {
+        case 'add':
+          s.dataBase.clusters.push(payload.data)
+          break
+        case 'put':
+          s.dataBase.clusters.map(cluster => {
+            if(cluster.id === payload.data.id) {
+              return payload.data
+            } else {
+              return cluster
+            }
+          })
+          break
+        case 'delete':
+          s.dataBase.clusters = s.dataBase.clusters.filter(cluster => dayjs(cluster.date).format('MM.YYYY') !== dayjs(payload.data.date).format('MM.YYYY'))
+          break
+      }
+    },
+
     updateMessageApi: (s, {payload}: PayloadAction<MessageInstance>) => {
       s.messageApi = payload
     },
@@ -104,6 +119,7 @@ export const {
   updateDataBase,
   updateSchedule,
   updateDistribution,
+  updateCluster,
   updateMessageApi
 } = actions
 

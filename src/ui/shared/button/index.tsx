@@ -1,10 +1,9 @@
 import { FC, HTMLProps, PropsWithChildren, ReactNode, useEffect } from 'react';
 import classes from './classes.module.scss'
-import { getClassesFromStylePresets } from '@/utils/getClassesFromStylePresets';
-import setClassNames from '@/utils/setClassNames';
+import { getClassesFromStylePresets, setClassNames } from '@/utils/globalUtils';
 import { ComponentBaseProps } from '@/models/ui_models';
 import { NavLink, To } from 'react-router';
-import RippleEffect from '../rippleEffect';
+import {Loading3QuartersOutlined} from '@ant-design/icons'
 
 type Props = PropsWithChildren<HTMLProps<HTMLButtonElement> & ComponentBaseProps<{
   isCircle?: boolean
@@ -17,7 +16,9 @@ type Props = PropsWithChildren<HTMLProps<HTMLButtonElement> & ComponentBaseProps
   link?: {
     props?: HTMLProps<HTMLAnchorElement>
     to: To
-  }
+  },
+  badge?: number
+  isLoading?: boolean
 }>>
 
 const Button: FC<Props> = ({
@@ -33,6 +34,8 @@ const Button: FC<Props> = ({
   isFill,
   justify,
   link,
+  badge,
+  isLoading,
   ...defaultButtonProps
 }) => {
 
@@ -55,6 +58,10 @@ const Button: FC<Props> = ({
           justifyContent: justify
         }}
       >
+        {badge &&
+          <div className={classes.badge}>
+            {badge > 99 ? '99+' : badge}
+          </div>}
         {
           beforeIcon && <div className={setClassNames([
             classes.icon,
@@ -97,6 +104,13 @@ const Button: FC<Props> = ({
         justifyContent: justify
       }}
     >
+      {isLoading && 
+        <div className={classes.loading}><Loading3QuartersOutlined/></div>
+      }
+      {badge &&
+        <div className={classes.badge}>
+          {badge > 99 ? '99+' : badge}
+        </div>}
       {
         beforeIcon && <div className={setClassNames([
           classes.icon,

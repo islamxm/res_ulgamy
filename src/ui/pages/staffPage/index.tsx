@@ -4,7 +4,7 @@ import { Row, Col, Table, Input, TableProps } from 'antd';
 import StaffSearch from './components/staffSearch';
 import { PersonCurrentState } from '@/models';
 import Rank from '@/ui/shared/rank';
-import posgen from '@/utils/staffService';
+import posgen from '@/services/staffService';
 import Status from '@/ui/shared/status';
 import { useDebounceValue } from 'usehooks-ts';
 import { useNavigate } from 'react-router';

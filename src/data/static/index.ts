@@ -1,18 +1,22 @@
-import { DocTemplate, PersonCurrentState, Ranks } from "@/models"
-import { Duties, DutyData } from "@/models/duty_models"
+import { 
+  // DocTemplate, 
+  PersonCurrentState, 
+  Ranks 
+} from "@/models"
+import { DG_Rota, Duties, DutyData } from "@/models/duty_models"
 
 type T = {
   _personCurrentState: Record<PersonCurrentState, string>,
   _ranks: Record<Ranks, { fullName: string, shortName: string }>,
   _dutiesMap: Map<Duties, DutyData>,
-  _documents: DocTemplate[]
+  // _documents: DocTemplate[]
   _duties: Set<Duties>,
   _dutyGroups: Record<string, Duties[]>
   [key: string]: any
 }
 
 
-const STATIC_DATA: T = {
+const STATIC_DATA = {
   _personCurrentState: {
     'sapar': 'Iş sapar',
     'hassahana': 'Hassahana',
@@ -200,10 +204,77 @@ const STATIC_DATA: T = {
     ['Nobatçy çekiji']: [
       'Nobatçy çekiji'
     ]
+  },
+  
+}
+
+
+
+type F = {[key: string]: {
+  id: number,
+  duties: Array<Duties>,
+  groupId: number
+}}
+
+export const _dutyComplect:F = {
+  ['1-nji gat']: {
+    id: 1,
+    duties: ['Batareýa boýunça gündeçi', 'Batareýa boýunça nobatçy'],
+    groupId: 1,    
+  },
+  ['2-nji gat']: {
+    id: 2,
+    duties: ['Batareýa boýunça gündeçi', 'Batareýa boýunça nobatçy'],
+    groupId: 1,    
+  },
+  ['Içerki patrul']: {
+    id: 3,
+    duties: ['Içerki patrul', 'Içerki patrul serkerdesi'],
+    groupId: 2,    
+  },
+  ['Naharhana']: {
+    id: 4,
+    duties: ['Naharhana boýunça nobatçy', 'Naharhana işçisi'],
+    groupId: 4,    
+  },
+  ['Park']: {
+    id: 5,
+    duties: ['Park gündeçisi'],
+    groupId: 5,    
+  },
+  ['Barlag-goýberiş nokady No1']: {
+    id: 6,
+    duties: ['Barlag goýberiş nokadynyň nobatçysy', 'Barlag goýberiş nokadynyň nobatçysynyň kömekçisi'],
+    groupId: 8
+  },
+  ['Dolandyryş binasy']: {
+    id: 7,
+    duties: ['Dolandyryş binasynyň nobatçysy', 'Gatnadyjy'],
+    groupId: 9
+  },
+  ['Nobatçy bölümçe']: {
+    id: 8,
+    duties: ['Nobatçy bölümçe'],
+    groupId: 10
+  },
+  ['Içerki garawul']: {
+    id: 9,
+    duties: ['Içerki garawul sakçy', 'Içerki garawul serkerdesiniň kömekçisi', 'Içerki garawul çalşyryjy'],
+    groupId: 12
+  },
+  ['Garnizon garawul']: {
+    id: 10,
+    duties: ['Garnizon garawul sakçy', 'Garnizon garawul serkerdesiniň kömekçisi',  'Garnizon garawulynyň daşyna çykaryjysy', 'Garnizon garawulynyň çalşyryjysy'],
+    groupId: 13
   }
 }
 
 
-export const { _personCurrentState, _ranks, _dutiesMap, _duties } = STATIC_DATA
+export const { 
+  _personCurrentState, 
+  _ranks, 
+  _dutiesMap, 
+  _duties 
+} = STATIC_DATA
 
 export default STATIC_DATA

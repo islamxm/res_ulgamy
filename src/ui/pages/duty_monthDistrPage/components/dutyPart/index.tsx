@@ -2,18 +2,19 @@ import { FC } from 'react';
 import classes from './classes.module.scss'
 import { Row, Col, Select, Tag, Tooltip } from 'antd'
 import Button from '@/ui/shared/button';
-import { Duties } from '@/models/duty_models';
+import { Distr, Duties } from '@/models/duty_models';
 import { _duties } from '@/data/static';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
 import Panel from '@/ui/shared/panel';
-import { DistributionFrac } from '@/models';
+
 
 type Props = {
   openModal: (...args: any[]) => void,
-  data: DistributionFrac['data'][0],
+  data: Distr[0]['data'][0],
   saveDuties: (targets: Duties[]) => void,
   deleteGroup: (groupId: number) => void
 }
+
 
 const DutyPart: FC<Props> = ({
   openModal,
@@ -37,6 +38,15 @@ const DutyPart: FC<Props> = ({
                   style={{ width: '100%' }}
                   placeholder={'Tabşyryklary saýla'}
                   options={Array.from(_duties).map(f => ({ value: f, label: f }))}
+                  // options={Array.from(_duties).map(f => ({ value: f, label: f })).filter(f => 
+                  //   f.value !== 'Içerki garawul serkerdesiniň kömekçisi' &&
+                  //   f.value !== 'Içerki garawul çalşyryjy' &&
+                  //   f.value !== 'Içerki garawul sakçy' &&
+                  //   f.value !== 'Garnizon garawul serkerdesiniň kömekçisi' &&
+                  //   f.value !== 'Garnizon garawulynyň daşyna çykaryjysy' &&
+                  //   f.value !== 'Garnizon garawulynyň çalşyryjysy' &&
+                  //   f.value !== 'Garnizon garawul sakçy' 
+                  // )}
                   onChange={saveDuties}
                 />
               </Col>

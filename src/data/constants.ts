@@ -9,6 +9,7 @@ const CONSTANTS = {
       positions: 'positions',
       distributions: 'distributions',
       schedules: 'schedules',
+      clusters: 'clusters',
       settings: 'settings'
     }
   },

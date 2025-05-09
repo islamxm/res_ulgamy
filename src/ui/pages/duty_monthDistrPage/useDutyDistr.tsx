@@ -3,10 +3,12 @@ import dayjs from "dayjs"
 import useIdbDataService from "@/hooks/useIdbDataService"
 import { useSelector, useDispatch } from "@/store/hooks"
 import { dutyDistrActions } from "./dutyDistrStoreSlice"
-import dateService from "@/utils/dateService"
+import dateService from "@/services/dateService"
 import { DistrStore } from "@/models/duty_models"
-import { updateDistribution } from "@/store/slices/mainSlice"
+import { updateCluster, updateDistribution } from "@/store/slices/mainSlice"
 import { useNavigate } from "react-router"
+import clustersPresetConfig from "@/config/clustersPresetConfig"
+
 
 const useDutyDistr = (id?: string) => {
   const dispatch = useDispatch()
@@ -66,6 +68,27 @@ const useDutyDistr = (id?: string) => {
           onsuccess(value) {
             dispatch(updateDistribution({ action: 'add', data: { ...newDistr, id: Number(value) } }))
             messageApi?.success(`${dateService.getMonthName(dayjs(month).month())} aýynyň bölümçeler boýunça tabşyrygy girizildi`)
+
+            idbDataService.addCluster({
+              db: database,
+              data: {
+                date: monthAsDate,
+                body: clustersPresetConfig
+              },
+              onsuccess(cvalue) {
+                dispatch(updateCluster({
+                  action: 'add', data: {
+                    date: monthAsDate,
+                    body: clustersPresetConfig,
+                    id: Number(cvalue)
+                  }
+                }))
+              },
+              onerror() {
+                messageApi?.error('Klasterizasiýa döredilmedi')
+              }
+            })
+
             navigate(-1)
           },
         })
@@ -81,7 +104,30 @@ const useDutyDistr = (id?: string) => {
         onsuccess(value) {
           dispatch(updateDistribution({ action: 'delete', data: { id: Number(id), date: dayjs(month).toDate(), body: result } }))
           messageApi?.success(`${dateService.getMonthName(dayjs(month).month())} aýynyň bölümçeler boýunça tabşyryklary pozuldy`)
-          navigate(-1)
+          
+          // idbDataService.getCluster({
+          //   db: database,
+            
+          // })
+
+          // idbDataService.deleteCluster({
+          //   db: database,
+          //   data: dayjs(month).toDate(),
+          //   onsuccess(value) {
+          //     dispatch(updateCluster({
+          //       action: 'delete', data: {
+          //         date: dayjs(month).toDate(),
+          //         body: clustersPresetConfig,
+          //         id: 0
+          //       }
+          //     }))
+          //     messageApi?.success('Degişli klaster ýok edildi')
+          //     navigate(-1)              
+          //   },
+          //   onerror() {
+          //     messageApi?.error('Error when deleting cluster')
+          //   }
+          // })
         }
       })
     }
@@ -94,8 +140,8 @@ const useDutyDistr = (id?: string) => {
   }
 
   const clear = () => {
-    dispatch(dutyDistrActions.setInitResult({result: []}))
-    dispatch(dutyDistrActions.updateMonth({date: undefined}))
+    dispatch(dutyDistrActions.setInitResult({ result: [] }))
+    dispatch(dutyDistrActions.updateMonth({ date: undefined }))
   }
 
   useEffect(() => () => clear(), [])

@@ -1,7 +1,7 @@
 import classes from './classes.module.scss';
 import { TypeOfContract, Ranks } from '@/models';
 import { FC } from 'react';
-import setClassNames from '@/utils/setClassNames';
+import { setClassNames } from '@/utils/globalUtils';
 import {StarFilled} from '@ant-design/icons'
 
 type Props = {

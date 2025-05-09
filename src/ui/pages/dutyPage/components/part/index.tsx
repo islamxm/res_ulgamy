@@ -3,7 +3,7 @@ import classes from './classes.module.scss'
 import useCollapse from '@/hooks/useCollapse';
 import { Col, Flex, Row } from 'antd';
 import Button from '@/ui/shared/button';
-import { DownOutlined } from '@ant-design/icons'
+import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons'
 
 type Props = PropsWithChildren<{
   title: string
@@ -19,7 +19,7 @@ const Part: FC<Props> = ({
     arrowStyle,
     isOpen,
     toggle
-  } = useCollapse(true)
+  } = useCollapse(false)
 
   return (
 
@@ -32,8 +32,18 @@ const Part: FC<Props> = ({
               afterIcon={<DownOutlined style={arrowStyle}/>}
               justify={'space-between'}
               colorVariant={isOpen ? 'info' : 'info'}
-              styleVariant={isOpen ? 'solid' : 'outlined'}
+              styleVariant={isOpen ? 'solid' : 'simple'}
               isFill>{title}</Button>
+          </Col>
+          <Col>
+            <Button
+              isIcon
+              isCircle
+              styleVariant={'simple'}
+              colorVariant={'info'}
+              >
+              <QuestionCircleOutlined/>
+            </Button>
           </Col>
         </Row>
       </div>

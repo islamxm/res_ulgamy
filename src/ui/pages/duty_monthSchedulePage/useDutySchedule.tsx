@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "@/store/hooks"
 import { dutyScheduleActions } from "./dutyScheduleStoreSlice"
 import useIdbDataService from "@/hooks/useIdbDataService"
 import { updateSchedule } from '@/store/slices/mainSlice';
-import dateService from "@/utils/dateService"
+import dateService from "@/services/dateService"
 import { useNavigate } from "react-router"
 
 const useDutySchedule = (id?: string) => {

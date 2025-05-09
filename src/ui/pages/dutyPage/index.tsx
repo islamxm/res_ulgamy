@@ -4,8 +4,7 @@ import Part from './components/part';
 import { useSelector } from '@/store/hooks';
 import Item from './components/item';
 import dayjs from 'dayjs';
-import dateService from '@/utils/dateService';
-
+import dateService from '@/services/dateService';
 
 type Props = {
 
@@ -57,6 +56,22 @@ const DutyPage: FC<Props> = () => {
               link={'/duty/month_distr'}
               isAddButton
             />
+          </Part>
+        </Col>
+        <Col span={24}>
+          <Part
+            title='Klasterizasiýa'
+            >
+            {
+              dataBase.clusters.map(cluster => (
+                <Item
+                  key={cluster.id}
+                  link={`/duty/month_clusters/${cluster.id}`}
+                  date={`${dayjs(cluster.date).format('YYYY')} ýyl`}
+                  title={`${dateService.getMonthName(dayjs(cluster.date).month())}`}
+                  />
+              ))
+            }
           </Part>
         </Col>
         <Col

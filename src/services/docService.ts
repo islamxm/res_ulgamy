@@ -1,15 +1,17 @@
 import { Paragraph, PatchType, TextRun } from "docx"
-import patchDoc from "./patchDoc"
-import { Distribution, Fraction } from "@/models"
+import patchDoc from "../utils/patchDoc"
+import { Fraction } from "@/models"
 import { _ranks } from "@/data/static"
-import intToRome from "./intToRome"
+import { DistrStore } from "@/models/duty_models"
+import dayjs from "dayjs"
+import { intToRome } from "../utils/globalUtils"
 
 type DocumentSepTemplates =
   'habarnama:aýlyk_tabşyryga_goýbermek' |
   'habarnama:gündelik_tabşyryga_goýbermek'
 
 const docService = {
-  monthDistribution(data: Distribution, fractions: Fraction[]) {
+  monthDistribution(data: Pick<DistrStore[0], 'body' | 'date'>, fractions: Fraction[]) {
     const body = data.body
     const modified = body.map((b, bIndex) => {
       let fractionName = fractions.find(f => f.id === b.fractionId)?.name.shortName ?? ''
@@ -35,7 +37,7 @@ const docService = {
         template_date: {
           type: PatchType.PARAGRAPH,
           children: [
-            new TextRun(data.date)
+            new TextRun(dayjs(data.date).format('DD.MM.YYYY'))
           ]
         },
         template_body: {

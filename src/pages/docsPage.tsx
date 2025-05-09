@@ -9,7 +9,7 @@ type Props = {
 const DocsPage:FC<Props> = () => {
   return(
     <div>
-      <Typography.Title level={2}>Resminamalar</Typography.Title>
+      <Typography.Title level={2}>Resminamalar bölümi</Typography.Title>
       <PageComponent/>
     </div>
   )

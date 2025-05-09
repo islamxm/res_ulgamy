@@ -3,11 +3,11 @@ import classes from './classes.module.scss'
 import { Col, Input, message, Row, Tag } from 'antd';
 import { Schedule } from '@/models/duty_models';
 import dayjs from 'dayjs';
-import setClassNames from '@/utils/setClassNames';
 import Button from '@/ui/shared/button';
 import { CopyOutlined, DeleteOutlined, DownloadOutlined, EditOutlined, CloseSquareOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from '@/store/hooks';
 import { dutyScheduleActions } from '../../dutyScheduleStoreSlice';
+import { setClassNames } from '@/utils/globalUtils';
 
 type Props = {
   index: number

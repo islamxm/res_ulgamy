@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react'
 import classes from './classes.module.scss'
 import { Row, Col } from 'antd'
 import { useSelector } from '@/store/hooks'
-import setClassNames from '@/utils/setClassNames'
-import staffService from '@/utils/staffService'
+import { setClassNames } from '@/utils/globalUtils'
+import staffService from '@/services/staffService'
 import { Fraction, PersonCB, PersonFull } from '@/models'
 type Props = {
 

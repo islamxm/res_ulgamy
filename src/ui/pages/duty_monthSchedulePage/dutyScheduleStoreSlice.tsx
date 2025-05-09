@@ -3,7 +3,6 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Schedule } from "@/models/duty_models";
 import { Fraction } from "@/models";
 import dayjs from "dayjs";
-import { schedule } from "@/data/schedule";
 
 type InitialState = {
   avilableDutyGroups: Duties[]

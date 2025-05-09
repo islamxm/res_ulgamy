@@ -1,5 +1,6 @@
 import dayjs from "dayjs"
 import { AvilableDuty, DistrStore, Duties, ScheduleStore } from "./duty_models"
+import { ClusterStore } from "./duty_cluster_models"
 
 // GLOBAL=====
 export type DataBase = {
@@ -7,7 +8,8 @@ export type DataBase = {
   fractions: Fraction[],
   positions: Position[],
   distributions: DistrStore,
-  schedules: ScheduleStore
+  schedules: ScheduleStore,
+  clusters: ClusterStore
 }
 
 
@@ -163,9 +165,13 @@ export type MultipleDutyPlaceType = {
   sources: Array<{name: string, fractions:Fraction[]}>
 }
 
-
 export type Settings = {
-  multipleDutyPlaces: {
-    [key: string]: MultipleDutyPlaceType,
-  }
+  multipleDutyPlaces: Array<{
+    duty: Duties,
+    data: Array<{
+      placeName: string,
+      fractions: Array<number>
+    }>
+  }>
 }
+

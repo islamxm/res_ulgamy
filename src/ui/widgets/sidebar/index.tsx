@@ -1,7 +1,7 @@
 import { CSSProperties, FC } from 'react';
 import classes from './classes.module.scss'
 import { useSelector } from '@/store/hooks';
-import setClassNames from '@/utils/setClassNames';
+import { setClassNames } from '@/utils/globalUtils';
 import { SIDEBAR_WIDTH } from '@/data/constants';
 import Menu from './components/menu';
 import {

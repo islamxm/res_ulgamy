@@ -3,8 +3,8 @@ import classes from './classes.module.scss'
 import { Modal, Col, Row, ModalFuncProps, Input } from 'antd';
 import { PersonFull } from '@/models';
 import Button from '@/ui/shared/button';
-import posgen from '@/utils/staffService';
-import setClassNames from '@/utils/setClassNames';
+import posgen from '@/services/staffService';
+import { setClassNames } from '@/utils/globalUtils';
 
 type Props = & {
   fractionPersonnel: PersonFull[],
@@ -110,7 +110,7 @@ const SelectPersonModal: FC<Props> = ({
               <Button onClick={removeAll} isFill styleVariant={'simple'} colorVariant={'danger'}>Saýlananlary aýyr</Button>
             </Col>
             <Col span={12}>
-              <Button onClick={save} disabled={selected.length === 0} isFill>Giriz</Button>
+              <Button badge={selected?.length > 0 ? selected.length : undefined} onClick={save} disabled={selected.length === 0} isFill>Giriz</Button>
             </Col>
             <Col span={12}>
               <Button onClick={onClose} isFill colorVariant={'danger'}>Beset</Button>

@@ -3,7 +3,7 @@ import dayjs from "dayjs"
 
 export const aprelMock: DistrStore[0] = {
   id: 1,
-  date: dayjs('2025-04').toDate(),
+  date: dayjs('2025-05').toDate(),
   body: [{
     "fractionId": 16,
     "data": [

@@ -12,6 +12,7 @@ import {message} from 'antd'
 import { useDispatch } from "./store/hooks"
 import { updateMessageApi } from "./store/slices/mainSlice"
 import Duty_dailyDistr from "./pages/duty_dailyDistr"
+import Duty_monthClustersPage from "./pages/duty_monthClustersPage"
 
 // PAGES
 const MainPage = lazy(() => import("@/pages/mainPage"))
@@ -55,6 +56,8 @@ const App = () => {
           <Route path="/duty/month_distr/:id" element={<Duty_monthDistrPage />} />
           <Route path="/duty/month_schedule" element={<Duty_monthSchedulePage />} />
           <Route path="/duty/month_schedule/:id" element={<Duty_monthSchedulePage />} />
+          <Route path="/duty/month_clusters" element={<Duty_monthClustersPage/>}/>
+          <Route path="/duty/month_clusters/:id" element={<Duty_monthClustersPage/>}/>
           <Route path="/duty/daily_distr" element={<Duty_dailyDistr/>}/>
           <Route path="/settings" element={<SettingsPage />} />
 

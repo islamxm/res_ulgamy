@@ -2,15 +2,15 @@ import { FC, useEffect } from 'react';
 import classes from './classes.module.scss'
 import { Row, Col, DatePicker } from 'antd';
 import Panel from '@/ui/shared/panel';
-import dateLocalize from '@/utils/dateService';
+import dateLocalize from '@/services/dateService';
 import FractionPart from './components/fractionPart';
 import Button from '@/ui/shared/button';
 import { DeleteOutlined, DownloadOutlined, SaveOutlined } from '@ant-design/icons'
-import docService from '@/utils/docService';
+import docService from '@/services/docService';
 import { useParams } from 'react-router';
 import dayjs from 'dayjs';
 import useDutyDistr from './useDutyDistr';
-import dateService from '@/utils/dateService';
+import dateService from '@/services/dateService';
 
 const Duty_MonthDistrPage: FC = () => {
   const { id } = useParams<{ id: string }>()
@@ -82,7 +82,7 @@ const Duty_MonthDistrPage: FC = () => {
                     Ýatda sakla
                   </Button>
                 </Col>
-                <Col>
+                {/* <Col>
                   <Button
                     colorVariant={'danger'}
                     beforeIcon={<DeleteOutlined />}
@@ -90,12 +90,12 @@ const Duty_MonthDistrPage: FC = () => {
                   >
                     Aýlyk tabşyrygy poz
                   </Button>
-                </Col>
+                </Col> */}
                 <Col>
                   <Button
                     disabled
                     onClick={() => docService.monthDistribution({
-                      date: dayjs(month).format('MM.YYYY'),
+                      date: dayjs(month).toDate(),
                       body: result
                     }, topLevelFractions)}
                     beforeIcon={<DownloadOutlined />}

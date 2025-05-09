@@ -1,7 +1,9 @@
 import { DATABASE } from "@/data/constants"
 import { Fraction, PersonFull, Position } from "@/models"
+import { ClusterStore } from "@/models/duty_cluster_models"
 import { Distr, DistrStore, Schedule, ScheduleStore } from "@/models/duty_models"
 import idbUtils from "@/utils/idbUtils"
+import dayjs from "dayjs"
 
 type Resolve<T> = (value: T) => any
 
@@ -77,6 +79,15 @@ const useIdbDataService = () => {
     req.onerror = () => reject('error')
   })
 
+  const getAllClusters = (db: IDBDatabase) => new Promise((resolve: Resolve<ClusterStore>, reject) => {
+    const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.clusters, 'readonly', db)
+    let req = store.getAll()
+    req.onsuccess = () => {
+      resolve(req.result)
+    }
+    req.onerror = () => reject('error')
+  })
+
   const newProfile = (db: IDBDatabase, data: PersonFull) => new Promise((resolve, reject) => {
     const store = idbUtils.getTransaction('personnel', 'readwrite', db)
     let req = store.add(data)
@@ -135,7 +146,7 @@ const useIdbDataService = () => {
   const addSchedule: StandartAction<
     Pick<ScheduleStore[0], 'body' | 'date'>,
     IDBValidKey
-  > = ({db, data, onerror, onsuccess}) => {
+  > = ({ db, data, onerror, onsuccess }) => {
     const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.schedules, 'readwrite', db)
     let r = store.add(data)
     r.onsuccess = () => onsuccess(r.result)
@@ -145,7 +156,7 @@ const useIdbDataService = () => {
   const putSchedule: StandartAction<
     ScheduleStore[0],
     IDBValidKey
-  > = ({db, data, onsuccess, onerror}) => {
+  > = ({ db, data, onsuccess, onerror }) => {
     const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.schedules, 'readwrite', db)
     let r = store.put(data)
     r.onsuccess = () => onsuccess(r.result)
@@ -156,7 +167,7 @@ const useIdbDataService = () => {
     number,
     boolean,
     false
-  > = ({db, data, onsuccess, onerror}) => {
+  > = ({ db, data, onsuccess, onerror }) => {
     const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.schedules, 'readwrite', db)
     let r = store.delete(data)
     r.onsuccess = () => onsuccess(true)
@@ -166,7 +177,7 @@ const useIdbDataService = () => {
   const getDistribution: StandartAction<
     number,
     DistrStore[0]
-  > = ({db, data, onsuccess, onerror}) => {
+  > = ({ db, data, onsuccess, onerror }) => {
     const store = idbUtils.getTransaction('distributions', 'readonly', db)
     let r = store.get(data)
     r.onsuccess = () => onsuccess(r.result)
@@ -204,12 +215,55 @@ const useIdbDataService = () => {
     r.onerror = () => onerror && onerror(false)
   }
 
+  const getCluster: StandartAction<
+    number,
+    ClusterStore[0]
+  > = ({ db, data, onsuccess, onerror }) => {
+    const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.clusters, 'readonly', db)
+    let r = store.get(data)
+    r.onsuccess = () => onsuccess(r.result)
+    r.onerror = () => onerror && onerror('[idb]: transaction error')
+  }
+
+  const addCluster: StandartAction<
+    Pick<ClusterStore[0], 'body' | 'date'>,
+    IDBValidKey
+  > = ({ db, data, onsuccess, onerror }) => {
+    const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.clusters, 'readwrite', db)
+    let r = store.add(data)
+    r.onsuccess = () => onsuccess(r.result)
+    r.onerror = () => onerror && onerror('[idb]: transaction error')
+  }
+
+  const putCluster: StandartAction<
+    ClusterStore[0],
+    IDBValidKey
+  > = ({ db, data, onsuccess, onerror }) => {
+    const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.clusters, 'readwrite', db)
+    let r = store.put(data)
+    r.onsuccess = () => onsuccess(r.result)
+    r.onerror = () => onerror && onerror('[idb]: transaction error')
+  }
+
+  const deleteCluster: StandartAction<
+  // number,
+  Date,
+  boolean,
+  false
+> = ({ db, data, onsuccess, onerror }) => {
+  const store = idbUtils.getTransaction(DATABASE.OBJECT_STORE_NAMES.clusters, 'readwrite', db)
+  let r = store.delete(data)
+  r.onsuccess = () => onsuccess(true)
+  r.onerror = () => onerror && onerror(false)
+}
+
   return {
     getAllPersonnel,
     getAllFractions,
     getAllPositions,
     getAllDistributions,
     getAllSchedules,
+    getAllClusters,
 
     newProfile,
     updateProfile,
@@ -225,6 +279,11 @@ const useIdbDataService = () => {
     addDistribution,
     putDistribution,
     deleteDistribution,
+
+    getCluster,
+    addCluster,
+    putCluster,
+    deleteCluster
   }
 }
 
