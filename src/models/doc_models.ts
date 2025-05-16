@@ -1,4 +1,4 @@
-// DOCS ==================
+import { WithID } from "."
 
 type DocumentType =
   'word' |

@@ -18,8 +18,6 @@ type DefaultError = '[idb]: transaction error'
 
 type StandartAction<DataType, SuccessType, ErrorType = DefaultError> = (options: Options<DataType, SuccessType, ErrorType>) => void
 
-// type StandartAction<T, K> = (db: IDBDatabase, data?:T) => Promise<K> 
-
 const useIdbDataService = () => {
 
   const getAllPersonnel = (db: IDBDatabase) => {

@@ -204,8 +204,7 @@ const STATIC_DATA = {
     ['Nobatçy çekiji']: [
       'Nobatçy çekiji'
     ]
-  },
-  
+  }, 
 }
 
 

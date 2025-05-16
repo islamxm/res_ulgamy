@@ -14,7 +14,7 @@ type InitialState = {
 }
 
 const initialState: InitialState = {
-  isSidebarOpen: true,
+  isSidebarOpen: false,
   dataBase: {
     personnel: [],
     fractions: [],

@@ -14,6 +14,8 @@ import { updateMessageApi } from "./store/slices/mainSlice"
 import Duty_dailyDistr from "./pages/duty_dailyDistr"
 import Duty_monthClustersPage from "./pages/duty_monthClustersPage"
 
+import test from "./test"
+
 // PAGES
 const MainPage = lazy(() => import("@/pages/mainPage"))
 const DocsPage = lazy(() => import("@/pages/docsPage"))
@@ -24,15 +26,23 @@ const Duty_monthDistrPage = lazy(() => import("@/pages/duty_monthDistrPage"))
 const Staff_PersonPage = lazy(() => import('@/pages/staff_PersonPage'))
 const Staff_ConsumptionPage = lazy(() => import('@/pages/staff_ConsumptionPage'))
 
+
+
 const App = () => {
   const [messageApi, messageHolder] = message.useMessage()
   const dispatch = useDispatch()
   useGoStartWhenRootChange()
   useIdb()
 
+  test()
+
   useEffect(() => {
     messageApi && dispatch(updateMessageApi(messageApi))
   }, [messageApi]) 
+
+
+  
+
 
   return (
     <AntConfigProvider

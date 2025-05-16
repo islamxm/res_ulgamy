@@ -19,7 +19,7 @@ const PageLayout: FC<Props> = ({ children }) => {
   return (
     <div className={classes.wrapper}>
       {/* <Sidebar /> */}
-      <div className={classes.header}><Header ref={headerRef} /></div>
+      {/* <div className={classes.header}><Header ref={headerRef} /></div> */}
       {
         rect && (
           <div className={classes.main}>
